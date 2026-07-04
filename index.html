@@ -1508,7 +1508,7 @@ function meridianCookieConsent(acceptAll){
       <a href="index.html#industries" class="text-stone-100/90 hover:text-gold text-sm transition">Industries</a>
       <a href="index.html#insights" class="text-stone-100/90 hover:text-gold text-sm transition">Insights</a>
       <a href="about.html" class="text-stone-100/90 hover:text-gold text-sm transition">About</a>
-      <a href="contact.html" data-cal-trigger class="btn-primary text-sm px-5 py-2.5 font-medium ml-2">Book Consultation →</a>
+      <a href="contact.html" class="btn-primary text-sm px-5 py-2.5 font-medium ml-2">Book Consultation →</a>
     </div>
     <button id="menuBtn" class="md:hidden text-white" aria-label="Menu">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -1524,7 +1524,7 @@ function meridianCookieConsent(acceptAll){
       <a href="index.html#industries" class="text-stone-100/90 text-base">Industries</a>
       <a href="index.html#insights" class="text-stone-100/90 text-base">Insights</a>
       <a href="about.html" class="text-stone-100/90 text-base">About</a>
-      <a href="contact.html" data-cal-trigger class="btn-primary text-sm px-5 py-3 text-center font-medium mt-2">Book Consultation →</a>
+      <a href="contact.html" class="btn-primary text-sm px-5 py-3 text-center font-medium mt-2">Book Consultation →</a>
     </div>
   </div>
 </nav>
@@ -1556,7 +1556,7 @@ function meridianCookieConsent(acceptAll){
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 mt-12 fade-up delay-3">
-          <a href="#contact" data-cal-trigger class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium tracking-wide">
+          <a href="#contact" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium tracking-wide">
             Book a Strategic Consultation
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
@@ -2853,7 +2853,7 @@ function meridianCookieConsent(acceptAll){
         <p class="text-stone-200 leading-relaxed mb-8 text-sm">
           Every engagement begins with a 30-minute strategic consultation. No obligation — just a candid assessment of fit.
         </p>
-        <a href="#contact" data-cal-trigger class="btn-primary inline-flex items-center gap-2 px-5 py-3 text-sm font-medium">
+        <a href="#contact" class="btn-primary inline-flex items-center gap-2 px-5 py-3 text-sm font-medium">
           Book Consultation <span>→</span>
         </a>
       </div>
@@ -3500,10 +3500,10 @@ function meridianCookieConsent(acceptAll){
 
           <!-- Gold CTA button → opens Cal.com modal -->
           <div class="px-6 pb-5 pt-2">
-            <button type="button" data-cal-trigger class="btn-primary w-full py-4 text-sm font-medium tracking-wide flex items-center justify-center gap-2">
+            <a href="#contact" class="btn-primary w-full py-4 text-sm font-medium tracking-wide flex items-center justify-center gap-2">
               Schedule a Call
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </button>
+            </a>
           </div>
 
           <!-- Footer microtext -->
@@ -3917,38 +3917,7 @@ function meridianCookieConsent(acceptAll){
 </script>
 
 <!-- Cal.com modal popup loader -->
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "discovery", {origin:"https://app.cal.com"});
-  Cal.ns.discovery("ui", {
-    "theme":"dark",
-    "cssVarsPerTheme":{
-      "light":{
-        "cal-brand":"#06211B",
-        "cal-border-booker":"#06211B",
-        "cal-border-emphasis":"#C9A961",
-        "cal-text-emphasis":"#06211B",
-        "cal-bg-emphasis":"#FAF6EC"
-      },
-      "dark":{"cal-brand":"#C9A961","cal-text-emphasis":"#FAF6EC","cal-border-emphasis":"#C9A961"}
-    },
-    "hideEventTypeDetails":false,
-    "layout":"month_view"
-  });
 
-  // Wire all modal triggers: navbar (desktop+mobile), hero CTA, Book Directly card
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("[data-cal-trigger]").forEach(function (el) {
-      el.addEventListener("click", function (e) {
-        e.preventDefault();
-        Cal.ns.discovery("modal", {
-          calLink: "meridianpartners/discovery",
-          config: {"layout":"month_view","theme":"dark"}
-        });
-      });
-    });
-  });
-</script>
 
 </body>
 </html>

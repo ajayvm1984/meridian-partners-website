@@ -506,7 +506,7 @@ footer a:hover { color: var(--gold-light); }
       </div>
 
       <div class="cta-row">
-        <a href="https://cal.com/meridianpartners/discovery" data-cal-trigger class="btn btn-primary" target="_blank" rel="noopener">
+        <a href="/contact.html" class="btn btn-primary">
           Book a call directly
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
@@ -552,7 +552,7 @@ footer a:hover { color: var(--gold-light); }
       </div>
 
       <div class="cta-row">
-        <a href="https://cal.com/meridianpartners/discovery" data-cal-trigger class="btn btn-primary" target="_blank" rel="noopener">
+        <a href="/contact.html" class="btn btn-primary">
           Book a discovery call
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
@@ -617,35 +617,6 @@ footer a:hover { color: var(--gold-light); }
 </script>
 
 <!-- Cal.com modal popup loader -->
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "discovery", {origin:"https://app.cal.com"});
-  Cal.ns.discovery("ui", {
-    "theme":"dark",
-    "cssVarsPerTheme":{
-      "light":{
-        "cal-brand":"#06211B",
-        "cal-border-booker":"#06211B",
-        "cal-border-emphasis":"#C9A961",
-        "cal-text-emphasis":"#06211B",
-        "cal-bg-emphasis":"#FAF6EC"
-      },
-      "dark":{"cal-brand":"#C9A961","cal-text-emphasis":"#FAF6EC","cal-border-emphasis":"#C9A961"}
-    },
-    "hideEventTypeDetails":false,
-    "layout":"month_view"
-  });
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("[data-cal-trigger]").forEach(function (el) {
-      el.addEventListener("click", function (e) {
-        e.preventDefault();
-        Cal.ns.discovery("modal", {
-          calLink: "meridianpartners/discovery",
-          config: {"layout":"month_view","theme":"dark"}
-        });
-      });
-    });
-  });
-</script>
+
 </body>
 </html>
