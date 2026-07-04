@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vendor Evaluation &amp; Negotiation | Independent Technology Selection | Meridian Partners</title>
+<meta name="description" content="Independent security technology selection: requirements definition, market scan, RFP support, PoC scoring, TCO analysis, and contract negotiation support. No commissions, no resale — ever." />
+<meta name="author" content="Meridian Partners" />
+<meta property="og:title" content="Vendor Evaluation &amp; Negotiation | Meridian Partners" />
+<meta property="og:description" content="Independent technology selection and commercial negotiation support for security tooling — recommendations driven by requirements, TCO, and architectural fit only." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://meridianpartners.me/vendor-evaluation.html" />
+<meta property="og:site_name" content="Meridian Partners" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:image" content="https://meridianpartners.me/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Vendor Evaluation &amp; Negotiation | Meridian Partners" />
+<meta name="twitter:description" content="Independent security technology selection and negotiation support. No vendor commissions, no resale." />
+<meta name="twitter:image" content="https://meridianpartners.me/og-image.jpg" />
+<link rel="canonical" href="https://meridianpartners.me/vendor-evaluation.html" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%2306211B'/%3E%3Ccircle cx='20' cy='20' r='14' stroke='%23C9A961' stroke-width='0.6' fill='none'/%3E%3Cpath d='M20 6 L23 20 L20 34 L17 20 Z' fill='%23C9A961'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23C9A961'/%3E%3C/svg%3E" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://meridianpartners.me/" },
+        { "@type": "ListItem", "position": 2, "name": "Vendor Evaluation & Negotiation", "item": "https://meridianpartners.me/vendor-evaluation.html" }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Vendor Evaluation & Negotiation",
+      "serviceType": "Independent security technology selection and negotiation advisory",
+      "url": "https://meridianpartners.me/vendor-evaluation.html",
+      "description": "Independent technology selection for regulated enterprises: requirements definition, market scan, RFP support, PoC design and scoring, TCO analysis, and contract and commercial negotiation support. No vendor commissions, no resale, no channel-partner arrangements.",
+      "areaServed": ["EMEA", "APAC", "Americas"],
+      "provider": {
+        "@type": "Organization",
+        "name": "Meridian Partners FZCO",
+        "url": "https://meridianpartners.me/",
+        "email": "info@meridianpartners.me",
+        "telephone": "+971559286300",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "IFZA Business Park, Dubai Digital Park, Dubai Silicon Oasis",
+          "addressLocality": "Dubai",
+          "addressCountry": "AE"
+        }
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=JetBrains+Mono:wght@300;400;500&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+<style>
+  :root {
+    --forest-950: #06211B;
+    --forest-900: #0A2E26;
+    --emerald: #2D5F4F;
+    --emerald-deep: #1A4637;
+    --gold: #C9A961;
+    --gold-warm: #B8923D;
+    --gold-deep: #8F6E2A;
+    --parchment: #FAF6EC;
+    --cream: #F5EDD8;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter Tight', sans-serif;
+    background: var(--parchment);
+    color: #06211B;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Paper grain */
+  .grain::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 0.95 0 0 0 0 0.75 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.09;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Fine line grid */
+  .fine-grid {
+    background-image:
+      linear-gradient(rgba(201, 169, 97, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201, 169, 97, 0.06) 1px, transparent 1px);
+    background-size: 96px 96px;
+  }
+
+  /* Meridian line motif — a gold line across sections */
+  .meridian-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.3) 15%, rgba(201, 169, 97, 0.8) 50%, rgba(201, 169, 97, 0.3) 85%, transparent 100%);
+  }
+
+  .gold-glow {
+    background: radial-gradient(ellipse 60% 55% at 70% 30%, rgba(201, 169, 97, 0.20), transparent 70%);
+  }
+  .gold-glow-2 {
+    background: radial-gradient(ellipse 50% 50% at 20% 80%, rgba(201, 169, 97, 0.12), transparent 65%);
+  }
+
+  /* Fade animations */
+  .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.25s; }
+  .delay-3 { animation-delay: 0.4s; }
+  .delay-4 { animation-delay: 0.55s; }
+  .delay-5 { animation-delay: 0.7s; }
+
+  .caret::after {
+    content: '▊';
+    color: var(--gold);
+    animation: blink 1.2s steps(2) infinite;
+    margin-left: 4px;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .pulse-dot {
+    box-shadow: 0 0 0 0 rgba(201, 169, 97, 0.7);
+    animation: pulse 2.2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(201, 169, 97, 0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(201, 169, 97, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(201, 169, 97, 0); }
+  }
+
+  .display-heading {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  .display-heading em { font-style: italic; font-weight: 300; }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    background: linear-gradient(135deg, var(--gold-warm) 0%, var(--gold) 100%);
+    color: var(--forest-950);
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transition: left 0.7s ease;
+  }
+  .btn-primary:hover::after { left: 100%; }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -12px rgba(201, 169, 97, 0.5);
+  }
+
+  /* Dark button for contrast on light bg */
+  .btn-dark {
+    background: var(--forest-950);
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  .btn-dark:hover {
+    background: var(--emerald-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -12px rgba(6, 33, 27, 0.4);
+  }
+
+  /* Service / card */
+  .edit-card {
+    position: relative;
+    background: var(--parchment);
+    transition: all 0.5s ease;
+  }
+  .edit-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(6, 33, 27, 0.1);
+    pointer-events: none;
+    transition: all 0.5s ease;
+  }
+  .edit-card:hover::before { border-color: rgba(201, 169, 97, 0.7); }
+  .edit-card:hover .service-icon { color: var(--gold-deep); transform: scale(1.05); }
+
+  /* Terminal */
+  .terminal {
+    background: rgba(6, 33, 27, 0.85);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(201, 169, 97, 0.2);
+  }
+
+  /* Pricing card */
+  .price-card {
+    position: relative;
+    background: var(--parchment);
+    border: 1px solid rgba(6, 33, 27, 0.1);
+    transition: all 0.4s ease;
+  }
+  .price-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 24px 50px -20px rgba(201, 169, 97, 0.3);
+  }
+  .price-card.featured {
+    background: linear-gradient(180deg, rgba(201, 169, 97, 0.08), var(--parchment));
+    border-color: var(--gold);
+    transform: scale(1.02);
+  }
+  .price-card.featured::before {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--forest-950);
+    color: var(--gold);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 5px 14px;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* Compare cards */
+  .compare-old {
+    background: rgba(155, 146, 124, 0.08);
+    border: 1px dashed rgba(95, 88, 74, 0.35);
+  }
+  .compare-new {
+    background: linear-gradient(135deg, var(--forest-950) 0%, var(--emerald-deep) 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .compare-new::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(201, 169, 97, 0.2), transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Testimonial */
+  .testimonial-card {
+    background: var(--parchment);
+    border: 1px solid rgba(6, 33, 27, 0.1);
+    transition: all 0.3s ease;
+  }
+  .testimonial-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* Award card — like a framed certificate */
+  .award-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(6, 33, 27, 0.08);
+    border-top: 2px solid var(--gold);
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(6, 33, 27, 0.04);
+  }
+  .award-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-light), var(--gold-deep));
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+    transition: background-position 0.6s ease;
+  }
+  .award-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 169, 97, 0.4);
+    box-shadow: 0 12px 32px rgba(6, 33, 27, 0.12), 0 4px 8px rgba(201, 169, 97, 0.08);
+  }
+  .award-card:hover::before {
+    background-position: 100% 50%;
+  }
+  .award-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, transparent 50%, rgba(201, 169, 97, 0.08) 50%);
+    pointer-events: none;
+  }
+  
+
+  /* Credential badge */
+  .cred-badge {
+    transition: all 0.3s ease;
+  }
+  .cred-badge:hover {
+    background: rgba(201, 169, 97, 0.1);
+    border-color: var(--gold) !important;
+  }
+
+  /* Marquee */
+  .marquee { animation: marquee 42s linear infinite; }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .arrow-link:hover .arrow-icon { transform: translateX(4px); }
+  .arrow-icon { transition: transform 0.3s ease; display: inline-block; }
+
+
+  /* Service animations — premium SVG motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .svc-anim { opacity: 1; }
+    .svc-anim .fade-cycle { animation: svc-fade 8s ease-in-out infinite; }
+    .svc-anim .slide-cycle { animation: svc-slide 10s ease-in-out infinite; }
+    .svc-anim .pulse-cycle { animation: svc-pulse 3s ease-in-out infinite; }
+    .svc-anim .rotate-slow { animation: svc-rotate 30s linear infinite; transform-origin: center; }
+    .svc-anim .flow-left { animation: svc-flow-left 6s linear infinite; }
+    .svc-anim .flow-right { animation: svc-flow-right 6s linear infinite; }
+    .svc-anim .checkmark-draw { 
+      stroke-dasharray: 50; 
+      stroke-dashoffset: 50;
+      animation: svc-checkmark 4s ease-in-out infinite;
+    }
+    .svc-anim .risk-red { animation: svc-risk-change 8s ease-in-out infinite; }
+    .svc-anim .progress-fill { 
+      stroke-dasharray: 220; 
+      stroke-dashoffset: 220;
+      animation: svc-progress 10s ease-in-out infinite;
+    }
+    .svc-anim .agent-pulse { animation: svc-agent 2s ease-in-out infinite; }
+    .svc-anim .doc-flow-1 { animation: svc-doc-flow 6s linear infinite; }
+    .svc-anim .doc-flow-2 { animation: svc-doc-flow 6s linear infinite 2s; }
+    .svc-anim .doc-flow-3 { animation: svc-doc-flow 6s linear infinite 4s; }
+    .svc-anim .output-appear { animation: svc-output 6s ease-in-out infinite; }
+    .svc-anim .output-appear-2 { animation: svc-output 6s ease-in-out infinite 2s; }
+    .svc-anim .output-appear-3 { animation: svc-output 6s ease-in-out infinite 4s; }
+    .svc-anim .seat-fill { animation: svc-seat-fill 8s ease-in-out infinite; }
+  }
+  @keyframes svc-fade {
+    0%, 45% { opacity: 0; }
+    50%, 95% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  @keyframes svc-slide {
+    0% { transform: translateX(-40px); opacity: 0; }
+    20%, 80% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(40px); opacity: 0; }
+  }
+  @keyframes svc-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.12); opacity: 1; }
+  }
+  @keyframes svc-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes svc-flow-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100px); }
+  }
+  @keyframes svc-flow-right {
+    from { transform: translateX(0); }
+    to { transform: translateX(100px); }
+  }
+  @keyframes svc-checkmark {
+    0%, 40% { stroke-dashoffset: 50; }
+    60%, 100% { stroke-dashoffset: 0; }
+  }
+  @keyframes svc-risk-change {
+    0%, 30% { fill: #B83D3D; }
+    50% { fill: #D4A437; }
+    70%, 100% { fill: #4A8A4A; }
+  }
+  @keyframes svc-progress {
+    0% { stroke-dashoffset: 220; }
+    90%, 100% { stroke-dashoffset: 0; }
+  }
+  @keyframes svc-agent {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(201, 169, 97, 0.4)); }
+    50% { transform: scale(1.08); filter: drop-shadow(0 0 12px rgba(201, 169, 97, 0.7)); }
+  }
+  @keyframes svc-doc-flow {
+    0% { transform: translateX(-50px); opacity: 0; }
+    15%, 40% { opacity: 1; }
+    50% { transform: translateX(0); }
+    60%, 85% { transform: translateX(0); }
+    100% { transform: translateX(60px); opacity: 0; }
+  }
+  @keyframes svc-output {
+    0%, 30% { opacity: 0; transform: translateX(-10px); }
+    50%, 80% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; }
+  }
+  @keyframes svc-seat-fill {
+    0%, 25% { opacity: 0; transform: translateY(10px); }
+    40%, 100% { opacity: 1; transform: translateY(0); }
+  }
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .svc-anim * { animation: none !important; }
+    .svc-anim .static-fallback { opacity: 1 !important; }
+  }
+  /* Animation container styling */
+  .service-animation {
+    position: relative;
+    height: 180px;
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.04) 0%, rgba(6, 33, 27, 0.03) 100%);
+    border: 1px solid rgba(6, 33, 27, 0.06);
+    margin-bottom: 1.75rem;
+    overflow: hidden;
+  }
+  .service-animation::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(6, 33, 27, 0.04) 100%);
+    pointer-events: none;
+  }
+  .service-animation svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Certificate sheen — subtle cinematic reveal on scroll */
+  .certificate-frame {
+    position: relative;
+    overflow: hidden;
+  }
+  .certificate-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.15) 55%, transparent 70%);
+    transform: translateX(-100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .certificate-frame.in-view::after {
+    animation: cert-sheen 2.2s ease-out 0.4s forwards;
+  }
+  @keyframes cert-sheen {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  .certificate-frame:hover img {
+    transform: scale(1.015);
+  }
+  .certificate-frame img {
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  ::selection { background: var(--gold); color: var(--forest-950); }
+
+  .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .mobile-menu.open { max-height: 520px; }
+
+  .service-icon { transition: all 0.5s ease; }
+  .service-icon svg { width: 100%; height: 100%; }
+
+  /* Code */
+  .code-block {
+    background: #06211B;
+    border: 1px solid rgba(201, 169, 97, 0.2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+  }
+  .code-comment { color: #9B927C; }
+  .code-keyword { color: var(--gold); }
+  .code-string { color: var(--gold-light); }
+  .code-value { color: #E4D4A8; }
+
+  input:focus, textarea:focus, select:focus, button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(4px); }
+  }
+  .scroll-indicator { animation: scrollPulse 2s ease infinite; }
+
+  .quote-mark {
+    font-family: 'Fraunces', serif;
+    font-size: 7rem;
+    line-height: 1;
+    color: var(--gold);
+    opacity: 0.3;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid rgba(6, 33, 27, 0.15);
+    cursor: pointer;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1.75rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary:hover { color: var(--gold-deep); }
+  .faq-item[open] summary .chevron { transform: rotate(45deg); }
+  .chevron { transition: transform 0.3s ease; }
+
+  /* Logo motif */
+  .meridian-logo {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Photo frame — gold corner ornaments */
+  .photo-frame {
+    position: relative;
+  }
+  .photo-frame::before, .photo-frame::after,
+  .photo-frame > .frame-corner-tr, .photo-frame > .frame-corner-bl {
+    content: '';
+    position: absolute;
+    width: 20px; height: 20px;
+    border: 1px solid rgba(201, 169, 97, 0.7);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .photo-frame::before { top: -6px; left: -6px; border-right: none; border-bottom: none; }
+  .photo-frame::after { bottom: -6px; right: -6px; border-left: none; border-top: none; }
+  .photo-frame > .frame-corner-tr { top: -6px; right: -6px; border-left: none; border-bottom: none; }
+  .photo-frame > .frame-corner-bl { bottom: -6px; left: -6px; border-right: none; border-top: none; }
+
+
+  /* ============================================================
+     RECOGNITION MARQUEE — Big-5 typographic strip
+     Slow horizontal scroll of typeset recognition items
+     No logos, just refined caps in JetBrains Mono
+     ============================================================ */
+  .recognition-marquee {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 4rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid rgba(6, 33, 27, 0.08);
+    border-bottom: 1px solid rgba(6, 33, 27, 0.08);
+    background: transparent;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  }
+  .recognition-marquee__track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: max-content;
+    animation: rm-scroll 60s linear infinite;
+  }
+  .recognition-marquee:hover .recognition-marquee__track {
+    animation-play-state: paused;
+  }
+  .recognition-marquee__item {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0 2.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: var(--forest-950);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .recognition-marquee__sep {
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+  @keyframes rm-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .recognition-marquee__track {
+      animation: none;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+      gap: 1.5rem 2rem;
+    }
+    .recognition-marquee {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  }
+
+
+  /* ============================================================
+     V4 — PREMIUM KINETIC MOTION LAYER
+     Design intent: Apple / Stripe / Linear, NOT SaaS-energetic
+     All easing: cubic-bezier(0.16, 1, 0.3, 1) — slow-out curve
+     Respects prefers-reduced-motion
+     ============================================================ */
+
+  /* ---------- Base motion variables ---------- */
+  :root {
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+    --duration-fast: 0.5s;
+    --duration-base: 0.9s;
+    --duration-slow: 1.4s;
+  }
+
+  /* ---------- Enhanced section reveal (replaces v3 simple fade) ---------- */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity var(--duration-base) var(--ease-out-expo),
+                transform var(--duration-base) var(--ease-out-expo),
+                filter 1.1s var(--ease-out-expo);
+    filter: blur(4px);
+    will-change: opacity, transform, filter;
+  }
+  .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  /* ---------- Staggered child reveals ---------- */
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s var(--ease-out-expo),
+                transform 0.8s var(--ease-out-expo);
+  }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(n+6) { transition-delay: 0.55s; opacity: 1; transform: none; }
+
+  /* ---------- Number count-up containers ---------- */
+  .count-up {
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+    transition: opacity 0.5s var(--ease-out-expo);
+  }
+
+  /* ---------- Premium card hover (services, industries, retainers) ---------- */
+  .premium-card {
+    position: relative;
+    transition: transform 0.6s var(--ease-out-expo),
+                box-shadow 0.6s var(--ease-out-expo),
+                border-color 0.6s var(--ease-out-expo);
+    will-change: transform;
+  }
+  .premium-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 1px transparent inset,
+                0 32px 64px -24px rgba(6, 33, 27, 0);
+    opacity: 0;
+    transition: opacity 0.6s var(--ease-out-expo),
+                box-shadow 0.6s var(--ease-out-expo);
+    pointer-events: none;
+  }
+  .premium-card:hover {
+    transform: translateY(-6px);
+  }
+  .premium-card:hover::after {
+    opacity: 1;
+    box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.4) inset,
+                0 32px 64px -24px rgba(6, 33, 27, 0.25),
+                0 8px 16px -8px rgba(201, 169, 97, 0.15);
+  }
+
+  /* ---------- Gold underline draw (links, headers) ---------- */
+  .gold-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .gold-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    background: var(--gold);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.7s var(--ease-out-expo);
+  }
+  .gold-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* ---------- Hero compass parallax ---------- */
+  .compass-parallax {
+    transition: transform 0.1s linear;
+    will-change: transform;
+  }
+
+  /* ---------- Hero badge marquee (new — in hero, not below) ---------- */
+  .hero-badge-strip {
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  }
+  .hero-badge-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: max-content;
+    animation: hbs-scroll 45s linear infinite;
+  }
+  .hero-badge-strip:hover .hero-badge-track {
+    animation-play-state: paused;
+  }
+  .hero-badge-item {
+    flex-shrink: 0;
+    padding: 0 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: rgba(228, 201, 136, 0.7);
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .hero-badge-item .pulse-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+  @keyframes hbs-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---------- Section header lift on reveal ---------- */
+  .section-num {
+    position: relative;
+    overflow: hidden;
+  }
+  .section-num::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 1.2s var(--ease-out-expo) 0.3s;
+  }
+  .reveal-on-scroll.revealed .section-num::before {
+    width: 28px;
+  }
+  .section-num {
+    padding-left: 0;
+    transition: padding-left 1.2s var(--ease-out-expo) 0.3s;
+  }
+  .reveal-on-scroll.revealed .section-num {
+    padding-left: 40px;
+  }
+
+  /* ---------- Award card refined scale-on-enter ---------- */
+  .reveal-on-scroll.revealed .award-card {
+    animation: cardSettle 1s var(--ease-out-expo) backwards;
+  }
+  .reveal-on-scroll.revealed .award-card:nth-child(1) { animation-delay: 0.1s; }
+  .reveal-on-scroll.revealed .award-card:nth-child(2) { animation-delay: 0.2s; }
+  .reveal-on-scroll.revealed .award-card:nth-child(3) { animation-delay: 0.3s; }
+  .reveal-on-scroll.revealed .award-card:nth-child(4) { animation-delay: 0.4s; }
+  @keyframes cardSettle {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* ---------- Sticky-pin process narrative ---------- */
+  /* (Applied to Engagement Process section only) */
+
+  /* ---------- View Transitions API for page navigation ---------- */
+  @supports (view-transition-name: root) {
+    @view-transition {
+      navigation: auto;
+    }
+    ::view-transition-old(root) {
+      animation: fadeOut 0.4s var(--ease-in-out-quart) forwards;
+    }
+    ::view-transition-new(root) {
+      animation: fadeIn 0.6s var(--ease-out-expo) forwards;
+    }
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  /* ---------- Pulse on gold accent dots ---------- */
+  @keyframes goldPulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.15); }
+  }
+  .pulse-dot-kinetic {
+    animation: goldPulse 2.4s var(--ease-in-out-quart) infinite;
+  }
+
+  /* ---------- Smooth scroll behavior ---------- */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* ---------- Speed up marquee slightly (40s) ---------- */
+  .recognition-marquee__track {
+    animation: rm-scroll 40s linear infinite !important;
+  }
+  .recognition-marquee__sep {
+    animation: goldPulse 3.2s var(--ease-in-out-quart) infinite;
+  }
+
+  /* ---------- prefers-reduced-motion: keep brand, kill motion ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll,
+    .reveal-on-scroll.revealed,
+    .reveal-stagger > *,
+    .premium-card,
+    .compass-parallax,
+    .hero-badge-track,
+    .recognition-marquee__track,
+    .pulse-dot-kinetic,
+    .recognition-marquee__sep {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+    .section-num::before {
+      width: 28px !important;
+    }
+    .section-num {
+      padding-left: 40px !important;
+    }
+  }
+
+</style>
+
+<style id="meridian-view-transition-css">
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  ::view-transition-old(root) { animation-name: meridian-vt-out; }
+  ::view-transition-new(root) { animation-name: meridian-vt-in; }
+  @keyframes meridian-vt-out { to { opacity: 0; transform: translateY(-10px); } }
+  @keyframes meridian-vt-in { from { opacity: 0; transform: translateY(14px); } }
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) { animation-duration: 0.01ms; }
+  }
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<style>
+.mcb-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(6, 33, 27, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(201, 169, 97, 0.3);
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.25);
+  padding: 1.25rem 1.5rem;
+  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  z-index: 9999;
+  display: none;
+  color: #fff;
+}
+.mcb-bar.mcb-visible {
+  display: block;
+  animation: mcb-rise 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes mcb-rise {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.mcb-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.mcb-text {
+  flex: 1;
+  min-width: 280px;
+}
+.mcb-label {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: #C9A961;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+.mcb-message {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+.mcb-message a {
+  color: #E4C988;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.mcb-message a:hover { color: #C9A961; }
+.mcb-buttons {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.mcb-bar button {
+  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid rgba(201, 169, 97, 0.4);
+  background: transparent;
+  color: #C9A961;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.mcb-bar button:hover {
+  background: rgba(201, 169, 97, 0.12);
+  border-color: #C9A961;
+}
+.mcb-bar button.mcb-primary {
+  background: #C9A961;
+  color: #06211B;
+  border-color: #C9A961;
+  font-weight: 600;
+}
+.mcb-bar button.mcb-primary:hover {
+  background: #E4C988;
+  border-color: #E4C988;
+}
+@media (max-width: 720px) {
+  .mcb-bar { padding: 1rem 1.25rem; }
+  .mcb-inner { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .mcb-text { min-width: 0; }
+  .mcb-buttons { justify-content: stretch; }
+  .mcb-bar button { flex: 1; padding: 0.7rem 1rem; }
+}
+</style>
+<div class="mcb-bar" id="meridianCookieBar" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="mcb-inner">
+    <div class="mcb-text">
+      <span class="mcb-label">▪ Privacy</span>
+      <p class="mcb-message">
+        Meridian Partners uses essential cookies always, and optional analytics cookies (Google Analytics, Microsoft Clarity) to understand site performance. Accept to enable analytics, or reject to continue without optional cookies. <a href="/cookies.html">Cookie Policy</a>
+      </p>
+    </div>
+    <div class="mcb-buttons">
+      <button onclick="meridianCookieConsent(false)">Reject analytics</button>
+      <button class="mcb-primary" onclick="meridianCookieConsent(true)">Accept analytics</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var STORAGE_KEY = 'meridian_cookie_consent_v2';
+  var bar = document.getElementById('meridianCookieBar');
+  var stored = (function(){ try { return localStorage.getItem(STORAGE_KEY); } catch(e){ return null; } })();
+  var dnt = (navigator.doNotTrack === '1' || window.doNotTrack === '1' || navigator.msDoNotTrack === '1');
+  function loadAnalytics(){
+    if (window.__meridianAnalyticsLoaded) return;
+    window.__meridianAnalyticsLoaded = true;
+    // GA4
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-MZ90TY8SR0';
+    document.head.appendChild(ga);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-MZ90TY8SR0', { anonymize_ip: true });
+    // Microsoft Clarity (Microsoft Clarity)
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","whcer8mmep");
+  }
+  if (dnt) {
+    try { localStorage.setItem(STORAGE_KEY, 'essential'); } catch(e){}
+    return;
+  }
+  if (stored === 'all') { loadAnalytics(); return; }
+  if (stored === 'essential') { return; }
+  if (bar) { setTimeout(function(){ bar.classList.add('mcb-visible'); }, 900); }
+})();
+function meridianCookieConsent(acceptAll){
+  var STORAGE_KEY = 'meridian_cookie_consent_v2';
+  var bar = document.getElementById('meridianCookieBar');
+  try { localStorage.setItem(STORAGE_KEY, acceptAll ? 'all' : 'essential'); } catch(e){}
+  if (bar) bar.classList.remove('mcb-visible');
+  if (acceptAll) {
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-MZ90TY8SR0';
+    document.head.appendChild(ga);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-MZ90TY8SR0', { anonymize_ip: true });
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","whcer8mmep");
+  }
+}
+</script>
+
+<!-- NAVIGATION -->
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-forest-950/92 border-b border-gold/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <!-- Custom Meridian compass logo -->
+      <svg class="w-9 h-9" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="#C9A961" stroke-width="0.8"/>
+        <circle cx="20" cy="20" r="13" stroke="#C9A961" stroke-width="0.5" opacity="0.5"/>
+        <path d="M20 4 L20 36" stroke="#C9A961" stroke-width="0.6" opacity="0.7"/>
+        <path d="M4 20 L36 20" stroke="#C9A961" stroke-width="0.6" opacity="0.5"/>
+        <path d="M20 6 L23 20 L20 34 L17 20 Z" fill="#C9A961"/>
+        <circle cx="20" cy="20" r="1.5" fill="#06211B" stroke="#C9A961" stroke-width="0.6"/>
+      </svg>
+      <div class="hidden sm:block">
+        <div class="font-display text-white text-base tracking-tight leading-none">Meridian Partners</div>
+        <div class="font-mono text-[9px] text-gold/70 tracking-[0.3em] uppercase mt-1">London · Dubai</div>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <div class="relative group">
+        <a href="index.html#services" class="text-stone-100/90 hover:text-gold text-sm transition flex items-center gap-1">Services <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+        <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
+          <div class="bg-forest-950 border border-gold/20 shadow-2xl min-w-[240px] py-2">
+            <a href="fractional-ciso.html" class="block px-5 py-2.5 text-sm text-stone-100/90 hover:text-gold hover:bg-forest-900 transition">Fractional CISO</a>
+            <a href="gap-analysis.html" class="block px-5 py-2.5 text-sm text-stone-100/90 hover:text-gold hover:bg-forest-900 transition">Compliance Gap Analysis</a>
+            <a href="vendor-evaluation.html" class="block px-5 py-2.5 text-sm text-gold hover:text-gold hover:bg-forest-900 transition">Vendor Evaluation</a>
+            <a href="dfsa-fsra-practice.html" class="block px-5 py-2.5 text-sm text-stone-100/90 hover:text-gold hover:bg-forest-900 transition">DFSA · FSRA Practice</a>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#industries" class="text-stone-100/90 hover:text-gold text-sm transition">Industries</a>
+      <a href="index.html#insights" class="text-stone-100/90 hover:text-gold text-sm transition">Insights</a>
+      <a href="about.html" class="text-stone-100/90 hover:text-gold text-sm transition">About</a>
+      <a href="contact.html" class="btn-primary text-sm px-5 py-2.5 font-medium ml-2">Book Consultation →</a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white" aria-label="Menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu md:hidden bg-forest-950 border-t border-gold/10">
+    <div class="px-6 py-6 flex flex-col gap-5">
+      <a href="fractional-ciso.html" class="text-stone-100/80 text-sm pl-4">Fractional CISO</a>
+      <a href="gap-analysis.html" class="text-stone-100/80 text-sm pl-4">Compliance Gap Analysis</a>
+      <a href="vendor-evaluation.html" class="text-gold text-sm pl-4">Vendor Evaluation</a>
+      <a href="dfsa-fsra-practice.html" class="text-stone-100/80 text-sm pl-4">DFSA · FSRA Practice</a>
+      <a href="index.html#industries" class="text-stone-100/90 text-base">Industries</a>
+      <a href="index.html#insights" class="text-stone-100/90 text-base">Insights</a>
+      <a href="about.html" class="text-stone-100/90 text-base">About</a>
+      <a href="contact.html" class="btn-primary text-sm px-5 py-3 text-center font-medium mt-2">Book Consultation →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative bg-forest-950 text-white overflow-hidden grain">
+  <div class="absolute inset-0 fine-grid opacity-70"></div>
+  <div class="absolute inset-0 gold-glow"></div>
+  <div class="absolute inset-0 gold-glow-2"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 pt-40 pb-24">
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-3 fade-up">
+        <div class="w-2 h-2 bg-gold pulse-dot rounded-full"></div>
+        <span class="font-mono text-xs tracking-[0.3em] text-gold-light/90 uppercase">Practice III · Vendor Evaluation &amp; Negotiation</span>
+      </div>
+
+      <h1 class="display-heading text-5xl md:text-6xl lg:text-7xl mt-8 fade-up delay-1">
+        Advice that isn't<br/>
+        <em class="text-gold">for sale twice.</em>
+      </h1>
+
+      <p class="text-lg md:text-xl text-stone-100/90 max-w-2xl mt-8 leading-relaxed font-light fade-up delay-2">
+        Independent technology selection for security tooling — from requirements definition through proof-of-concept scoring to the final commercial negotiation. We take no commissions and resell nothing, so the recommendation serves exactly one party: you.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 mt-10 fade-up delay-3">
+        <a href="contact.html" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium tracking-wide">
+          Book a Consultation
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="#independence" class="inline-flex items-center justify-center gap-2 border border-gold/40 text-gold-light px-8 py-4 text-sm font-medium tracking-wide hover:bg-gold/10 hover:border-gold transition arrow-link">
+          The Independence Charter
+          <svg class="w-4 h-4 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="meridian-line absolute bottom-0 left-0 right-0"></div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="relative py-24 lg:py-32 bg-parchment overflow-hidden reveal-on-scroll">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="lg:col-span-5">
+        <div class="section-num mb-5">/ 01 — The Problem</div>
+        <h2 class="display-heading text-4xl md:text-5xl text-forest-950">
+          The market is loud.<br/>
+          <em class="text-gold-deep">The incentives are bent.</em>
+        </h2>
+      </div>
+      <div class="lg:col-span-7 space-y-6 text-stone-700 leading-relaxed">
+        <p>
+          Security procurement is one of the few executive decisions routinely made on advice from parties paid by the other side. Resellers earn margin on what they recommend. Channel partners carry quotas. Analyst placements are influenced by vendor relationships. Even well-meaning internal shortlists often begin from whichever vendor reached the CIO first.
+        </p>
+        <p>
+          The consequences are familiar: platforms bought for features nobody deploys, three tools overlapping one control while another goes uncovered, multi-year contracts priced against list rather than leverage, and renewal dates that arrive with no negotiating position prepared.
+        </p>
+        <p>
+          The fix is not more vendor meetings. It is a disciplined selection process run by someone with <span class="text-forest-950 font-medium">no financial stake in the outcome</span> — anchored in your requirements, your architecture, and the total cost of ownership over the life of the contract.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR APPROACH -->
+<section class="relative py-24 lg:py-32 bg-cream reveal-on-scroll">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16">
+      <div class="section-num mb-5">/ 02 — Approach</div>
+      <h2 class="display-heading text-4xl md:text-6xl text-forest-950">
+        Requirements first.<br/>
+        <em class="text-gold-deep">Vendors second.</em>
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal-stagger reveal-on-scroll">
+      <div class="edit-card premium-card p-7">
+        <div class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase mb-4">01</div>
+        <h3 class="font-display text-xl text-forest-950 mb-3">Requirements Definition</h3>
+        <p class="text-sm text-stone-600 leading-relaxed">A weighted requirements matrix built from your risks, architecture, and operating model — the yardstick every vendor is measured against, agreed before a single demo is booked.</p>
+      </div>
+      <div class="edit-card premium-card p-7">
+        <div class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase mb-4">02</div>
+        <h3 class="font-display text-xl text-forest-950 mb-3">Market Scan</h3>
+        <p class="text-sm text-stone-600 leading-relaxed">A structured sweep of the viable field — incumbents, challengers, and the option vendors never mention: doing more with what you already own.</p>
+      </div>
+      <div class="edit-card premium-card p-7">
+        <div class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase mb-4">03</div>
+        <h3 class="font-display text-xl text-forest-950 mb-3">RFP Support</h3>
+        <p class="text-sm text-stone-600 leading-relaxed">RFP and RFI documents that force comparable answers — written so marketing language cannot substitute for capability, and scored blind against the matrix.</p>
+      </div>
+      <div class="edit-card premium-card p-7">
+        <div class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase mb-4">04</div>
+        <h3 class="font-display text-xl text-forest-950 mb-3">PoC Design &amp; Scoring</h3>
+        <p class="text-sm text-stone-600 leading-relaxed">Proofs of concept designed around your environment and your failure modes — with objective scoring criteria fixed before the vendor's engineers arrive.</p>
+      </div>
+      <div class="edit-card premium-card p-7">
+        <div class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase mb-4">05</div>
+        <h3 class="font-display text-xl text-forest-950 mb-3">TCO Analysis</h3>
+        <p class="text-sm text-stone-600 leading-relaxed">Full-term cost modelling: licences, infrastructure, integration, training, staffing, and the renewal uplift the first-year discount is designed to hide.</p>
+      </div>
+      <div class="edit-card premium-card p-7">
+        <div class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase mb-4">06</div>
+        <h3 class="font-display text-xl text-forest-950 mb-3">Contract &amp; Commercial Negotiation</h3>
+        <p class="text-sm text-stone-600 leading-relaxed">Support through the final mile — benchmarked pricing positions, exit and audit clauses, SLA substance, and terms that survive year three, not just the signing dinner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE EVALUATE -->
+<section class="relative bg-forest-950 text-white py-24 lg:py-32 overflow-hidden grain reveal-on-scroll">
+  <div class="absolute inset-0 fine-grid opacity-40"></div>
+  <div class="absolute inset-0 gold-glow-2"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16">
+      <div class="section-num text-gold mb-5">/ 03 — Coverage</div>
+      <h2 class="display-heading text-4xl md:text-6xl text-white">
+        The categories<br/>
+        <em class="text-gold">we work across.</em>
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal-stagger reveal-on-scroll">
+      <div class="bg-white/5 backdrop-blur-sm border border-gold/20 p-7">
+        <div class="font-mono text-xs text-gold tracking-[0.2em] uppercase mb-3">SIEM &amp; Analytics</div>
+        <p class="text-sm text-stone-200/90 leading-relaxed">Detection platforms and log architectures — where ingestion pricing models quietly decide the real cost.</p>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm border border-gold/20 p-7">
+        <div class="font-mono text-xs text-gold tracking-[0.2em] uppercase mb-3">EDR / XDR</div>
+        <p class="text-sm text-stone-200/90 leading-relaxed">Endpoint detection and response — tested against your fleet's realities, not the vendor's benchmark malware set.</p>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm border border-gold/20 p-7">
+        <div class="font-mono text-xs text-gold tracking-[0.2em] uppercase mb-3">NAC</div>
+        <p class="text-sm text-stone-200/90 leading-relaxed">Network access control — where integration effort with your switching, wireless, and identity estate makes or breaks the business case.</p>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm border border-gold/20 p-7">
+        <div class="font-mono text-xs text-gold tracking-[0.2em] uppercase mb-3">Firewalls &amp; Network Security</div>
+        <p class="text-sm text-stone-200/90 leading-relaxed">Next-generation firewalls, segmentation, and secure connectivity — sized for measured throughput, not datasheet throughput.</p>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm border border-gold/20 p-7">
+        <div class="font-mono text-xs text-gold tracking-[0.2em] uppercase mb-3">IAM &amp; PAM</div>
+        <p class="text-sm text-stone-200/90 leading-relaxed">Identity, access, and privileged access management — the control plane every Zero Trust ambition depends on.</p>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm border border-gold/20 p-7">
+        <div class="font-mono text-xs text-gold tracking-[0.2em] uppercase mb-3">Cloud Security</div>
+        <p class="text-sm text-stone-200/90 leading-relaxed">CSPM, CNAPP, and workload protection — evaluated against your actual cloud footprint and the team that must run it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENT STEPS -->
+<section class="relative py-24 lg:py-32 bg-parchment overflow-hidden reveal-on-scroll">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16">
+      <div class="section-num mb-5">/ 04 — Cadence</div>
+      <h2 class="display-heading text-4xl md:text-6xl text-forest-950">
+        From noise to<br/>
+        <em class="text-gold-deep">signature.</em>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-5 reveal-stagger reveal-on-scroll">
+      <div class="bg-white border border-forest-950/10 p-7">
+        <div class="font-mono text-xs text-gold-deep tracking-[0.25em] uppercase mb-4">Step 01</div>
+        <h3 class="font-display text-lg text-forest-950 mb-3">Frame</h3>
+        <p class="text-sm text-stone-600 leading-relaxed">Discovery call, then a scoped mandate: the category in question, the decision deadline, and the stakeholders who must be convinced.</p>
+      </div>
+      <div class="bg-white border border-forest-950/10 p-7">
+        <div class="font-mono text-xs text-gold-deep tracking-[0.25em] uppercase mb-4">Step 02</div>
+        <h3 class="font-display text-lg text-forest-950 mb-3">Shortlist</h3>
+        <p class="text-sm text-stone-600 leading-relaxed">Requirements matrix agreed, market scanned, RFP issued — and a defensible shortlist produced with the reasoning documented.</p>
+      </div>
+      <div class="bg-white border border-forest-950/10 p-7">
+        <div class="font-mono text-xs text-gold-deep tracking-[0.25em] uppercase mb-4">Step 03</div>
+        <h3 class="font-display text-lg text-forest-950 mb-3">Prove</h3>
+        <p class="text-sm text-stone-600 leading-relaxed">PoCs run on your terms and scored against fixed criteria; TCO modelled over the full contract term for the finalists.</p>
+      </div>
+      <div class="bg-white border border-forest-950/10 p-7">
+        <div class="font-mono text-xs text-gold-deep tracking-[0.25em] uppercase mb-4">Step 04</div>
+        <h3 class="font-display text-lg text-forest-950 mb-3">Close</h3>
+        <p class="text-sm text-stone-600 leading-relaxed">A written recommendation with the evidence trail, and negotiation support until the contract reflects your leverage — not their quarter-end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDEPENDENCE CHARTER -->
+<section id="independence" class="relative py-24 lg:py-32 bg-cream overflow-hidden reveal-on-scroll">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-14">
+      <div class="section-num mb-5">/ 05 — Charter</div>
+      <h2 class="display-heading text-4xl md:text-6xl text-forest-950">
+        The independence<br/>
+        <em class="text-gold-deep">charter.</em>
+      </h2>
+      <p class="text-stone-700 mt-6 max-w-2xl mx-auto">Written into our terms of engagement, not just our marketing. Every vendor evaluation is bound by four commitments:</p>
+    </div>
+
+    <div class="bg-white border border-forest-950/10 divide-y divide-forest-950/10">
+      <div class="flex items-start gap-5 p-7">
+        <div class="font-mono text-gold-deep text-sm pt-0.5">I.</div>
+        <div>
+          <div class="font-display text-xl text-forest-950">No vendor commissions</div>
+          <p class="text-sm text-stone-600 mt-1.5 leading-relaxed">We accept no referral fees, finder's fees, or success payments from any technology vendor — before, during, or after an engagement.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-5 p-7">
+        <div class="font-mono text-gold-deep text-sm pt-0.5">II.</div>
+        <div>
+          <div class="font-display text-xl text-forest-950">No resale, ever</div>
+          <p class="text-sm text-stone-600 mt-1.5 leading-relaxed">We hold no distribution agreements and carry no margin on licences, hardware, or services. If you buy it, you buy it from the vendor — at a price we helped you negotiate.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-5 p-7">
+        <div class="font-mono text-gold-deep text-sm pt-0.5">III.</div>
+        <div>
+          <div class="font-display text-xl text-forest-950">No channel-partner arrangements</div>
+          <p class="text-sm text-stone-600 mt-1.5 leading-relaxed">No partner tiers, no certifications-for-influence, no co-marketing agreements that would give any vendor a quiet seat on your side of the table.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-5 p-7">
+        <div class="font-mono text-gold-deep text-sm pt-0.5">IV.</div>
+        <div>
+          <div class="font-display text-xl text-forest-950">Recommendations on merit alone</div>
+          <p class="text-sm text-stone-600 mt-1.5 leading-relaxed">Every recommendation is justified in writing against three tests only: your requirements, total cost of ownership, and architectural fit. Nothing else enters the file.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="relative py-24 lg:py-32 bg-parchment reveal-on-scroll">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16">
+      <div class="section-num mb-5">/ 06 — Questions</div>
+      <h2 class="display-heading text-4xl md:text-6xl text-forest-950">
+        Asked often.<br/>
+        <em class="text-gold-deep">Answered plainly.</em>
+      </h2>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <details class="faq-item" open>
+        <summary>
+          <h3 class="font-display text-xl md:text-2xl text-forest-950 pr-8">If you don't take commissions, how are you paid?</h3>
+          <svg class="chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        </summary>
+        <div class="pb-8 text-stone-700 leading-relaxed text-[0.95rem] max-w-2xl">
+          By you, and only by you — a fixed professional fee agreed at scoping, or as part of an existing retainer. That single fact realigns the entire exercise: our only path to a good outcome is a decision that still looks right in year three.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <h3 class="font-display text-xl md:text-2xl text-forest-950 pr-8">We've already shortlisted vendors. Is it too late to involve you?</h3>
+          <svg class="chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        </summary>
+        <div class="pb-8 text-stone-700 leading-relaxed text-[0.95rem] max-w-2xl">
+          No. We regularly join at the PoC or negotiation stage — pressure-testing a shortlist against written requirements, redesigning a proof of concept that the vendor scripted, or building the TCO model and negotiating position before signature. Earlier is better; later is still valuable.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <h3 class="font-display text-xl md:text-2xl text-forest-950 pr-8">Do you implement the chosen technology as well?</h3>
+          <svg class="chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        </summary>
+        <div class="pb-8 text-stone-700 leading-relaxed text-[0.95rem] max-w-2xl">
+          We advise on implementation architecture and governance, but deployment is delivered by your team, the vendor, or an integrator of your choosing. Keeping delivery separate from selection is deliberate — an adviser who profits from the build cannot be fully neutral about what you buy.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <h3 class="font-display text-xl md:text-2xl text-forest-950 pr-8">Can you help with renewals rather than new purchases?</h3>
+          <svg class="chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        </summary>
+        <div class="pb-8 text-stone-700 leading-relaxed text-[0.95rem] max-w-2xl">
+          Yes — renewals are where preparation pays most. A renewal approached six months early, with usage data assembled and a credible alternative scoped, negotiates very differently from one approached the week the quote arrives. We build that position and sit with you through the conversation.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="relative bg-forest-950 text-white py-24 lg:py-32 overflow-hidden grain reveal-on-scroll">
+  <div class="absolute inset-0 fine-grid opacity-40"></div>
+  <div class="absolute inset-0 gold-glow"></div>
+  <div class="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
+    <div class="section-num text-gold mb-5">/ 07 — Engage</div>
+    <h2 class="display-heading text-4xl md:text-6xl text-white">
+      Make the next decision<br/>
+      <em class="text-gold">with clean hands at the table.</em>
+    </h2>
+    <p class="text-lg text-stone-100/90 mt-6 max-w-xl mx-auto font-light">
+      Tell us what you're evaluating — or renewing. We'll scope the mandate in a 30-minute call.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+      <a href="contact.html" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium tracking-wide">
+        Book a Consultation
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+    <p class="font-mono text-[10px] text-stone-400 mt-6 tracking-[0.2em] uppercase">30 min · Video · No obligation</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-ink text-white border-t border-gold/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
+    <!-- Top row: navigation + offices -->
+    <div class="grid md:grid-cols-12 gap-10 mb-12">
+      <div class="md:col-span-5">
+        <a href="index.html" class="flex items-center gap-3 mb-5">
+          <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="#C9A961" stroke-width="0.8"/>
+            <circle cx="20" cy="20" r="13" stroke="#C9A961" stroke-width="0.5" opacity="0.5"/>
+            <path d="M20 4 L20 36" stroke="#C9A961" stroke-width="0.6" opacity="0.7"/>
+            <path d="M4 20 L36 20" stroke="#C9A961" stroke-width="0.6" opacity="0.5"/>
+            <path d="M20 6 L23 20 L20 34 L17 20 Z" fill="#C9A961"/>
+            <circle cx="20" cy="20" r="1.5" fill="#06211B" stroke="#C9A961" stroke-width="0.6"/>
+          </svg>
+          <div>
+            <div class="font-display text-xl text-white leading-none">Meridian Partners</div>
+            <div class="font-mono text-[10px] text-gold-light/70 tracking-[0.3em] uppercase mt-1.5">London · Dubai</div>
+          </div>
+        </a>
+        <p class="text-stone-400 max-w-sm leading-relaxed text-sm">
+          Boutique cybersecurity advisory for regulated enterprises. UAE-incorporated. Operating globally across EMEA, APAC, and the Americas.
+        </p>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-gold mb-4">Practices</div>
+        <ul class="space-y-2.5 text-sm text-stone-300">
+          <li><a href="fractional-ciso.html" class="hover:text-gold transition">Fractional CISO</a></li>
+          <li><a href="gap-analysis.html" class="hover:text-gold transition">Gap Analysis</a></li>
+          <li><a href="vendor-evaluation.html" class="hover:text-gold transition">Vendor Evaluation</a></li>
+          <li class="pt-1 border-t border-gold/10 mt-1"><a href="dfsa-fsra-practice.html" class="hover:text-gold transition text-gold-light/80">DFSA · FSRA Practice</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-gold mb-4">Firm</div>
+        <ul class="space-y-2.5 text-sm text-stone-300">
+          <li><a href="index.html#industries" class="hover:text-gold transition">Industries</a></li>
+          <li><a href="index.html#cases" class="hover:text-gold transition">Case Studies</a></li>
+          <li><a href="index.html#process" class="hover:text-gold transition">Process</a></li>
+          <li><a href="index.html#pricing" class="hover:text-gold transition">Pricing</a></li>
+          <li><a href="index.html#insights" class="hover:text-gold transition">Insights</a></li>
+          <li><a href="index.html#faq" class="hover:text-gold transition">FAQ</a></li>
+          <li><a href="about.html" class="hover:text-gold transition">About</a></li>
+          <li><a href="contact.html" class="hover:text-gold transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-3">
+        <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-gold mb-4">Offices</div>
+        <ul class="space-y-3 text-sm text-stone-300">
+          <li>
+            <div class="font-mono text-[9px] text-gold-light/70 tracking-wider uppercase mb-1">Registered Office · UAE</div>
+            <div class="text-stone-300 text-xs leading-relaxed">IFZA Business Park, Dubai Digital Park<br/>Dubai Silicon Oasis, Dubai, UAE</div>
+            <a href="tel:+971559286300" class="text-stone-300 hover:text-gold transition text-xs font-mono block mt-1.5">+971 55 928 6300</a>
+          </li>
+          <li>
+            <div class="font-mono text-[9px] text-gold-light/70 tracking-wider uppercase mb-1">Operating Office · UK</div>
+            <div class="text-stone-300 text-xs leading-relaxed">London, United Kingdom</div>
+            <a href="tel:+447828743250" class="text-stone-300 hover:text-gold transition text-xs font-mono block mt-1.5">+44 7828 743250</a>
+          </li>
+          <li class="pt-3 border-t border-gold/10">
+            <a href="mailto:info@meridianpartners.me" class="hover:text-gold transition block">info@meridianpartners.me</a>
+          </li>
+          <li class="flex items-center gap-2 pt-2">
+            <div class="w-1.5 h-1.5 bg-gold rounded-full pulse-dot"></div>
+            <span class="font-mono text-xs text-stone-400">Accepting Q2 engagements</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Middle row: legal & compliance block (procurement-visible) -->
+    <div class="pt-8 pb-6 border-t border-gold/10">
+      <div class="grid md:grid-cols-12 gap-8">
+        <!-- Registration line -->
+        <div class="md:col-span-7">
+          <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-gold mb-3">Corporate &amp; Regulatory</div>
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-xs text-stone-400">
+            <div>
+              <span class="font-mono text-[9px] text-gold-light/60 tracking-wider uppercase block mb-0.5">Trade Licence</span>
+              <span class="text-stone-300 font-mono">89800 · IFZA</span>
+            </div>
+            <div>
+              <span class="font-mono text-[9px] text-gold-light/60 tracking-wider uppercase block mb-0.5">Entity Type</span>
+              <span class="text-stone-300 font-mono">Free Zone Company (FZCO)</span>
+            </div>
+            <div>
+              <span class="font-mono text-[9px] text-gold-light/60 tracking-wider uppercase block mb-0.5">Jurisdiction</span>
+              <span class="text-stone-300 font-mono">Dubai, United Arab Emirates</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data controller block (GDPR Art.13 required) -->
+        <div class="md:col-span-5">
+          <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-gold mb-3">Data Protection</div>
+          <p class="text-xs text-stone-400 leading-relaxed mb-2">
+            Meridian Partners FZCO is the data controller for personal information collected through this site, in accordance with the UAE Personal Data Protection Law (Federal Decree-Law No. 45 of 2021) and, where applicable, the UK GDPR.
+          </p>
+          <p class="text-xs text-stone-400 leading-relaxed">
+            Data protection enquiries: <a href="mailto:privacy@meridianpartners.me" class="text-gold-light/80 hover:text-gold transition">privacy@meridianpartners.me</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row: copyright + policy links -->
+    <div class="pt-6 border-t border-gold/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div class="font-mono text-xs text-stone-500">
+        © 2026 Meridian Partners FZCO · Registered in Dubai, UAE · IFZA Licence No. 89800
+      </div>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs text-stone-500">
+        <a href="/privacy.html" class="hover:text-gold transition">Privacy Policy</a>
+        <a href="/cookies.html" class="hover:text-gold transition">Cookie Policy</a>
+        <a href="/terms.html" class="hover:text-gold transition">Terms of Engagement</a>
+        <a href="/modern-slavery.html" class="hover:text-gold transition">Modern Slavery Statement</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  document.querySelectorAll('#mobileMenu a').forEach(a =>
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'))
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section h2, section .edit-card, section .price-card').forEach(el => {
+    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    observer.observe(el);
+  });
+</script>
+<!-- V4 — Premium kinetic motion engine -->
+<script>
+(function(){
+  'use strict';
+
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ===========================================================
+  // 1. SCROLL REVEAL — staggered, blur-resolved, premium-easing
+  // ===========================================================
+  if (prefersReducedMotion) {
+    document.querySelectorAll('.reveal-on-scroll').forEach(function(el){ el.classList.add('revealed'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          // Slight delay for natural feel — never instant
+          setTimeout(function(){
+            entry.target.classList.add('revealed');
+          }, 60);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.01,
+      rootMargin: '0px 0px 120px 0px'
+    });
+    document.querySelectorAll('.reveal-on-scroll').forEach(function(el){ revealObserver.observe(el); });
+  }
+
+  // ===========================================================
+  // 2. COUNT-UP — when stat enters view, count from 0 → target
+  // ===========================================================
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-count-to') || '0', 10);
+    var suffix = el.getAttribute('data-count-suffix') || '';
+    var duration = 1800; // 1.8s, slow & dignified
+    var startTime = null;
+    var startVal = 0;
+
+    function easeOutExpo(t) {
+      return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    }
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var elapsed = timestamp - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = easeOutExpo(progress);
+      var current = Math.floor(startVal + (target - startVal) * eased);
+      el.textContent = current + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target + suffix;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  if (!prefersReducedMotion) {
+    var countObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.count-up').forEach(function(el){ countObserver.observe(el); });
+  } else {
+    document.querySelectorAll('.count-up').forEach(function(el){
+      var target = el.getAttribute('data-count-to') || '0';
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      el.textContent = target + suffix;
+    });
+  }
+
+  // ===========================================================
+  // 3. SMOOTH ANCHOR SCROLL — with offset for sticky nav
+  // ===========================================================
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+    anchor.addEventListener('click', function(e){
+      var href = this.getAttribute('href');
+      if (href === '#' || href === '#!') return;
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({
+          top: top,
+          behavior: prefersReducedMotion ? 'auto' : 'smooth'
+        });
+      }
+    });
+  });
+
+})();
+</script>
+
+<script id="meridian-view-transition-script">
+(function(){
+  if (!('startViewTransition' in document)) return;
+  document.addEventListener('click', function(event){
+    var link = event.target.closest && event.target.closest('a[href]');
+    if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    var url = new URL(link.getAttribute('href'), window.location.href);
+    if (url.origin !== window.location.origin) return;
+    if (url.pathname === window.location.pathname && url.hash) return;
+    if (!url.pathname.endsWith('.html') && url.pathname !== '/' && url.pathname !== '') return;
+    event.preventDefault();
+    document.startViewTransition(function(){ window.location.href = url.href; });
+  }, true);
+})();
+</script>
+
+</body>
+</html>
