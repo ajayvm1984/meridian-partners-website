@@ -837,35 +837,7 @@
   /* ---------- Sticky-pin process narrative ---------- */
   /* (Applied to Engagement Process section only) */
 
-  /* ---------- View Transitions API for page navigation ---------- */
-  @supports (view-transition-name: root) {
-    @view-transition {
-      navigation: auto;
-    }
-    ::view-transition-old(root) {
-      animation: fadeOut 0.4s var(--ease-in-out-quart) forwards;
-    }
-    ::view-transition-new(root) {
-      animation: fadeIn 0.6s var(--ease-out-expo) forwards;
-    }
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        transform: translateY(-12px);
-      }
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  }
-
+  
   /* ---------- Pulse on gold accent dots ---------- */
   @keyframes goldPulse {
     0%, 100% { opacity: 0.4; transform: scale(1); }
@@ -915,42 +887,6 @@
 
 </style>
 
-<style id="meridian-view-transition-css">
-  /* Cinematic cross-document transitions — fade out through brand green, fade in */
-  @view-transition { navigation: auto; }
-  ::view-transition { background-color: #06211B; }
-  ::view-transition-old(root) {
-    animation: 0.5s cubic-bezier(0.4, 0, 0.2, 1) both meridian-vt-out;
-  }
-  ::view-transition-new(root) {
-    animation: 0.7s 0.24s cubic-bezier(0.16, 1, 0.3, 1) both meridian-vt-in;
-  }
-  @keyframes meridian-vt-out {
-    to { opacity: 0; transform: scale(0.982) translateY(-12px); filter: brightness(0.82); }
-  }
-  @keyframes meridian-vt-in {
-    from { opacity: 0; transform: scale(1.02) translateY(18px); filter: brightness(1.08); }
-  }
-  #siteNav { view-transition-name: site-header; }
-  ::view-transition-group(site-header) { animation-duration: 0s; }
-  ::view-transition-old(site-header),
-  ::view-transition-new(site-header) { animation: none; }
-  @media (prefers-reduced-motion: reduce) {
-    ::view-transition-old(root), ::view-transition-new(root),
-    ::view-transition-old(site-header), ::view-transition-new(site-header) {
-      animation-duration: 0.01ms !important;
-    }
-  }
-</style>
-<style id="meridian-page-fade-fallback">
-  /* Browsers without view transitions: gentle page-enter fade */
-  @supports not (view-transition-name: root) {
-    @media (prefers-reduced-motion: no-preference) {
-      body { animation: meridian-page-in 0.35s ease-out both; }
-      @keyframes meridian-page-in { from { opacity: 0; } }
-    }
-  }
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1316,14 +1252,14 @@
     transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) scale(var(--sc, 1)) !important;
     box-shadow: 0 1px 2px rgba(6,33,27,.05), 0 10px 30px -18px rgba(6,33,27,.18);
   }
-  .premium-card:hover { --ty: -7px; --sc: 1.012; }
+  .premium-card:hover { --ty: -10px; --sc: 1.02; }
   .premium-card.tilting {
-    transition: transform .09s linear, box-shadow .6s var(--ease-out-expo), border-color .6s var(--ease-out-expo);
+    transition: transform .06s linear, box-shadow .6s var(--ease-out-expo), border-color .6s var(--ease-out-expo);
   }
   .card-glare {
     position: absolute; inset: 0; pointer-events: none; opacity: 0;
     transition: opacity .35s ease; border-radius: inherit;
-    background: radial-gradient(460px circle at var(--gx, 50%) var(--gy, 50%), rgba(228,201,136,.20), transparent 65%);
+    background: radial-gradient(560px circle at var(--gx, 50%) var(--gy, 50%), rgba(228,201,136,.30), transparent 62%);
     mix-blend-mode: screen; z-index: 2;
   }
   .premium-card:hover .card-glare { opacity: 1; }
@@ -1331,15 +1267,50 @@
   .reveal-on-scroll { transform: translateY(18px) scale(.985); }
   .reveal-on-scroll.revealed { transform: translateY(0) scale(1); }
   /* ---------- v9.1: full-bleed subpage heroes ---------- */
-  .hero-full { min-height: min(88vh, 950px); display: flex; align-items: center; }
+  .hero-full { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; }
   .hero-full > .relative.max-w-7xl { width: 100%; }
-  @media (max-width: 768px) { .hero-full { min-height: 76vh; } }
+  
   @media (prefers-reduced-motion: reduce), (pointer: coarse) {
     .premium-card { transform: none !important; }
     .card-glare { display: none; }
   }
 </style>
 <meta name="theme-color" content="#06211B" />
+<style id="meridian-curtain-css">
+  /* Deterministic page transitions — exit curtain + entrance rise. Every browser, every time. */
+  html { background: #06211B; }
+  #meridian-curtain { position: fixed; inset: 0; z-index: 2147483000; pointer-events: none; visibility: hidden; }
+  #meridian-curtain .mc-panel {
+    position: absolute; inset: -2% 0;
+    background: linear-gradient(180deg, #0A2E26 0%, #06211B 60%);
+    transform: translateY(103%);
+  }
+  #meridian-curtain .mc-line {
+    position: absolute; left: 0; right: 0; top: 0; height: 2px;
+    background: linear-gradient(90deg, transparent 4%, #C9A961 50%, transparent 96%);
+  }
+  html.mc-leaving #meridian-curtain { visibility: visible; }
+  html.mc-leaving #meridian-curtain .mc-panel { animation: mc-sweep-in 0.48s cubic-bezier(0.76, 0, 0.24, 1) both; }
+  @keyframes mc-sweep-in { to { transform: translateY(0); } }
+  html.mc-leaving body {
+    opacity: 0.3; transform: scale(0.992);
+    transition: opacity 0.44s ease, transform 0.44s ease;
+  }
+  html.mc-entering body { opacity: 0; transform: translateY(28px) scale(0.996); }
+  html.mc-entering.mc-reveal body {
+    opacity: 1; transform: translateY(0) scale(1);
+    transition: opacity 0.68s cubic-bezier(0.16, 1, 0.3, 1), transform 0.68s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.mc-leaving body, html.mc-entering body, html.mc-entering.mc-reveal body {
+      opacity: 1 !important; transform: none !important; transition: none !important;
+    }
+    html.mc-leaving #meridian-curtain .mc-panel { animation: none !important; }
+  }
+</style>
+<script id="meridian-curtain-head">
+(function(){try{if(sessionStorage.getItem('mcNav')){sessionStorage.removeItem('mcNav');document.documentElement.classList.add('mc-entering');}}catch(e){}})();
+</script>
 </head>
 <body class="overflow-x-hidden">
 
@@ -2243,15 +2214,46 @@ function meridianCookieConsent(acceptAll){
 <script id="meridian-v91-fx-js">
 (function(){
   'use strict';
+  var doc = document.documentElement;
   var fine = matchMedia('(pointer: fine)').matches;
   var noMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- 3D pointer tilt + glare ---------- */
+  /* ---------- Entrance rise (after curtain navigation) ---------- */
+  function reveal(){
+    if (!doc.classList.contains('mc-entering')) return;
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      doc.classList.add('mc-reveal');
+      setTimeout(function(){ doc.classList.remove('mc-entering','mc-reveal'); }, 780);
+    });});
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', reveal); } else { reveal(); }
+  window.addEventListener('pageshow', function(e){
+    if (e.persisted) { doc.classList.remove('mc-leaving','mc-entering','mc-reveal'); }
+  });
+
+  /* ---------- Exit curtain on internal navigation ---------- */
+  document.addEventListener('click', function(ev){
+    var link = ev.target.closest && ev.target.closest('a[href]');
+    if (!link || ev.defaultPrevented || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button) return;
+    if (link.target && link.target !== '_self') return;
+    var url; try { url = new URL(link.getAttribute('href'), location.href); } catch(err){ return; }
+    if (url.origin !== location.origin) return;
+    if (url.pathname === location.pathname && url.hash) return;
+    ev.preventDefault();
+    try { sessionStorage.setItem('mcNav','1'); } catch(err){}
+    if (noMotion) { location.href = url.href; return; }
+    doc.classList.add('mc-leaving');
+    setTimeout(function(){ location.href = url.href; }, 470);
+  }, true);
+
+  /* ---------- 3D pointer tilt + glare (v2 — stronger) ---------- */
   if (fine && !noMotion) {
     document.querySelectorAll('.premium-card').forEach(function(card){
-      var glare = document.createElement('span');
-      glare.className = 'card-glare';
-      card.appendChild(glare);
+      if (!card.querySelector('.card-glare')) {
+        var glare = document.createElement('span');
+        glare.className = 'card-glare';
+        card.appendChild(glare);
+      }
       var raf = null;
       card.addEventListener('pointerenter', function(){ card.classList.add('tilting'); });
       card.addEventListener('pointermove', function(e){
@@ -2261,8 +2263,8 @@ function meridianCookieConsent(acceptAll){
           var r = card.getBoundingClientRect();
           var px = (e.clientX - r.left) / r.width;
           var py = (e.clientY - r.top) / r.height;
-          card.style.setProperty('--ry', ((px - 0.5) * 7).toFixed(2) + 'deg');
-          card.style.setProperty('--rx', ((0.5 - py) * 5).toFixed(2) + 'deg');
+          card.style.setProperty('--ry', ((px - 0.5) * 10).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((0.5 - py) * 7).toFixed(2) + 'deg');
           card.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
           card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
         });
@@ -2274,25 +2276,8 @@ function meridianCookieConsent(acceptAll){
       });
     });
   }
-
-  /* ---------- Fade-out navigation fallback (browsers without cross-document view transitions) ---------- */
-  var hasVT = ('CSSViewTransitionRule' in window);
-  if (!hasVT && !noMotion) {
-    document.addEventListener('click', function(ev){
-      var link = ev.target.closest && ev.target.closest('a[href]');
-      if (!link || ev.defaultPrevented || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
-      if (link.target && link.target !== '_self') return;
-      var url;
-      try { url = new URL(link.getAttribute('href'), location.href); } catch(e){ return; }
-      if (url.origin !== location.origin) return;
-      if (url.pathname === location.pathname && url.hash) return;
-      ev.preventDefault();
-      document.documentElement.style.transition = 'opacity 0.3s ease';
-      document.documentElement.style.opacity = '0';
-      setTimeout(function(){ location.href = url.href; }, 290);
-    }, true);
-  }
 })();
 </script>
+<div id="meridian-curtain" aria-hidden="true"><div class="mc-panel"><div class="mc-line"></div></div></div>
 </body>
 </html>
