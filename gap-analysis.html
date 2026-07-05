@@ -915,28 +915,25 @@
 </style>
 
 <style id="meridian-view-transition-css">
-  /* Native cross-document view transitions (no JS).
-     Both pages opt in via the at-rule; Chrome/Edge 126+, Safari 18.2+.
-     Firefox gets the soft fallback fade below. */
+  /* Cinematic cross-document transitions — fade out through brand green, fade in */
   @view-transition { navigation: auto; }
-
-  /* Content choreography: old page lifts away, new page rises in */
+  ::view-transition { background-color: #06211B; }
   ::view-transition-old(root) {
-    animation: 0.4s cubic-bezier(0.22, 1, 0.36, 1) both meridian-vt-out;
+    animation: 0.5s cubic-bezier(0.4, 0, 0.2, 1) both meridian-vt-out;
   }
   ::view-transition-new(root) {
-    animation: 0.55s 0.05s cubic-bezier(0.16, 1, 0.3, 1) both meridian-vt-in;
+    animation: 0.7s 0.24s cubic-bezier(0.16, 1, 0.3, 1) both meridian-vt-in;
   }
-  @keyframes meridian-vt-out { to { opacity: 0; transform: translateY(-14px); } }
-  @keyframes meridian-vt-in { from { opacity: 0; transform: translateY(18px); } }
-
-  /* Header lives in its own transition group and is frozen,
-     so the nav appears fixed while page content animates beneath it. */
+  @keyframes meridian-vt-out {
+    to { opacity: 0; transform: scale(0.982) translateY(-12px); filter: brightness(0.82); }
+  }
+  @keyframes meridian-vt-in {
+    from { opacity: 0; transform: scale(1.02) translateY(18px); filter: brightness(1.08); }
+  }
   #siteNav { view-transition-name: site-header; }
   ::view-transition-group(site-header) { animation-duration: 0s; }
   ::view-transition-old(site-header),
   ::view-transition-new(site-header) { animation: none; }
-
   @media (prefers-reduced-motion: reduce) {
     ::view-transition-old(root), ::view-transition-new(root),
     ::view-transition-old(site-header), ::view-transition-new(site-header) {
@@ -953,6 +950,36 @@
     }
   }
 </style>
+<style id="meridian-v91-fx">
+  /* ---------- v9.1: 3D card system ---------- */
+  .premium-card {
+    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) scale(var(--sc, 1));
+    box-shadow: 0 1px 2px rgba(6,33,27,.05), 0 10px 30px -18px rgba(6,33,27,.18);
+  }
+  .premium-card:hover { --ty: -7px; --sc: 1.012; }
+  .premium-card.tilting {
+    transition: transform .09s linear, box-shadow .6s var(--ease-out-expo), border-color .6s var(--ease-out-expo);
+  }
+  .card-glare {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    transition: opacity .35s ease; border-radius: inherit;
+    background: radial-gradient(460px circle at var(--gx, 50%) var(--gy, 50%), rgba(228,201,136,.20), transparent 65%);
+    mix-blend-mode: screen; z-index: 2;
+  }
+  .premium-card:hover .card-glare { opacity: 1; }
+  /* entrance depth */
+  .reveal-on-scroll { transform: translateY(18px) scale(.985); }
+  .reveal-on-scroll.revealed { transform: translateY(0) scale(1); }
+  /* ---------- v9.1: full-bleed subpage heroes ---------- */
+  .hero-full { min-height: min(88vh, 950px); display: flex; align-items: center; }
+  .hero-full > .relative.max-w-7xl { width: 100%; }
+  @media (max-width: 768px) { .hero-full { min-height: 76vh; } }
+  @media (prefers-reduced-motion: reduce), (pointer: coarse) {
+    .premium-card { transform: none !important; }
+    .card-glare { display: none; }
+  }
+</style>
+<meta name="theme-color" content="#06211B" />
 </head>
 <body class="overflow-x-hidden">
 
@@ -1173,7 +1200,7 @@ function meridianCookieConsent(acceptAll){
 </nav>
 
 <!-- HERO -->
-<section class="relative bg-forest-950 text-white overflow-hidden grain">
+<section class="relative bg-forest-950 text-white overflow-hidden grain hero-full">
   <div class="absolute inset-0 fine-grid opacity-70"></div>
   <div class="absolute inset-0 gold-glow"></div>
   <div class="absolute inset-0 gold-glow-2"></div>
@@ -1766,5 +1793,59 @@ function meridianCookieConsent(acceptAll){
 })();
 </script>
 
+<script id="meridian-v91-fx-js">
+(function(){
+  'use strict';
+  var fine = matchMedia('(pointer: fine)').matches;
+  var noMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- 3D pointer tilt + glare ---------- */
+  if (fine && !noMotion) {
+    document.querySelectorAll('.premium-card').forEach(function(card){
+      var glare = document.createElement('span');
+      glare.className = 'card-glare';
+      card.appendChild(glare);
+      var raf = null;
+      card.addEventListener('pointerenter', function(){ card.classList.add('tilting'); });
+      card.addEventListener('pointermove', function(e){
+        if (raf) return;
+        raf = requestAnimationFrame(function(){
+          raf = null;
+          var r = card.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width;
+          var py = (e.clientY - r.top) / r.height;
+          card.style.setProperty('--ry', ((px - 0.5) * 7).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((0.5 - py) * 5).toFixed(2) + 'deg');
+          card.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+          card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+        });
+      });
+      card.addEventListener('pointerleave', function(){
+        card.classList.remove('tilting');
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+
+  /* ---------- Fade-out navigation fallback (browsers without cross-document view transitions) ---------- */
+  var hasVT = ('CSSViewTransitionRule' in window);
+  if (!hasVT && !noMotion) {
+    document.addEventListener('click', function(ev){
+      var link = ev.target.closest && ev.target.closest('a[href]');
+      if (!link || ev.defaultPrevented || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+      if (link.target && link.target !== '_self') return;
+      var url;
+      try { url = new URL(link.getAttribute('href'), location.href); } catch(e){ return; }
+      if (url.origin !== location.origin) return;
+      if (url.pathname === location.pathname && url.hash) return;
+      ev.preventDefault();
+      document.documentElement.style.transition = 'opacity 0.3s ease';
+      document.documentElement.style.opacity = '0';
+      setTimeout(function(){ location.href = url.href; }, 290);
+    }, true);
+  }
+})();
+</script>
 </body>
 </html>

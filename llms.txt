@@ -1,0 +1,26 @@
+# Meridian Partners
+
+> Boutique cybersecurity advisory for regulated enterprises. Fractional CISO (vCISO), compliance gap analysis, AI security readiness, independent vendor evaluation, and a dedicated DFSA · FSRA regulatory practice. Offices in London and Dubai; UAE-incorporated (Meridian Partners FZCO, IFZA Licence 89800). Operating across EMEA, APAC, and the Americas.
+
+Meridian Partners advises boards and executive teams in regulated finance, insurance, hospitality, and healthcare. Independence is core: no vendor commissions, no reseller incentives, transparent month-to-month retainers. Engagements are led by senior practitioners holding CISSP, CISM, CRISC, and CCIE.
+
+## Services
+- [Fractional CISO](https://meridianpartners.me/fractional-ciso.html): Board-level security leadership on retainer — strategy, governance, regulator dialogue, named-CISO appointments for DIFC/ADGM firms.
+- [Compliance Gap Analysis](https://meridianpartners.me/gap-analysis.html): ISO 27001:2022, PCI DSS v4.0, GDPR, and UAE PDPL readiness with prioritised remediation roadmaps.
+- [AI Security Readiness & Gap Analysis](https://meridianpartners.me/gap-analysis.html#ai-readiness): ISO/IEC 42001 and EU AI Act readiness, AI risk register and model inventory, LLM/GenAI usage assessment, vendor AI due diligence.
+- [Vendor Evaluation & Negotiation](https://meridianpartners.me/vendor-evaluation.html): Independent technical evaluation and commercial negotiation for major security and technology purchases — zero vendor kickbacks.
+- [DFSA · FSRA Regulatory Practice](https://meridianpartners.me/dfsa-fsra-practice.html): Cybersecurity (DFSA GEN 5.5), operational resilience, and business continuity for DIFC and ADGM authorised firms, delivered to regulator evidential expectations.
+
+## Industries
+- [Industries overview](https://meridianpartners.me/industries.html): Banks, exchanges, brokers, fintechs, payment providers, virtual-asset firms (DFSA, FSRA, CBUAE, VARA), insurance & brokers, hospitality & resorts, healthcare & life sciences.
+
+## Key pages
+- [Services hub](https://meridianpartners.me/services.html): All practices with transparent retainer tiers.
+- [About](https://meridianpartners.me/about.html): Firm model, five-step engagement method, credentials.
+- [Contact](https://meridianpartners.me/contact.html): 30-minute strategic consultation (no fee) and FAQ.
+- [DFSA & FSRA Cyber Readiness Checklist](https://meridianpartners.me/readiness-checklist.html): Free 38-point self-assessment for DIFC and ADGM authorised firms.
+
+## Contact
+- Email: info@meridianpartners.me
+- UAE: +971 55 928 6300 · UK: +44 7828 743250
+- LinkedIn: https://www.linkedin.com/company/meridian-partners/

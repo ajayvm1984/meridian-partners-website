@@ -921,28 +921,25 @@
 
 
 <style id="meridian-view-transition-css">
-  /* Native cross-document view transitions (no JS).
-     Both pages opt in via the at-rule; Chrome/Edge 126+, Safari 18.2+.
-     Firefox gets the soft fallback fade below. */
+  /* Cinematic cross-document transitions — fade out through brand green, fade in */
   @view-transition { navigation: auto; }
-
-  /* Content choreography: old page lifts away, new page rises in */
+  ::view-transition { background-color: #06211B; }
   ::view-transition-old(root) {
-    animation: 0.4s cubic-bezier(0.22, 1, 0.36, 1) both meridian-vt-out;
+    animation: 0.5s cubic-bezier(0.4, 0, 0.2, 1) both meridian-vt-out;
   }
   ::view-transition-new(root) {
-    animation: 0.55s 0.05s cubic-bezier(0.16, 1, 0.3, 1) both meridian-vt-in;
+    animation: 0.7s 0.24s cubic-bezier(0.16, 1, 0.3, 1) both meridian-vt-in;
   }
-  @keyframes meridian-vt-out { to { opacity: 0; transform: translateY(-14px); } }
-  @keyframes meridian-vt-in { from { opacity: 0; transform: translateY(18px); } }
-
-  /* Header lives in its own transition group and is frozen,
-     so the nav appears fixed while page content animates beneath it. */
+  @keyframes meridian-vt-out {
+    to { opacity: 0; transform: scale(0.982) translateY(-12px); filter: brightness(0.82); }
+  }
+  @keyframes meridian-vt-in {
+    from { opacity: 0; transform: scale(1.02) translateY(18px); filter: brightness(1.08); }
+  }
   #siteNav { view-transition-name: site-header; }
   ::view-transition-group(site-header) { animation-duration: 0s; }
   ::view-transition-old(site-header),
   ::view-transition-new(site-header) { animation: none; }
-
   @media (prefers-reduced-motion: reduce) {
     ::view-transition-old(root), ::view-transition-new(root),
     ::view-transition-old(site-header), ::view-transition-new(site-header) {
@@ -959,6 +956,82 @@
     }
   }
 </style>
+<style id="meridian-v91-fx">
+  /* ---------- v9.1: 3D card system ---------- */
+  .premium-card {
+    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) scale(var(--sc, 1));
+    box-shadow: 0 1px 2px rgba(6,33,27,.05), 0 10px 30px -18px rgba(6,33,27,.18);
+  }
+  .premium-card:hover { --ty: -7px; --sc: 1.012; }
+  .premium-card.tilting {
+    transition: transform .09s linear, box-shadow .6s var(--ease-out-expo), border-color .6s var(--ease-out-expo);
+  }
+  .card-glare {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    transition: opacity .35s ease; border-radius: inherit;
+    background: radial-gradient(460px circle at var(--gx, 50%) var(--gy, 50%), rgba(228,201,136,.20), transparent 65%);
+    mix-blend-mode: screen; z-index: 2;
+  }
+  .premium-card:hover .card-glare { opacity: 1; }
+  /* entrance depth */
+  .reveal-on-scroll { transform: translateY(18px) scale(.985); }
+  .reveal-on-scroll.revealed { transform: translateY(0) scale(1); }
+  /* ---------- v9.1: full-bleed subpage heroes ---------- */
+  .hero-full { min-height: min(88vh, 950px); display: flex; align-items: center; }
+  .hero-full > .relative.max-w-7xl { width: 100%; }
+  @media (max-width: 768px) { .hero-full { min-height: 76vh; } }
+  @media (prefers-reduced-motion: reduce), (pointer: coarse) {
+    .premium-card { transform: none !important; }
+    .card-glare { display: none; }
+  }
+</style>
+<meta name="theme-color" content="#06211B" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://meridianpartners.me/#organization",
+      "name": "Meridian Partners",
+      "legalName": "Meridian Partners FZCO",
+      "url": "https://meridianpartners.me/",
+      "logo": "https://meridianpartners.me/logo.svg",
+      "image": "https://meridianpartners.me/og-image.jpg",
+      "description": "Boutique cybersecurity advisory for regulated enterprises — Fractional CISO, compliance gap analysis, AI security readiness, independent vendor evaluation, and a dedicated DFSA/FSRA regulatory practice. London & Dubai.",
+      "email": "info@meridianpartners.me",
+      "telephone": "+971559286300",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "IFZA Business Park, Dubai Digital Park, Dubai Silicon Oasis",
+        "addressLocality": "Dubai",
+        "addressCountry": "AE"
+      },
+      "areaServed": ["AE", "GB", "EMEA", "APAC"],
+      "sameAs": ["https://www.linkedin.com/company/meridian-partners/"],
+      "knowsAbout": ["DFSA cyber risk management", "FSRA operational resilience", "Fractional CISO", "vCISO", "ISO 27001", "PCI DSS", "UAE PDPL", "AI security governance", "ISO/IEC 42001", "vendor evaluation"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Advisory Practices",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fractional CISO", "url": "https://meridianpartners.me/fractional-ciso.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Compliance Gap Analysis", "url": "https://meridianpartners.me/gap-analysis.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vendor Evaluation & Negotiation", "url": "https://meridianpartners.me/vendor-evaluation.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DFSA · FSRA Regulatory Practice", "url": "https://meridianpartners.me/dfsa-fsra-practice.html" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Security Readiness & Gap Analysis", "url": "https://meridianpartners.me/gap-analysis.html#ai-readiness" } }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://meridianpartners.me/#website",
+      "url": "https://meridianpartners.me/",
+      "name": "Meridian Partners",
+      "publisher": { "@id": "https://meridianpartners.me/#organization" }
+    }
+  ]
+}
+</script>
 </head>
 <body class="overflow-x-hidden">
 
@@ -1505,14 +1578,7 @@ function meridianCookieConsent(acceptAll){
       <div class="edit-card p-10 group premium-card">
         <div class="flex items-start justify-between mb-8">
           <div class="service-icon w-14 h-14 text-forest-950">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.25">
-              <rect x="12" y="8" width="40" height="48" rx="2"/>
-              <line x1="20" y1="20" x2="44" y2="20"/>
-              <line x1="20" y1="28" x2="44" y2="28"/>
-              <line x1="20" y1="36" x2="36" y2="36"/>
-              <circle cx="42" cy="44" r="6" stroke-width="1.5"/>
-              <path d="M39 44 L41 46 L45 42" stroke-width="1.5"/>
-            </svg>
+            <svg  fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
           </div>
           <div class="font-display text-4xl text-gold/40 italic">v</div>
         </div>
@@ -1713,7 +1779,7 @@ function meridianCookieConsent(acceptAll){
         </p>
         <div class="pt-5 border-t border-forest-950/10">
           <div class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase mb-3">Regulator Coverage</div>
-        <div class="flex flex-wrap gap-x-3 gap-y-1.5 font-medium text-[13px] text-forest-950">
+        <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs text-forest-950 font-medium">
           <span>DFSA</span><span class="text-stone-400">·</span>
           <span>FSRA</span><span class="text-stone-400">·</span>
           <span>CBUAE</span><span class="text-stone-400">·</span>
@@ -2543,5 +2609,59 @@ function meridianCookieConsent(acceptAll){
 <!-- Cal.com modal popup loader -->
 
 
+<script id="meridian-v91-fx-js">
+(function(){
+  'use strict';
+  var fine = matchMedia('(pointer: fine)').matches;
+  var noMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- 3D pointer tilt + glare ---------- */
+  if (fine && !noMotion) {
+    document.querySelectorAll('.premium-card').forEach(function(card){
+      var glare = document.createElement('span');
+      glare.className = 'card-glare';
+      card.appendChild(glare);
+      var raf = null;
+      card.addEventListener('pointerenter', function(){ card.classList.add('tilting'); });
+      card.addEventListener('pointermove', function(e){
+        if (raf) return;
+        raf = requestAnimationFrame(function(){
+          raf = null;
+          var r = card.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width;
+          var py = (e.clientY - r.top) / r.height;
+          card.style.setProperty('--ry', ((px - 0.5) * 7).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((0.5 - py) * 5).toFixed(2) + 'deg');
+          card.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+          card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+        });
+      });
+      card.addEventListener('pointerleave', function(){
+        card.classList.remove('tilting');
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+
+  /* ---------- Fade-out navigation fallback (browsers without cross-document view transitions) ---------- */
+  var hasVT = ('CSSViewTransitionRule' in window);
+  if (!hasVT && !noMotion) {
+    document.addEventListener('click', function(ev){
+      var link = ev.target.closest && ev.target.closest('a[href]');
+      if (!link || ev.defaultPrevented || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+      if (link.target && link.target !== '_self') return;
+      var url;
+      try { url = new URL(link.getAttribute('href'), location.href); } catch(e){ return; }
+      if (url.origin !== location.origin) return;
+      if (url.pathname === location.pathname && url.hash) return;
+      ev.preventDefault();
+      document.documentElement.style.transition = 'opacity 0.3s ease';
+      document.documentElement.style.opacity = '0';
+      setTimeout(function(){ location.href = url.href; }, 290);
+    }, true);
+  }
+})();
+</script>
 </body>
 </html>
