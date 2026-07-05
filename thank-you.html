@@ -418,19 +418,42 @@ footer a:hover { color: var(--gold-light); }
 </style>
 
 <style id="meridian-view-transition-css">
+  /* Native cross-document view transitions (no JS).
+     Both pages opt in via the at-rule; Chrome/Edge 126+, Safari 18.2+.
+     Firefox gets the soft fallback fade below. */
   @view-transition { navigation: auto; }
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-duration: 0.6s;
-    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Content choreography: old page lifts away, new page rises in */
+  ::view-transition-old(root) {
+    animation: 0.4s cubic-bezier(0.22, 1, 0.36, 1) both meridian-vt-out;
   }
-  ::view-transition-old(root) { animation-name: meridian-vt-out; }
-  ::view-transition-new(root) { animation-name: meridian-vt-in; }
-  @keyframes meridian-vt-out { to { opacity: 0; transform: translateY(-10px); } }
-  @keyframes meridian-vt-in { from { opacity: 0; transform: translateY(14px); } }
+  ::view-transition-new(root) {
+    animation: 0.55s 0.05s cubic-bezier(0.16, 1, 0.3, 1) both meridian-vt-in;
+  }
+  @keyframes meridian-vt-out { to { opacity: 0; transform: translateY(-14px); } }
+  @keyframes meridian-vt-in { from { opacity: 0; transform: translateY(18px); } }
+
+  /* Header lives in its own transition group and is frozen,
+     so the nav appears fixed while page content animates beneath it. */
+  #siteNav { view-transition-name: site-header; }
+  ::view-transition-group(site-header) { animation-duration: 0s; }
+  ::view-transition-old(site-header),
+  ::view-transition-new(site-header) { animation: none; }
+
   @media (prefers-reduced-motion: reduce) {
-    ::view-transition-old(root),
-    ::view-transition-new(root) { animation-duration: 0.01ms; }
+    ::view-transition-old(root), ::view-transition-new(root),
+    ::view-transition-old(site-header), ::view-transition-new(site-header) {
+      animation-duration: 0.01ms !important;
+    }
+  }
+</style>
+<style id="meridian-page-fade-fallback">
+  /* Browsers without view transitions: gentle page-enter fade */
+  @supports not (view-transition-name: root) {
+    @media (prefers-reduced-motion: no-preference) {
+      body { animation: meridian-page-in 0.35s ease-out both; }
+      @keyframes meridian-page-in { from { opacity: 0; } }
+    }
   }
 </style>
 </head>
@@ -596,23 +619,6 @@ footer a:hover { color: var(--gold-light); }
     if (checklistBlock) checklistBlock.classList.add('active');
   }
   // else: default block remains visible
-})();
-</script>
-
-
-<script id="meridian-view-transition-script">
-(function(){
-  if (!('startViewTransition' in document)) return;
-  document.addEventListener('click', function(event){
-    var link = event.target.closest && event.target.closest('a[href]');
-    if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    var url = new URL(link.getAttribute('href'), window.location.href);
-    if (url.origin !== window.location.origin) return;
-    if (url.pathname === window.location.pathname && url.hash) return;
-    if (!url.pathname.endsWith('.html') && url.pathname !== '/' && url.pathname !== '') return;
-    event.preventDefault();
-    document.startViewTransition(function(){ window.location.href = url.href; });
-  }, true);
 })();
 </script>
 

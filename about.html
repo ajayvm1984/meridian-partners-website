@@ -654,35 +654,32 @@
     --duration-slow: 1.4s;
   }
 
-  /* ---------- Enhanced section reveal (replaces v3 simple fade) ---------- */
+  /* ---------- Section reveal — fast, crisp, no blur (v9) ---------- */
   .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(32px);
-    transition: opacity var(--duration-base) var(--ease-out-expo),
-                transform var(--duration-base) var(--ease-out-expo),
-                filter 1.1s var(--ease-out-expo);
-    filter: blur(4px);
-    will-change: opacity, transform, filter;
+    transform: translateY(16px);
+    transition: opacity 0.45s var(--ease-out-expo),
+                transform 0.45s var(--ease-out-expo);
+    will-change: opacity, transform;
   }
   .reveal-on-scroll.revealed {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 
   /* ---------- Staggered child reveals ---------- */
   .reveal-stagger > * {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s var(--ease-out-expo),
-                transform 0.8s var(--ease-out-expo);
+    transform: translateY(12px);
+    transition: opacity 0.4s var(--ease-out-expo),
+                transform 0.4s var(--ease-out-expo);
   }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: none; }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: none; }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: none; }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: none; }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: none; }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(n+6) { transition-delay: 0.55s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(1) { transition-delay: 0.03s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(2) { transition-delay: 0.06s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(3) { transition-delay: 0.09s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(4) { transition-delay: 0.12s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(5) { transition-delay: 0.15s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(n+6) { transition-delay: 0.18s; opacity: 1; transform: none; }
 
   /* ---------- Number count-up containers ---------- */
   .count-up {
@@ -920,19 +917,42 @@
 </style>
 
 <style id="meridian-view-transition-css">
+  /* Native cross-document view transitions (no JS).
+     Both pages opt in via the at-rule; Chrome/Edge 126+, Safari 18.2+.
+     Firefox gets the soft fallback fade below. */
   @view-transition { navigation: auto; }
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-duration: 0.6s;
-    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Content choreography: old page lifts away, new page rises in */
+  ::view-transition-old(root) {
+    animation: 0.4s cubic-bezier(0.22, 1, 0.36, 1) both meridian-vt-out;
   }
-  ::view-transition-old(root) { animation-name: meridian-vt-out; }
-  ::view-transition-new(root) { animation-name: meridian-vt-in; }
-  @keyframes meridian-vt-out { to { opacity: 0; transform: translateY(-10px); } }
-  @keyframes meridian-vt-in { from { opacity: 0; transform: translateY(14px); } }
+  ::view-transition-new(root) {
+    animation: 0.55s 0.05s cubic-bezier(0.16, 1, 0.3, 1) both meridian-vt-in;
+  }
+  @keyframes meridian-vt-out { to { opacity: 0; transform: translateY(-14px); } }
+  @keyframes meridian-vt-in { from { opacity: 0; transform: translateY(18px); } }
+
+  /* Header lives in its own transition group and is frozen,
+     so the nav appears fixed while page content animates beneath it. */
+  #siteNav { view-transition-name: site-header; }
+  ::view-transition-group(site-header) { animation-duration: 0s; }
+  ::view-transition-old(site-header),
+  ::view-transition-new(site-header) { animation: none; }
+
   @media (prefers-reduced-motion: reduce) {
-    ::view-transition-old(root),
-    ::view-transition-new(root) { animation-duration: 0.01ms; }
+    ::view-transition-old(root), ::view-transition-new(root),
+    ::view-transition-old(site-header), ::view-transition-new(site-header) {
+      animation-duration: 0.01ms !important;
+    }
+  }
+</style>
+<style id="meridian-page-fade-fallback">
+  /* Browsers without view transitions: gentle page-enter fade */
+  @supports not (view-transition-name: root) {
+    @media (prefers-reduced-motion: no-preference) {
+      body { animation: meridian-page-in 0.35s ease-out both; }
+      @keyframes meridian-page-in { from { opacity: 0; } }
+    }
   }
 </style>
 </head>
@@ -1104,7 +1124,7 @@ function meridianCookieConsent(acceptAll){
 </script>
 
 <!-- NAVIGATION -->
-<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-forest-950/92 border-b border-gold/10">
+<nav id="siteNav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-forest-950/92 border-b border-gold/10">
   <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
     <a href="index.html" class="flex items-center gap-3 group">
       <!-- Custom Meridian compass logo -->
@@ -1123,7 +1143,7 @@ function meridianCookieConsent(acceptAll){
     </a>
     <div class="hidden md:flex items-center gap-8">
       <div class="relative group">
-        <a href="index.html#services" class="text-stone-100/90 hover:text-gold text-sm transition flex items-center gap-1">Services <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+        <a href="services.html" class="text-stone-100/90 hover:text-gold text-sm transition flex items-center gap-1">Services <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
         <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
           <div class="bg-forest-950 border border-gold/20 shadow-2xl min-w-[240px] py-2">
             <a href="fractional-ciso.html" class="block px-5 py-2.5 text-sm text-stone-100/90 hover:text-gold hover:bg-forest-900 transition">Fractional CISO</a>
@@ -1133,8 +1153,7 @@ function meridianCookieConsent(acceptAll){
           </div>
         </div>
       </div>
-      <a href="index.html#industries" class="text-stone-100/90 hover:text-gold text-sm transition">Industries</a>
-      <a href="index.html#insights" class="text-stone-100/90 hover:text-gold text-sm transition">Insights</a>
+      <a href="industries.html" class="text-stone-100/90 hover:text-gold text-sm transition">Industries</a>
       <a href="about.html" class="text-gold hover:text-gold text-sm transition">About</a>
       <a href="contact.html" class="btn-primary text-sm px-5 py-2.5 font-medium ml-2">Book Consultation →</a>
     </div>
@@ -1148,8 +1167,7 @@ function meridianCookieConsent(acceptAll){
       <a href="gap-analysis.html" class="text-stone-100/80 text-sm pl-4">Compliance Gap Analysis</a>
       <a href="vendor-evaluation.html" class="text-stone-100/80 text-sm pl-4">Vendor Evaluation</a>
       <a href="dfsa-fsra-practice.html" class="text-stone-100/80 text-sm pl-4">DFSA · FSRA Practice</a>
-      <a href="index.html#industries" class="text-stone-100/90 text-base">Industries</a>
-      <a href="index.html#insights" class="text-stone-100/90 text-base">Insights</a>
+      <a href="industries.html" class="text-stone-100/90 text-base">Industries</a>
       <a href="about.html" class="text-gold text-base">About</a>
       <a href="contact.html" class="btn-primary text-sm px-5 py-3 text-center font-medium mt-2">Book Consultation →</a>
     </div>
@@ -1430,6 +1448,198 @@ function meridianCookieConsent(acceptAll){
 </section>
 
 <!-- FOOTER -->
+<!-- ENGAGEMENT PROCESS (moved from home, v9) -->
+<section id="process" class="relative py-28 lg:py-36 bg-forest-950 text-white overflow-hidden grain reveal-on-scroll">
+  <div class="absolute inset-0 fine-grid opacity-40"></div>
+  <div class="absolute inset-0 gold-glow opacity-60"></div>
+  <div class="absolute top-0 left-0 right-0 h-px meridian-line"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+
+    <!-- Section header -->
+    <div class="grid lg:grid-cols-12 gap-12 mb-20">
+      <div class="lg:col-span-5">
+        <div class="section-num text-gold mb-5">/ 07 — Engagement Process</div>
+        <h2 class="display-heading text-5xl md:text-6xl lg:text-7xl text-white leading-[0.95]">
+          A disciplined<br/>
+          <em class="text-gold italic">five-step method.</em>
+        </h2>
+      </div>
+      <div class="lg:col-span-6 lg:col-start-7 flex items-end">
+        <p class="text-lg text-stone-200 leading-relaxed">
+          Every engagement follows the same architected sequence — from the first scoping call to steady-state governance. No mystery, no billable-hour drift, no methodology invented on the fly. <em class="italic text-gold-light">Each step produces a named deliverable you can audit.</em>
+        </p>
+      </div>
+    </div>
+
+    <!-- Horizontal timeline connector (desktop only) -->
+    <div class="hidden lg:block relative mb-8">
+      <div class="absolute top-7 left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent"></div>
+    </div>
+
+    <!-- Process steps -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-4">
+
+      <!-- STEP 01 — Scope -->
+      <div class="relative">
+        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <!-- Step number circle -->
+          <div class="relative mb-6">
+            <div class="w-14 h-14 rounded-full bg-forest-950 border-2 border-gold flex items-center justify-center z-10 relative">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Step 01</div>
+          <h3 class="font-display text-2xl text-white mb-3">Scope</h3>
+          <p class="text-sm text-stone-200 leading-relaxed mb-5">
+            A 30-minute strategic consultation, followed by a written scoping document within 72 hours.
+          </p>
+          <ul class="space-y-2 text-xs text-stone-300 mb-6 text-left w-full">
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Problem framing &amp; fit assessment</span></li>
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Engagement tier recommendation</span></li>
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Commercial &amp; timeline envelope</span></li>
+          </ul>
+          <div class="w-full pt-4 border-t border-gold/20 text-left">
+            <div class="font-mono text-[9px] text-gold tracking-[0.25em] uppercase mb-1">Deliverable</div>
+            <p class="text-xs text-stone-100">Scoping document &amp; SOW</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 02 — Assess -->
+      <div class="relative">
+        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div class="relative mb-6">
+            <div class="w-14 h-14 rounded-full bg-forest-950 border-2 border-gold flex items-center justify-center z-10 relative">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Step 02</div>
+          <h3 class="font-display text-2xl text-white mb-3">Assess</h3>
+          <p class="text-sm text-stone-200 leading-relaxed mb-5">
+            Structured diagnostic of current-state security, architecture, and control posture.
+          </p>
+          <ul class="space-y-2 text-xs text-stone-300 mb-6 text-left w-full">
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Gap analysis against target framework</span></li>
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Risk register &amp; threat modelling</span></li>
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Architecture &amp; vendor stack review</span></li>
+          </ul>
+          <div class="w-full pt-4 border-t border-gold/20 text-left">
+            <div class="font-mono text-[9px] text-gold tracking-[0.25em] uppercase mb-1">Deliverable</div>
+            <p class="text-xs text-stone-100">Diagnostic report &amp; risk register</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 03 — Strategise (FEATURED) -->
+      <div class="relative">
+        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div class="relative mb-6">
+            <div class="w-14 h-14 rounded-full bg-gold border-2 border-gold flex items-center justify-center z-10 relative shadow-lg shadow-gold/30">
+              <svg class="w-6 h-6 text-forest-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Step 03 · Core</div>
+          <h3 class="font-display text-2xl text-white mb-3">Strategise</h3>
+          <p class="text-sm text-stone-200 leading-relaxed mb-5">
+            Target-state design, prioritised roadmap, and board-ready narrative translating risk into business terms.
+          </p>
+          <ul class="space-y-2 text-xs text-stone-300 mb-6 text-left w-full">
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Target architecture &amp; control design</span></li>
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Multi-year remediation roadmap</span></li>
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Budget &amp; sequencing plan</span></li>
+          </ul>
+          <div class="w-full pt-4 border-t border-gold/20 text-left">
+            <div class="font-mono text-[9px] text-gold tracking-[0.25em] uppercase mb-1">Deliverable</div>
+            <p class="text-xs text-stone-100">Strategy document &amp; board pack</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 04 — Execute -->
+      <div class="relative">
+        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div class="relative mb-6">
+            <div class="w-14 h-14 rounded-full bg-forest-950 border-2 border-gold flex items-center justify-center z-10 relative">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Step 04</div>
+          <h3 class="font-display text-2xl text-white mb-3">Execute</h3>
+          <p class="text-sm text-stone-200 leading-relaxed mb-5">
+            Hands-on delivery alongside your team. We implement — not just advise.
+          </p>
+          <ul class="space-y-2 text-xs text-stone-300 mb-6 text-left w-full">
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Vendor RFPs &amp; contract negotiation</span></li>
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Policy drafting &amp; control implementation</span></li>
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Team enablement &amp; knowledge transfer</span></li>
+          </ul>
+          <div class="w-full pt-4 border-t border-gold/20 text-left">
+            <div class="font-mono text-[9px] text-gold tracking-[0.25em] uppercase mb-1">Deliverable</div>
+            <p class="text-xs text-stone-100">Implemented controls &amp; policies</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 05 — Govern -->
+      <div class="relative">
+        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div class="relative mb-6">
+            <div class="w-14 h-14 rounded-full bg-forest-950 border-2 border-gold flex items-center justify-center z-10 relative">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.1-1.343 2-3 2s-3-.9-3-2 1.343-2 3-2 3 .9 3 2zm12-3c0 1.1-1.343 2-3 2s-3-.9-3-2 1.343-2 3-2 3 .9 3 2z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Step 05</div>
+          <h3 class="font-display text-2xl text-white mb-3">Govern</h3>
+          <p class="text-sm text-stone-200 leading-relaxed mb-5">
+            Ongoing stewardship of the programme — monthly rhythm, board reporting, incident readiness.
+          </p>
+          <ul class="space-y-2 text-xs text-stone-300 mb-6 text-left w-full">
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Monthly risk &amp; control reviews</span></li>
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Quarterly board reporting</span></li>
+            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Vendor renewal &amp; incident advocacy</span></li>
+          </ul>
+          <div class="w-full pt-4 border-t border-gold/20 text-left">
+            <div class="font-mono text-[9px] text-gold tracking-[0.25em] uppercase mb-1">Deliverable</div>
+            <p class="text-xs text-stone-100">Ongoing executive reporting</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Closing promise band -->
+    <div class="mt-20 pt-10 border-t border-gold/20 grid md:grid-cols-3 gap-8 text-center md:text-left">
+      <div>
+        <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Typical Onboarding</div>
+        <p class="text-white text-2xl font-display">7–14 days</p>
+        <p class="text-xs text-stone-300 mt-1">From SOW signature to active engagement</p>
+      </div>
+      <div>
+        <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Cadence</div>
+        <p class="text-white text-2xl font-display">Monthly rhythm</p>
+        <p class="text-xs text-stone-300 mt-1">Fortnightly operational · monthly exec</p>
+      </div>
+      <div>
+        <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Notice Period</div>
+        <p class="text-white text-2xl font-display">30 days</p>
+        <p class="text-xs text-stone-300 mt-1">Pause, scale, or exit at any time</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <footer class="bg-ink text-white border-t border-gold/10">
   <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
     <!-- Top row: navigation + offices -->
@@ -1467,12 +1677,12 @@ function meridianCookieConsent(acceptAll){
       <div class="md:col-span-2">
         <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-gold mb-4">Firm</div>
         <ul class="space-y-2.5 text-sm text-stone-300">
-          <li><a href="index.html#industries" class="hover:text-gold transition">Industries</a></li>
+          <li><a href="industries.html" class="hover:text-gold transition">Industries</a></li>
           <li><a href="index.html#cases" class="hover:text-gold transition">Case Studies</a></li>
-          <li><a href="index.html#process" class="hover:text-gold transition">Process</a></li>
-          <li><a href="index.html#pricing" class="hover:text-gold transition">Pricing</a></li>
+          <li><a href="about.html#process" class="hover:text-gold transition">Process</a></li>
+          <li><a href="services.html#pricing" class="hover:text-gold transition">Pricing</a></li>
           <li><a href="index.html#insights" class="hover:text-gold transition">Insights</a></li>
-          <li><a href="index.html#faq" class="hover:text-gold transition">FAQ</a></li>
+          <li><a href="contact.html#faq" class="hover:text-gold transition">FAQ</a></li>
           <li><a href="about.html" class="hover:text-gold transition">About</a></li>
           <li><a href="contact.html" class="hover:text-gold transition">Contact</a></li>
         </ul>
@@ -1570,7 +1780,7 @@ function meridianCookieConsent(acceptAll){
   }, { threshold: 0.1 });
 
   document.querySelectorAll('section h2, section .edit-card, section .price-card').forEach(el => {
-    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
     observer.observe(el);
   });
 </script>
@@ -1591,15 +1801,13 @@ function meridianCookieConsent(acceptAll){
       entries.forEach(function(entry){
         if (entry.isIntersecting) {
           // Slight delay for natural feel — never instant
-          setTimeout(function(){
-            entry.target.classList.add('revealed');
-          }, 60);
+          entry.target.classList.add('revealed');
           revealObserver.unobserve(entry.target);
         }
       });
     }, {
       threshold: 0.01,
-      rootMargin: '0px 0px 120px 0px'
+      rootMargin: '0px 0px 20% 0px'
     });
     document.querySelectorAll('.reveal-on-scroll').forEach(function(el){ revealObserver.observe(el); });
   }
@@ -1671,22 +1879,6 @@ function meridianCookieConsent(acceptAll){
     });
   });
 
-})();
-</script>
-
-<script id="meridian-view-transition-script">
-(function(){
-  if (!('startViewTransition' in document)) return;
-  document.addEventListener('click', function(event){
-    var link = event.target.closest && event.target.closest('a[href]');
-    if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    var url = new URL(link.getAttribute('href'), window.location.href);
-    if (url.origin !== window.location.origin) return;
-    if (url.pathname === window.location.pathname && url.hash) return;
-    if (!url.pathname.endsWith('.html') && url.pathname !== '/' && url.pathname !== '') return;
-    event.preventDefault();
-    document.startViewTransition(function(){ window.location.href = url.href; });
-  }, true);
 })();
 </script>
 

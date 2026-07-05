@@ -640,35 +640,32 @@
     --duration-slow: 1.4s;
   }
 
-  /* ---------- Enhanced section reveal (replaces v3 simple fade) ---------- */
+  /* ---------- Section reveal — fast, crisp, no blur (v9) ---------- */
   .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(32px);
-    transition: opacity var(--duration-base) var(--ease-out-expo),
-                transform var(--duration-base) var(--ease-out-expo),
-                filter 1.1s var(--ease-out-expo);
-    filter: blur(4px);
-    will-change: opacity, transform, filter;
+    transform: translateY(16px);
+    transition: opacity 0.45s var(--ease-out-expo),
+                transform 0.45s var(--ease-out-expo);
+    will-change: opacity, transform;
   }
   .reveal-on-scroll.revealed {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 
   /* ---------- Staggered child reveals ---------- */
   .reveal-stagger > * {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s var(--ease-out-expo),
-                transform 0.8s var(--ease-out-expo);
+    transform: translateY(12px);
+    transition: opacity 0.4s var(--ease-out-expo),
+                transform 0.4s var(--ease-out-expo);
   }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: none; }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: none; }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: none; }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: none; }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: none; }
-  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(n+6) { transition-delay: 0.55s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(1) { transition-delay: 0.03s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(2) { transition-delay: 0.06s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(3) { transition-delay: 0.09s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(4) { transition-delay: 0.12s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(5) { transition-delay: 0.15s; opacity: 1; transform: none; }
+  .reveal-on-scroll.revealed.reveal-stagger > *:nth-child(n+6) { transition-delay: 0.18s; opacity: 1; transform: none; }
 
   /* ---------- Number count-up containers ---------- */
   .count-up {
@@ -906,365 +903,7 @@
 </style>
 
 <!-- Schema.org Structured Data — ProfessionalService + Organization -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://meridianpartners.me/#organization",
-      "name": "Meridian Partners",
-      "legalName": "Meridian Partners FZCO",
-      "alternateName": "Meridian Partners Advisory",
-      "url": "https://meridianpartners.me/",
-      "logo": "https://meridianpartners.me/logo.svg",
-      "image": "https://meridianpartners.me/og-image.jpg",
-      "description": "Boutique cybersecurity advisory providing Fractional CISO services, compliance gap analysis (ISO 27001:2022, PCI DSS v4.0, GDPR, UAE PDPL), independent vendor evaluation, and DFSA/FSRA regulatory advisory for regulated enterprises.",
-      "foundingDate": "2026-04-30",
-      "areaServed": [
-        {
-          "@type": "Place",
-          "name": "United Kingdom"
-        },
-        {
-          "@type": "Place",
-          "name": "United Arab Emirates"
-        },
-        {
-          "@type": "Place",
-          "name": "Europe"
-        },
-        {
-          "@type": "Place",
-          "name": "Middle East"
-        },
-        {
-          "@type": "Place",
-          "name": "Asia Pacific"
-        },
-        {
-          "@type": "Place",
-          "name": "North America"
-        }
-      ],
-      "serviceType": [
-        "Fractional CISO",
-        "Virtual CISO (vCISO)",
-        "ISO 27001 Gap Analysis",
-        "PCI DSS v4.0 Compliance",
-        "Cybersecurity Advisory",
-        "Vendor Evaluation and Negotiation",
-        "Zero Trust Architecture",
-        "GDPR Compliance",
-        "UAE PDPL Compliance",
-        "DFSA Cybersecurity Advisory",
-        "FSRA Cybersecurity Advisory",
-        "CBUAE Cybersecurity Advisory",
-        "VARA Crypto Compliance",
-        "ADHICS Healthcare Cybersecurity",
-        "UAE IAR Cybersecurity",
-        "DFSA Business Continuity Planning",
-        "FSRA Business Continuity Planning",
-        "DIFC Compliance Advisory",
-        "ADGM Compliance Advisory",
-        "Cyber Incident Response Planning",
-        "Vulnerability Assessment and Penetration Testing",
-        "ICAAP Integration",
-        "Third-Party Risk Management",
-        "Hospitality Cybersecurity",
-        "Healthcare Cybersecurity",
-        "Fintech vCISO",
-        "SaaS Cybersecurity Advisory"
-      ],
-      "address": [
-        {
-          "@type": "PostalAddress",
-          "addressLocality": "London",
-          "addressCountry": "GB",
-          "addressRegion": "Greater London"
-        },
-        {
-          "@type": "PostalAddress",
-          "addressLocality": "Dubai",
-          "addressCountry": "AE"
-        }
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+44-7828-743250",
-          "contactType": "customer service",
-          "areaServed": [
-            "GB",
-            "EU"
-          ],
-          "availableLanguage": "English"
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+971-55-928-6300",
-          "contactType": "customer service",
-          "areaServed": [
-            "AE",
-            "GCC"
-          ],
-          "availableLanguage": "English"
-        },
-        {
-          "@type": "ContactPoint",
-          "email": "info@meridianpartners.me",
-          "contactType": "customer service",
-          "availableLanguage": "English"
-        }
-      ],
-      "sameAs": [
-        "https://www.linkedin.com/company/meridian-partners/",
-        "https://meridianpartners.me/"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Meridian Partners Advisory Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "name": "Starter Retainer",
-            "description": "Gap analysis, online consulting, policy templates, email support.",
-            "price": "999",
-            "priceCurrency": "USD",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "999",
-              "priceCurrency": "USD",
-              "unitText": "MONTH"
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "Seed Retainer",
-            "description": "ISO 27001 / PCI DSS gap analysis, quarterly board reports, risk register.",
-            "price": "1499",
-            "priceCurrency": "USD",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "1499",
-              "priceCurrency": "USD",
-              "unitText": "MONTH"
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "Growth Retainer",
-            "description": "Vendor evaluation, board attendance, compliance execution support.",
-            "price": "2499",
-            "priceCurrency": "USD",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "2499",
-              "priceCurrency": "USD",
-              "unitText": "MONTH"
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "Enterprise Retainer",
-            "description": "Formally appointed CISO, incident response retainer, 24/7 escalation.",
-            "price": "5499",
-            "priceCurrency": "USD",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "5499",
-              "priceCurrency": "USD",
-              "unitText": "MONTH"
-            }
-          }
-        ]
-      },
-      "identifier": [
-        {
-          "@type": "PropertyValue",
-          "name": "IFZA Trade Licence Number",
-          "value": "89800"
-        }
-      ],
-      "countryOfOrigin": {
-        "@type": "Country",
-        "name": "United Arab Emirates"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://meridianpartners.me/#website",
-      "url": "https://meridianpartners.me/",
-      "name": "Meridian Partners",
-      "publisher": {
-        "@id": "https://meridianpartners.me/#organization"
-      },
-      "inLanguage": "en"
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is a Fractional CISO and how is it different from a vCISO?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A Fractional CISO (also known as vCISO or CISO-as-a-Service) is an experienced Chief Information Security Officer engaged on a part-time retainer basis, giving organisations executive-grade security leadership without the cost of a full-time hire. The terms are used interchangeably. Meridian Partners's Fractional CISO service includes security strategy, governance frameworks, board reporting, Zero Trust architecture design, and compliance oversight."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where is Meridian Partners based?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Meridian Partners is a UAE-incorporated cybersecurity advisory (IFZA, Dubai) with offices in London and Dubai, operating globally across EMEA, APAC, and the Americas. All engagements are delivered via secure video collaboration with on-site presence as required."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What compliance frameworks does Meridian Partners support?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Meridian Partners provides gap analysis and readiness services for ISO 27001:2022, PCI DSS v4.0, GDPR, and UAE PDPL. Each engagement produces a documented gap analysis, Statement of Applicability, risk register, and prioritised remediation roadmap."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does a Fractional CISO cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Meridian Partners offers monthly retainers across four tiers — Starter, Seed, Growth, and Enterprise — each scoped to the firm's size, regulatory exposure, and pace of work. All plans are month-to-month with no lock-in contracts. Engagements can be paused, scaled up, or scaled down with 30 days notice. Pricing is shared during the discovery call once we understand the scope."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does the engagement process look like?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Every engagement begins with a 30-minute strategic consultation at no cost. If there is mutual fit, a detailed scoping document is produced within 72 hours covering deliverables, timeline, and commercial terms. Formal engagement begins within 7-14 days of contract signature."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Meridian Partners take vendor commissions or kickbacks?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Meridian Partners operates on a strict independence principle — no vendor commissions, no channel-partner arrangements, and no resale agreements. Technology recommendations are based solely on client requirements, total cost of ownership, and architectural fit."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How confidential are client engagements?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Every engagement begins with a mutual NDA. Client identities are never disclosed in marketing material or case studies without explicit written permission. Case study descriptors (sector, geography, engagement type) are published only with client sign-off and at a level of abstraction that protects identity."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which UAE financial regulators do you advise across?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our Financial Services Practice covers the four primary UAE regulators directly: DFSA (Dubai Financial Services Authority, DIFC), FSRA (Financial Services Regulatory Authority, ADGM), CBUAE (Central Bank of the UAE, for onshore banks and payment providers), and VARA (Virtual Assets Regulatory Authority, for crypto and virtual-asset service providers). For healthcare we align to ADHICS; for critical national infrastructure, the UAE IAR standard. Engagements are framework-led and mapped to the specific regulator's evidential expectations."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can a Fractional CISO be appointed as the named CISO under UAE regulations?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Most UAE regulators (DFSA, FSRA, ADHICS, UAE IAR) permit a named Senior Information Security Officer who carries individual accountability to the regulator and the firm's board. A Fractional CISO can fulfil this role provided the engagement establishes formal accountability, defined hours, board-level reporting access, and incident-response decision authority."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does a Fractional CISO differ from an MSSP or general consultant?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "An MSSP operates technology — monitoring tools, SIEMs, EDR consoles — at the operational layer. A general consultant delivers project work then leaves. A Fractional CISO is the recurring strategic leader: defining direction, owning the risk register, reporting to the board, leading regulator dialogue, and pulling in MSSPs or consultants as needed. Meridian Partners operates strictly at this executive-advisory layer; we do not resell MSSP tools or take vendor commissions."
-          }
-        }
-      ]
-    },
-    {
-      "@type": "Article",
-      "headline": "The 2026 Cybersecurity Imperative for E-Commerce: AI, Trust & the New Threat Surface",
-      "url": "https://www.linkedin.com/pulse/2026-cybersecurity-imperative-e-commerce-ai-trust-ajay-mathai-anhaf/",
-      "author": {
-        "@id": "https://meridianpartners.me/#organization"
-      },
-      "publisher": {
-        "@id": "https://meridianpartners.me/#organization"
-      },
-      "about": [
-        "Cybersecurity",
-        "E-Commerce",
-        "Artificial Intelligence",
-        "Identity Security",
-        "Trust"
-      ],
-      "inLanguage": "en"
-    },
-    {
-      "@type": "Article",
-      "headline": "Navigating PCI DSS v4: Stronger Payment Security for Hotels",
-      "url": "https://www.linkedin.com/pulse/navigating-pci-dss-v4-stronger-payment-security-hotels-ajay-mathai-fdxrf/",
-      "author": {
-        "@id": "https://meridianpartners.me/#organization"
-      },
-      "publisher": {
-        "@id": "https://meridianpartners.me/#organization"
-      },
-      "about": [
-        "PCI DSS",
-        "Payment Security",
-        "Hospitality",
-        "Compliance",
-        "Cybersecurity"
-      ],
-      "inLanguage": "en"
-    },
-    {
-      "@type": "Article",
-      "headline": "Building Resilient Infrastructure for Large-Scale Resorts",
-      "url": "https://www.linkedin.com/pulse/building-resilient-infrastructure-large-scale-resorts-ajay-mathai-udhrf/",
-      "author": {
-        "@id": "https://meridianpartners.me/#organization"
-      },
-      "publisher": {
-        "@id": "https://meridianpartners.me/#organization"
-      },
-      "about": [
-        "Infrastructure",
-        "Network Architecture",
-        "Hospitality",
-        "Resilience",
-        "Operational Continuity"
-      ],
-      "inLanguage": "en"
-    },
-    {
-      "@type": "Article",
-      "headline": "The Human Side of Hacking: How Social Engineering Beats Strong Technical Defences",
-      "url": "https://www.linkedin.com/pulse/human-side-hacking-how-social-engineering-beats-strong-ajay-mathai-dzxnf/",
-      "author": {
-        "@id": "https://meridianpartners.me/#organization"
-      },
-      "publisher": {
-        "@id": "https://meridianpartners.me/#organization"
-      },
-      "about": [
-        "Social Engineering",
-        "Threat Intelligence",
-        "Security Awareness",
-        "Phishing",
-        "Cybersecurity"
-      ],
-      "inLanguage": "en"
-    }
-  ]
-}
-  </script>
+
 
   <!-- ============================================================
        ANALYTICS & TRACKING — Codex will inject scripts here
@@ -1282,19 +921,42 @@
 
 
 <style id="meridian-view-transition-css">
+  /* Native cross-document view transitions (no JS).
+     Both pages opt in via the at-rule; Chrome/Edge 126+, Safari 18.2+.
+     Firefox gets the soft fallback fade below. */
   @view-transition { navigation: auto; }
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-duration: 0.6s;
-    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Content choreography: old page lifts away, new page rises in */
+  ::view-transition-old(root) {
+    animation: 0.4s cubic-bezier(0.22, 1, 0.36, 1) both meridian-vt-out;
   }
-  ::view-transition-old(root) { animation-name: meridian-vt-out; }
-  ::view-transition-new(root) { animation-name: meridian-vt-in; }
-  @keyframes meridian-vt-out { to { opacity: 0; transform: translateY(-10px); } }
-  @keyframes meridian-vt-in { from { opacity: 0; transform: translateY(14px); } }
+  ::view-transition-new(root) {
+    animation: 0.55s 0.05s cubic-bezier(0.16, 1, 0.3, 1) both meridian-vt-in;
+  }
+  @keyframes meridian-vt-out { to { opacity: 0; transform: translateY(-14px); } }
+  @keyframes meridian-vt-in { from { opacity: 0; transform: translateY(18px); } }
+
+  /* Header lives in its own transition group and is frozen,
+     so the nav appears fixed while page content animates beneath it. */
+  #siteNav { view-transition-name: site-header; }
+  ::view-transition-group(site-header) { animation-duration: 0s; }
+  ::view-transition-old(site-header),
+  ::view-transition-new(site-header) { animation: none; }
+
   @media (prefers-reduced-motion: reduce) {
-    ::view-transition-old(root),
-    ::view-transition-new(root) { animation-duration: 0.01ms; }
+    ::view-transition-old(root), ::view-transition-new(root),
+    ::view-transition-old(site-header), ::view-transition-new(site-header) {
+      animation-duration: 0.01ms !important;
+    }
+  }
+</style>
+<style id="meridian-page-fade-fallback">
+  /* Browsers without view transitions: gentle page-enter fade */
+  @supports not (view-transition-name: root) {
+    @media (prefers-reduced-motion: no-preference) {
+      body { animation: meridian-page-in 0.35s ease-out both; }
+      @keyframes meridian-page-in { from { opacity: 0; } }
+    }
   }
 </style>
 </head>
@@ -1476,7 +1138,7 @@ function meridianCookieConsent(acceptAll){
 
 
 <!-- NAVIGATION -->
-<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-forest-950/92 border-b border-gold/10">
+<nav id="siteNav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-forest-950/92 border-b border-gold/10">
   <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16">
     <a href="index.html" class="flex items-center gap-3 group">
       <!-- Custom Meridian compass logo -->
@@ -1495,7 +1157,7 @@ function meridianCookieConsent(acceptAll){
     </a>
     <div class="hidden md:flex items-center gap-8">
       <div class="relative group">
-        <a href="index.html#services" class="text-stone-100/90 hover:text-gold text-sm transition flex items-center gap-1">Services <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
+        <a href="services.html" class="text-stone-100/90 hover:text-gold text-sm transition flex items-center gap-1">Services <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg></a>
         <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
           <div class="bg-forest-950 border border-gold/20 shadow-2xl min-w-[240px] py-2">
             <a href="fractional-ciso.html" class="block px-5 py-2.5 text-sm text-stone-100/90 hover:text-gold hover:bg-forest-900 transition">Fractional CISO</a>
@@ -1505,8 +1167,7 @@ function meridianCookieConsent(acceptAll){
           </div>
         </div>
       </div>
-      <a href="index.html#industries" class="text-stone-100/90 hover:text-gold text-sm transition">Industries</a>
-      <a href="index.html#insights" class="text-stone-100/90 hover:text-gold text-sm transition">Insights</a>
+      <a href="industries.html" class="text-stone-100/90 hover:text-gold text-sm transition">Industries</a>
       <a href="about.html" class="text-stone-100/90 hover:text-gold text-sm transition">About</a>
       <a href="contact.html" class="btn-primary text-sm px-5 py-2.5 font-medium ml-2">Book Consultation →</a>
     </div>
@@ -1516,13 +1177,12 @@ function meridianCookieConsent(acceptAll){
   </div>
   <div id="mobileMenu" class="mobile-menu md:hidden bg-forest-950 border-t border-gold/10">
     <div class="px-6 py-6 flex flex-col gap-5">
-      <a href="index.html#services" class="text-stone-100/90 text-base">Services</a>
+      <a href="services.html" class="text-stone-100/90 text-base">Services</a>
       <a href="fractional-ciso.html" class="text-stone-100/80 text-sm pl-4">Fractional CISO</a>
       <a href="gap-analysis.html" class="text-stone-100/80 text-sm pl-4">Compliance Gap Analysis</a>
       <a href="vendor-evaluation.html" class="text-stone-100/80 text-sm pl-4">Vendor Evaluation</a>
       <a href="dfsa-fsra-practice.html" class="text-stone-100/80 text-sm pl-4">DFSA · FSRA Practice</a>
-      <a href="index.html#industries" class="text-stone-100/90 text-base">Industries</a>
-      <a href="index.html#insights" class="text-stone-100/90 text-base">Insights</a>
+      <a href="industries.html" class="text-stone-100/90 text-base">Industries</a>
       <a href="about.html" class="text-stone-100/90 text-base">About</a>
       <a href="contact.html" class="btn-primary text-sm px-5 py-3 text-center font-medium mt-2">Book Consultation →</a>
     </div>
@@ -1569,19 +1229,19 @@ function meridianCookieConsent(acceptAll){
         
     <div class="mt-12 pt-8 border-t border-gold/15 grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-8 fade-up delay-4 w-full min-w-0">
           <div>
-            <div class="font-display text-xl sm:text-2xl lg:text-4xl text-white">London<span class="text-gold">·</span>Dubai</div>
+            <div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">London<span class="text-gold">·</span><wbr>Dubai</div>
             <div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Offices</div>
           </div>
           <div>
-            <div class="font-display text-xl sm:text-2xl lg:text-4xl text-white">Est. 2026</div>
+            <div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">Est. 2026</div>
             <div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Independent Advisory</div>
           </div>
           <div>
-            <div class="font-display text-xl sm:text-2xl lg:text-4xl text-white">Zero</div>
+            <div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">Zero</div>
             <div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Vendor Commissions</div>
           </div>
           <div>
-            <div class="font-display text-xl sm:text-2xl lg:text-4xl text-white">EMEA<span class="text-gold">·</span>APAC</div>
+            <div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">EMEA<span class="text-gold">·</span><wbr>APAC</div>
             <div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Global Remit</div>
           </div>
         </div>
@@ -1671,7 +1331,7 @@ function meridianCookieConsent(acceptAll){
           <em class="text-gold-deep">Built for what matters.</em>
         </h2>
         <p class="text-lg text-stone-700 leading-relaxed mb-5">
-          Meridian Partners is an independent cybersecurity advisory. We work selectively with regulated enterprises across financial services, hospitality, healthcare, and critical infrastructure — where the cost of getting security and resilience wrong is measured in regulatory exposure, brand equity, and operational continuity.
+          Meridian Partners is an independent cybersecurity advisory. We work selectively with regulated enterprises across regulated finance, insurance, hospitality, and healthcare — where the cost of getting security and resilience wrong is measured in regulatory exposure, brand equity, and operational continuity.
         </p>
         <p class="text-stone-600 leading-relaxed mb-8">
           Our model is deliberate. Senior practitioners only. Transparent retainers. No vendor commissions, no reseller incentives. Engagements are scoped to outcomes, priced in advance, and concluded — never extended on autopilot. The firm was founded in 2026 on the premise that the regulated mid-market deserves the same quality of senior advisory as the tier-one bank — without the partner-track overhead.
@@ -1756,12 +1416,6 @@ function meridianCookieConsent(acceptAll){
         <p class="text-stone-600 leading-relaxed mb-6 text-[0.92rem]">
           Board-level security leadership on retainer. Govern risk, translate threat posture into executive decisions, and lead your security programme without the full-time overhead.
         </p>
-        <ul class="space-y-2 text-sm text-forest-950 mb-8">
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>Security strategy &amp; governance frameworks</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>Board &amp; stakeholder reporting</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>Zero Trust architecture design</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>SOC uplift &amp; incident response planning</span></li>
-        </ul>
         <a href="fractional-ciso.html" class="inline-flex items-center gap-2 text-forest-950 font-medium text-sm border-b-2 border-forest-950 pb-1 arrow-link hover:border-gold hover:text-gold-deep transition">
           Learn more <span class="arrow-icon">→</span>
         </a>
@@ -1787,12 +1441,6 @@ function meridianCookieConsent(acceptAll){
         <p class="text-stone-600 leading-relaxed mb-6 text-[0.92rem]">
           Structured readiness assessments against ISO 27001, PCI DSS, GDPR, and UAE PDPL. Surface the gaps, prioritise remediation, and enter your audit with confidence.
         </p>
-        <ul class="space-y-2 text-sm text-forest-950 mb-8">
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>ISO 27001:2022 gap analysis &amp; SoA</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>PCI DSS v4.0 readiness assessment</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>GDPR &amp; UAE PDPL alignment</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>Risk register &amp; remediation roadmap</span></li>
-        </ul>
         <a href="gap-analysis.html" class="inline-flex items-center gap-2 text-forest-950 font-medium text-sm border-b-2 border-forest-950 pb-1 arrow-link hover:border-gold hover:text-gold-deep transition">
           Learn more <span class="arrow-icon">→</span>
         </a>
@@ -1821,14 +1469,8 @@ function meridianCookieConsent(acceptAll){
         <div class="font-mono text-xs text-gold-deep tracking-wider uppercase mb-3">Practice III</div>
         <h3 class="font-display text-2xl text-forest-950 mb-4 leading-tight">Vendor Evaluation <em class="italic">&amp; Negotiation</em></h3>
         <p class="text-stone-600 leading-relaxed mb-6 text-[0.92rem]">
-          Independent technical evaluation and commercial negotiation for major security and infrastructure purchases. No vendor kickbacks — your interests only.
+          Independent technical evaluation and commercial negotiation for major security and technology purchases. No vendor kickbacks — your interests only.
         </p>
-        <ul class="space-y-2 text-sm text-forest-950 mb-8">
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>RFP design &amp; technical evaluation</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>Contract negotiation &amp; TCO modelling</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>Vendor due diligence &amp; risk assessment</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>Renewal reviews &amp; cost optimisation</span></li>
-        </ul>
         <a href="vendor-evaluation.html" class="inline-flex items-center gap-2 text-forest-950 font-medium text-sm border-b-2 border-forest-950 pb-1 arrow-link hover:border-gold hover:text-gold-deep transition">
           Learn more <span class="arrow-icon">→</span>
         </a>
@@ -1854,19 +1496,37 @@ function meridianCookieConsent(acceptAll){
         <p class="text-stone-600 leading-relaxed mb-6 text-[0.92rem]">
           A dedicated practice for DIFC and ADGM authorised firms — cybersecurity, operational resilience, and business continuity delivered in the language regulators recognise.
         </p>
-        <ul class="space-y-2 text-sm text-forest-950 mb-8">
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>DFSA GEN 5.5 cyber risk framework alignment</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>FSRA operational risk &amp; continuity readiness</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>Named CISO appointments for regulated firms</span></li>
-          <li class="flex items-start gap-3"><span class="text-gold mt-1 shrink-0">◇</span><span>Thematic review &amp; examination preparation</span></li>
-        </ul>
         <a href="dfsa-fsra-practice.html" class="inline-flex items-center gap-2 text-forest-950 font-medium text-sm border-b-2 border-forest-950 pb-1 arrow-link hover:border-gold hover:text-gold-deep transition">
           Learn more <span class="arrow-icon">→</span>
         </a>
       </div>
 
       <!-- Contact call-out -->
-      <div class="edit-card p-10 bg-forest-950 text-white relative overflow-hidden premium-card md:col-span-2">
+      <div class="edit-card p-10 group premium-card">
+        <div class="flex items-start justify-between mb-8">
+          <div class="service-icon w-14 h-14 text-forest-950">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.25">
+              <rect x="12" y="8" width="40" height="48" rx="2"/>
+              <line x1="20" y1="20" x2="44" y2="20"/>
+              <line x1="20" y1="28" x2="44" y2="28"/>
+              <line x1="20" y1="36" x2="36" y2="36"/>
+              <circle cx="42" cy="44" r="6" stroke-width="1.5"/>
+              <path d="M39 44 L41 46 L45 42" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="font-display text-4xl text-gold/40 italic">v</div>
+        </div>
+        <div class="font-mono text-xs text-gold-deep tracking-wider uppercase mb-3">Practice V</div>
+        <h3 class="font-display text-2xl text-forest-950 mb-4 leading-tight">AI Security <em class="italic">Readiness</em></h3>
+        <p class="text-stone-600 leading-relaxed mb-6 text-[0.92rem]">
+          Governance and gap analysis for firms deploying AI — from board policy to model inventory. Aligned to ISO/IEC 42001, the EU AI Act, and emerging DIFC &amp; ADGM supervisory expectations.
+        </p>
+        <a href="gap-analysis.html#ai-readiness" class="inline-flex items-center gap-2 text-forest-950 font-medium text-sm border-b-2 border-forest-950 pb-1 arrow-link hover:border-gold hover:text-gold-deep transition">
+          Learn more <span class="arrow-icon">→</span>
+        </a>
+      </div>
+
+      <div class="edit-card p-10 bg-forest-950 text-white relative overflow-hidden premium-card">
         <div class="absolute inset-0 gold-glow opacity-70"></div>
         <div class="relative">
           <div class="flex items-start justify-between mb-8">
@@ -1940,7 +1600,7 @@ function meridianCookieConsent(acceptAll){
           Finance &amp; <em class="italic">Fintech</em>
         </h3>
         <p class="text-stone-700 leading-relaxed text-sm mb-6">
-          Banks, brokers, asset managers, payment providers, and crypto-asset firms. We align security and continuity programmes with the regulators who actually examine your firm.
+          Banks, exchanges, brokers, fintechs, asset managers, payment providers, and virtual-asset firms. We align security and continuity programmes with DFSA, FSRA, CBUAE, and VARA — the regulators who actually examine your firm.
         </p>
         <div class="pt-5 border-t border-forest-950/10">
           <div class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase mb-3">Regulator Coverage</div>
@@ -2023,7 +1683,7 @@ function meridianCookieConsent(acceptAll){
         </div>
       </div>
 
-      <!-- Critical Infrastructure & SaaS -->
+      <!-- Insurance & Brokers -->
       <div class="edit-card p-8 lg:p-10 group premium-card">
         <div class="flex items-start justify-between mb-6">
           <!-- Infra icon — network nodes -->
@@ -2046,19 +1706,19 @@ function meridianCookieConsent(acceptAll){
         </div>
         <div class="font-mono text-xs text-gold-deep tracking-wider uppercase mb-2">Sector IV</div>
         <h3 class="font-display text-2xl md:text-3xl text-forest-950 mb-3 leading-tight">
-          Critical Infrastructure &amp; <em class="italic">SaaS</em>
+          Insurance &amp; <em class="italic">Brokers</em>
         </h3>
         <p class="text-stone-700 leading-relaxed text-sm mb-6">
-          Telecoms, energy, government services, and B2B SaaS platforms. Where uptime is regulatory, vendor risk compounds, and a single API outage cascades across an entire industry's operating day.
+          Insurers, reinsurers, brokerages, and MGAs. Where client-money rules, DFSA PIN obligations, and high-volume personal data meet legacy platforms and third-party distribution chains.
         </p>
         <div class="pt-5 border-t border-forest-950/10">
-          <div class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase mb-3">Frameworks &amp; Standards</div>
-          <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs text-forest-950 font-medium">
-            <span>UAE IAR</span><span class="text-stone-400">·</span>
-            <span>NIS2</span><span class="text-stone-400">·</span>
-            <span>SOC 2 Type II</span><span class="text-stone-400">·</span>
-            <span>ISO 27001</span>
-          </div>
+          <div class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase mb-3">Regulator Coverage</div>
+        <div class="flex flex-wrap gap-x-3 gap-y-1.5 font-medium text-[13px] text-forest-950">
+          <span>DFSA</span><span class="text-stone-400">·</span>
+          <span>FSRA</span><span class="text-stone-400">·</span>
+          <span>CBUAE</span><span class="text-stone-400">·</span>
+          <span>UAE PDPL</span>
+        </div>
         </div>
       </div>
 
@@ -2101,156 +1761,6 @@ function meridianCookieConsent(acceptAll){
     </div>
 
     <!-- Two practice tiles side-by-side -->
-    <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-14">
-
-      <!-- TILE 1: Cybersecurity for FS -->
-      <div class="bg-forest-950/50 border border-gold/15 hover:border-gold/30 transition-colors p-8 lg:p-10">
-        <div class="flex items-start justify-between mb-8">
-          <!-- Shield+lock icon -->
-          <div class="w-14 h-14 text-gold">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.25">
-              <path d="M32 4 L54 14 V30 C54 44 44 54 32 60 C20 54 10 44 10 30 V14 Z"/>
-              <rect x="24" y="28" width="16" height="14" rx="1.5" stroke-width="1.5"/>
-              <path d="M27 28 V22 C27 19 29 17 32 17 C35 17 37 19 37 22 V28" stroke-width="1.5"/>
-              <circle cx="32" cy="35" r="1.5" fill="currentColor"/>
-            </svg>
-          </div>
-          <div class="font-display text-4xl text-gold/40 italic">a</div>
-        </div>
-
-        <div class="font-mono text-xs text-gold tracking-wider uppercase mb-3">Practice A</div>
-        <h3 class="font-display text-2xl md:text-3xl text-white mb-2 leading-tight">
-          Cybersecurity for <em class="italic">DFSA &amp; FSRA</em> firms
-        </h3>
-        <p class="text-stone-300 mb-7 leading-relaxed text-sm">
-          End-to-end information security advisory built around regulator-recognised frameworks. From policy design through to incident response readiness.
-        </p>
-
-        <div class="space-y-4 mb-8">
-          <!-- Sub-service items -->
-          <div class="pb-4 border-b border-gold/10">
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">i — Framework Design</div>
-            <p class="text-white font-medium text-sm leading-snug">Information Security Management Framework</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Design and implement ISO 27001-aligned policies and procedures, mapped to DFSA and FSRA expectations.</p>
-          </div>
-
-          <div class="pb-4 border-b border-gold/10">
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">ii — Technical Assurance</div>
-            <p class="text-white font-medium text-sm leading-snug">Vulnerability Assessment &amp; Penetration Testing</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Identify technical exposures before regulators or threat actors do. Coordinated through trusted CREST-registered partners.</p>
-          </div>
-
-          <div class="pb-4 border-b border-gold/10">
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">iii — Incident Readiness</div>
-            <p class="text-white font-medium text-sm leading-snug">Cyber Incident Response Planning</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Develop and test response plans that include DFSA and FSRA breach-notification procedures aligned with regulator timelines.</p>
-          </div>
-
-          <div class="pb-4 border-b border-gold/10">
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">iv — Governance Reviews</div>
-            <p class="text-white font-medium text-sm leading-snug">Access Control, Data Classification &amp; Privacy</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Structured reviews of data governance and access management controls against UAE PDPL and DIFC/ADGM data protection regimes.</p>
-          </div>
-
-          <div class="pb-4 border-b border-gold/10">
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">v — Supply Chain</div>
-            <p class="text-white font-medium text-sm leading-snug">Third-Party Cyber Risk Management</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Assess and monitor vendor and outsourced provider cyber risk on an ongoing basis, in line with DFSA outsourcing requirements.</p>
-          </div>
-
-          <div class="pb-4 border-b border-gold/10">
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">vi — Risk Integration</div>
-            <p class="text-white font-medium text-sm leading-snug">Cyber Risk &amp; ICAAP / IRAP Integration</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Embed cyber risk into your firm's risk appetite, ICAAP submissions, and FSRA Integrated Risk Management framework.</p>
-          </div>
-
-          <div>
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">vii — People &amp; Culture</div>
-            <p class="text-white font-medium text-sm leading-snug">Cybersecurity Awareness Training</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Customised programmes for front-office, operations, and technology teams — with attendance evidence retained for examiner review.</p>
-          </div>
-        </div>
-
-        <div class="pt-5 border-t border-gold/15 flex items-center justify-between flex-wrap gap-3">
-          <span class="font-mono text-[10px] text-gold tracking-[0.2em] uppercase">7 sub-services</span>
-          <div class="flex items-center gap-5">
-            <a href="/dfsa-cyber-risk-management.html" class="text-gold hover:text-gold-light text-sm font-medium inline-flex items-center gap-1.5 transition">
-              DFSA GEN 5.5 service page
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-            <a href="#contact" class="text-gold-light hover:text-gold text-sm font-medium inline-flex items-center gap-1.5 transition">
-              Discuss scope
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- TILE 2: Business Continuity for FS -->
-      <div class="bg-forest-950/50 border border-gold/15 hover:border-gold/30 transition-colors p-8 lg:p-10">
-        <div class="flex items-start justify-between mb-8">
-          <!-- Continuity / refresh-loop icon -->
-          <div class="w-14 h-14 text-gold">
-            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.25">
-              <path d="M32 8 V4 M32 8 C19 8 8 19 8 32 C8 45 19 56 32 56 C45 56 56 45 56 32" stroke-linecap="round"/>
-              <path d="M28 4 L32 8 L28 12" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="32" cy="32" r="10" stroke-width="1.5"/>
-              <path d="M32 27 V32 L36 36" stroke-linecap="round" stroke-width="1.5"/>
-            </svg>
-          </div>
-          <div class="font-display text-4xl text-gold/40 italic">b</div>
-        </div>
-
-        <div class="font-mono text-xs text-gold tracking-wider uppercase mb-3">Practice B</div>
-        <h3 class="font-display text-2xl md:text-3xl text-white mb-2 leading-tight">
-          Business Continuity for <em class="italic">DFSA &amp; FSRA</em> firms
-        </h3>
-        <p class="text-stone-300 mb-7 leading-relaxed text-sm">
-          Regulator-aligned, board-ready continuity programmes tailored to firm type, prudential category, and risk profile. Designed to satisfy DFSA GEN Module and FSRA Operational Risk evidential requirements.
-        </p>
-
-        <div class="space-y-4 mb-8">
-          <div class="pb-4 border-b border-gold/10">
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">i — Framework</div>
-            <p class="text-white font-medium text-sm leading-snug">BCP Framework Design &amp; Documentation</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Board-ready continuity plans tailored to firm type and risk profile under DFSA GEN Module and FSRA Operational Risk guidelines.</p>
-          </div>
-
-          <div class="pb-4 border-b border-gold/10">
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">ii — Impact Analysis</div>
-            <p class="text-white font-medium text-sm leading-snug">RTO/RPO Assessment &amp; Critical Function Mapping</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Identify critical systems and define realistic, defensible recovery objectives for board sign-off and regulator review.</p>
-          </div>
-
-          <div class="pb-4 border-b border-gold/10">
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">iii — Exercises</div>
-            <p class="text-white font-medium text-sm leading-snug">BCP Testing &amp; Tabletop Exercises</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Annual tabletop simulations and live drills with fully documented outcomes — designed to satisfy DFSA and FSRA evidential expectations.</p>
-          </div>
-
-          <div class="pb-4 border-b border-gold/10">
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">iv — Supply Chain</div>
-            <p class="text-white font-medium text-sm leading-snug">Third-Party &amp; Outsourcing BCP Coverage</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Review and strengthen continuity provisions across vendor, cloud, and outsourcing arrangements — closing the gap most BCP programmes miss.</p>
-          </div>
-
-          <div>
-            <div class="font-mono text-[10px] text-gold-light/80 tracking-[0.2em] uppercase mb-1.5">v — Maintenance</div>
-            <p class="text-white font-medium text-sm leading-snug">BCP Maintenance Retainer</p>
-            <p class="text-stone-400 text-xs mt-1 leading-relaxed">Ongoing updates, annual reviews, and regulatory-change monitoring to keep your plan current between examinations.</p>
-          </div>
-        </div>
-
-        <div class="pt-5 border-t border-gold/15 flex items-center justify-between">
-          <span class="font-mono text-[10px] text-gold tracking-[0.2em] uppercase">5 sub-services</span>
-          <a href="#contact" class="text-gold-light hover:text-gold text-sm font-medium inline-flex items-center gap-1.5 transition">
-            Discuss scope
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-        </div>
-      </div>
-
-    </div>
-
     <!-- Lead magnet CTA -->
     <div class="my-12 pt-10 border-t border-gold/15">
       <div class="grid lg:grid-cols-12 gap-6 items-center">
@@ -2260,7 +1770,7 @@ function meridianCookieConsent(acceptAll){
             The DFSA &amp; FSRA Cyber Readiness <em class="italic text-gold-light">Checklist.</em>
           </h3>
           <p class="text-stone-300 text-sm leading-relaxed">
-            A 38-point self-assessment for DIFC and ADGM authorised firms. Identify the gaps before your examiner does. Six-page branded PDF, instant download.
+            A 38-point self-assessment for DIFC and ADGM authorised firms. Identify the gaps before your examiner does. Six-page briefing PDF, sent to your inbox.
           </p>
         </div>
         <div class="lg:col-span-5 lg:text-right">
@@ -2332,62 +1842,6 @@ function meridianCookieConsent(acceptAll){
               <span class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase">Delivered</span>
             </div>
             <div class="font-mono text-xs text-gold-deep tracking-wider uppercase mb-2">Sector</div>
-            <p class="text-forest-950 font-medium mb-5">Government Utility · Regulated Infrastructure</p>
-            <div class="font-mono text-xs text-gold-deep tracking-wider uppercase mb-2">Practice</div>
-            <p class="text-forest-950 font-medium mb-5">Infrastructure Transformation</p>
-            <div class="font-mono text-xs text-gold-deep tracking-wider uppercase mb-2">Remit</div>
-            <p class="text-forest-950 font-medium">Network &amp; security redesign · operational continuity</p>
-          </div>
-
-          <div class="lg:col-span-8 lg:border-l lg:border-forest-950/10 lg:pl-12">
-            <h3 class="font-display text-3xl text-forest-950 mb-5 leading-tight">
-              Full infrastructure redesign for a national utility operator
-            </h3>
-            <p class="text-stone-700 leading-relaxed mb-6">
-              A government-owned utility required a complete rebuild of its network and security infrastructure following a strategic review. Legacy architecture had accumulated over a decade, creating operational risk, vendor lock-in, and audit exposure. Meridian Partners was engaged to design the target-state architecture and direct the execution.
-            </p>
-
-            <div class="grid sm:grid-cols-2 gap-6 mb-6">
-              <div>
-                <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-gold-deep mb-2">Approach</div>
-                <ul class="space-y-2 text-sm text-forest-950">
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Greenfield network topology design</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Zero Trust segmentation &amp; NAC rollout</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Vendor consolidation &amp; contract renegotiation</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Phased cutover with zero service interruption</span></li>
-                </ul>
-              </div>
-              <div>
-                <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-gold-deep mb-2">Outcome</div>
-                <ul class="space-y-2 text-sm text-forest-950">
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Regulatory audit cleared on first attempt</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Network incidents reduced materially</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Multi-year operational cost savings realised</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Resilient foundation for future modernisation</span></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="pt-4 border-t border-forest-950/10 flex flex-wrap gap-x-6 gap-y-1 text-xs font-mono text-stone-500">
-              <span>Duration: multi-phase</span>
-              <span>·</span>
-              <span>Geography: Middle East</span>
-              <span>·</span>
-              <span>Client size: Large-cap · public sector</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Case 02 — NYC Social Media Records Provider -->
-      <article class="edit-card p-8 lg:p-12 group premium-card">
-        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
-          <div class="lg:col-span-4">
-            <div class="flex items-baseline gap-4 mb-6">
-              <span class="font-display text-6xl text-gold/30 italic">02</span>
-              <span class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase">Delivered</span>
-            </div>
-            <div class="font-mono text-xs text-gold-deep tracking-wider uppercase mb-2">Sector</div>
             <p class="text-forest-950 font-medium mb-5">Social Media Records · SaaS · US</p>
             <div class="font-mono text-xs text-gold-deep tracking-wider uppercase mb-2">Practice</div>
             <p class="text-forest-950 font-medium mb-5">Fractional CISO · Security Architecture Review</p>
@@ -2435,61 +1889,8 @@ function meridianCookieConsent(acceptAll){
         </div>
       </article>
 
-      <!-- Case 03 — ISP Vendor Engagement -->
-      <article class="edit-card p-8 lg:p-12 group premium-card">
-        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
-          <div class="lg:col-span-4">
-            <div class="flex items-baseline gap-4 mb-6">
-              <span class="font-display text-6xl text-gold/30 italic">03</span>
-              <span class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase">Delivered</span>
-            </div>
-            <div class="font-mono text-xs text-gold-deep tracking-wider uppercase mb-2">Sector</div>
-            <p class="text-forest-950 font-medium mb-5">Telecommunications · ISP</p>
-            <div class="font-mono text-xs text-gold-deep tracking-wider uppercase mb-2">Practice</div>
-            <p class="text-forest-950 font-medium mb-5">Vendor Evaluation &amp; Negotiation</p>
-            <div class="font-mono text-xs text-gold-deep tracking-wider uppercase mb-2">Remit</div>
-            <p class="text-forest-950 font-medium">High-end network hardware procurement advisory</p>
-          </div>
-
-          <div class="lg:col-span-8 lg:border-l lg:border-forest-950/10 lg:pl-12">
-            <h3 class="font-display text-3xl text-forest-950 mb-5 leading-tight">
-              Independent vendor evaluation for a regional ISP
-            </h3>
-            <p class="text-stone-700 leading-relaxed mb-6">
-              A regional internet service provider was preparing a multi-million-dollar investment in carrier-grade network hardware and needed an independent technical and commercial evaluation — free of vendor kickbacks or channel bias. Meridian Partners was retained as the neutral technical advisor to the procurement board.
-            </p>
-
-            <div class="grid sm:grid-cols-2 gap-6 mb-6">
-              <div>
-                <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-gold-deep mb-2">Approach</div>
-                <ul class="space-y-2 text-sm text-forest-950">
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>RFP design &amp; technical requirement framework</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Side-by-side architecture evaluation</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Total-cost-of-ownership modelling (five-year)</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Direct contract negotiation support</span></li>
-                </ul>
-              </div>
-              <div>
-                <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-gold-deep mb-2">Outcome</div>
-                <ul class="space-y-2 text-sm text-forest-950">
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Substantial reduction vs initial vendor quote</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Favourable SLA &amp; support terms secured</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Board gained objective, defensible decision trail</span></li>
-                  <li class="flex items-start gap-2"><span class="text-gold mt-0.5 shrink-0">◇</span><span>Technology platform selected on merit</span></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="pt-4 border-t border-forest-950/10 flex flex-wrap gap-x-6 gap-y-1 text-xs font-mono text-stone-500">
-              <span>Duration: full procurement cycle</span>
-              <span>·</span>
-              <span>Geography: Middle East</span>
-              <span>·</span>
-              <span>Client size: Tier-1 ISP</span>
-            </div>
-          </div>
-        </div>
-      </article>
+      <!-- Case 02 — NYC Social Media Records Provider -->
+      
 
     </div>
 
@@ -2564,487 +1965,20 @@ function meridianCookieConsent(acceptAll){
 </section>
 
 <!-- ENGAGEMENT PROCESS -->
-<section id="process" class="relative py-28 lg:py-36 bg-forest-950 text-white overflow-hidden grain reveal-on-scroll">
-  <div class="absolute inset-0 fine-grid opacity-40"></div>
-  <div class="absolute inset-0 gold-glow opacity-60"></div>
-  <div class="absolute top-0 left-0 right-0 h-px meridian-line"></div>
 
-  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
-
-    <!-- Section header -->
-    <div class="grid lg:grid-cols-12 gap-12 mb-20">
-      <div class="lg:col-span-5">
-        <div class="section-num text-gold mb-5">/ 07 — Engagement Process</div>
-        <h2 class="display-heading text-5xl md:text-6xl lg:text-7xl text-white leading-[0.95]">
-          A disciplined<br/>
-          <em class="text-gold italic">five-step method.</em>
-        </h2>
-      </div>
-      <div class="lg:col-span-6 lg:col-start-7 flex items-end">
-        <p class="text-lg text-stone-200 leading-relaxed">
-          Every engagement follows the same architected sequence — from the first scoping call to steady-state governance. No mystery, no billable-hour drift, no methodology invented on the fly. <em class="italic text-gold-light">Each step produces a named deliverable you can audit.</em>
-        </p>
-      </div>
-    </div>
-
-    <!-- Horizontal timeline connector (desktop only) -->
-    <div class="hidden lg:block relative mb-8">
-      <div class="absolute top-7 left-[8%] right-[8%] h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent"></div>
-    </div>
-
-    <!-- Process steps -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-4">
-
-      <!-- STEP 01 — Scope -->
-      <div class="relative">
-        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
-          <!-- Step number circle -->
-          <div class="relative mb-6">
-            <div class="w-14 h-14 rounded-full bg-forest-950 border-2 border-gold flex items-center justify-center z-10 relative">
-              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Step 01</div>
-          <h3 class="font-display text-2xl text-white mb-3">Scope</h3>
-          <p class="text-sm text-stone-200 leading-relaxed mb-5">
-            A 30-minute strategic consultation, followed by a written scoping document within 72 hours.
-          </p>
-          <ul class="space-y-2 text-xs text-stone-300 mb-6 text-left w-full">
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Problem framing &amp; fit assessment</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Engagement tier recommendation</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Commercial &amp; timeline envelope</span></li>
-          </ul>
-          <div class="w-full pt-4 border-t border-gold/20 text-left">
-            <div class="font-mono text-[9px] text-gold tracking-[0.25em] uppercase mb-1">Deliverable</div>
-            <p class="text-xs text-stone-100">Scoping document &amp; SOW</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 02 — Assess -->
-      <div class="relative">
-        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
-          <div class="relative mb-6">
-            <div class="w-14 h-14 rounded-full bg-forest-950 border-2 border-gold flex items-center justify-center z-10 relative">
-              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Step 02</div>
-          <h3 class="font-display text-2xl text-white mb-3">Assess</h3>
-          <p class="text-sm text-stone-200 leading-relaxed mb-5">
-            Structured diagnostic of current-state security, architecture, and control posture.
-          </p>
-          <ul class="space-y-2 text-xs text-stone-300 mb-6 text-left w-full">
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Gap analysis against target framework</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Risk register &amp; threat modelling</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Architecture &amp; vendor stack review</span></li>
-          </ul>
-          <div class="w-full pt-4 border-t border-gold/20 text-left">
-            <div class="font-mono text-[9px] text-gold tracking-[0.25em] uppercase mb-1">Deliverable</div>
-            <p class="text-xs text-stone-100">Diagnostic report &amp; risk register</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 03 — Strategise (FEATURED) -->
-      <div class="relative">
-        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
-          <div class="relative mb-6">
-            <div class="w-14 h-14 rounded-full bg-gold border-2 border-gold flex items-center justify-center z-10 relative shadow-lg shadow-gold/30">
-              <svg class="w-6 h-6 text-forest-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-              </svg>
-            </div>
-          </div>
-          <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Step 03 · Core</div>
-          <h3 class="font-display text-2xl text-white mb-3">Strategise</h3>
-          <p class="text-sm text-stone-200 leading-relaxed mb-5">
-            Target-state design, prioritised roadmap, and board-ready narrative translating risk into business terms.
-          </p>
-          <ul class="space-y-2 text-xs text-stone-300 mb-6 text-left w-full">
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Target architecture &amp; control design</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Multi-year remediation roadmap</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Budget &amp; sequencing plan</span></li>
-          </ul>
-          <div class="w-full pt-4 border-t border-gold/20 text-left">
-            <div class="font-mono text-[9px] text-gold tracking-[0.25em] uppercase mb-1">Deliverable</div>
-            <p class="text-xs text-stone-100">Strategy document &amp; board pack</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 04 — Execute -->
-      <div class="relative">
-        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
-          <div class="relative mb-6">
-            <div class="w-14 h-14 rounded-full bg-forest-950 border-2 border-gold flex items-center justify-center z-10 relative">
-              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Step 04</div>
-          <h3 class="font-display text-2xl text-white mb-3">Execute</h3>
-          <p class="text-sm text-stone-200 leading-relaxed mb-5">
-            Hands-on delivery alongside your team. We implement — not just advise.
-          </p>
-          <ul class="space-y-2 text-xs text-stone-300 mb-6 text-left w-full">
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Vendor RFPs &amp; contract negotiation</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Policy drafting &amp; control implementation</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Team enablement &amp; knowledge transfer</span></li>
-          </ul>
-          <div class="w-full pt-4 border-t border-gold/20 text-left">
-            <div class="font-mono text-[9px] text-gold tracking-[0.25em] uppercase mb-1">Deliverable</div>
-            <p class="text-xs text-stone-100">Implemented controls &amp; policies</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 05 — Govern -->
-      <div class="relative">
-        <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
-          <div class="relative mb-6">
-            <div class="w-14 h-14 rounded-full bg-forest-950 border-2 border-gold flex items-center justify-center z-10 relative">
-              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.1-1.343 2-3 2s-3-.9-3-2 1.343-2 3-2 3 .9 3 2zm12-3c0 1.1-1.343 2-3 2s-3-.9-3-2 1.343-2 3-2 3 .9 3 2z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Step 05</div>
-          <h3 class="font-display text-2xl text-white mb-3">Govern</h3>
-          <p class="text-sm text-stone-200 leading-relaxed mb-5">
-            Ongoing stewardship of the programme — monthly rhythm, board reporting, incident readiness.
-          </p>
-          <ul class="space-y-2 text-xs text-stone-300 mb-6 text-left w-full">
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Monthly risk &amp; control reviews</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Quarterly board reporting</span></li>
-            <li class="flex items-start gap-2"><span class="text-gold shrink-0 mt-0.5">◇</span><span>Vendor renewal &amp; incident advocacy</span></li>
-          </ul>
-          <div class="w-full pt-4 border-t border-gold/20 text-left">
-            <div class="font-mono text-[9px] text-gold tracking-[0.25em] uppercase mb-1">Deliverable</div>
-            <p class="text-xs text-stone-100">Ongoing executive reporting</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Closing promise band -->
-    <div class="mt-20 pt-10 border-t border-gold/20 grid md:grid-cols-3 gap-8 text-center md:text-left">
-      <div>
-        <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Typical Onboarding</div>
-        <p class="text-white text-2xl font-display">7–14 days</p>
-        <p class="text-xs text-stone-300 mt-1">From SOW signature to active engagement</p>
-      </div>
-      <div>
-        <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Cadence</div>
-        <p class="text-white text-2xl font-display">Monthly rhythm</p>
-        <p class="text-xs text-stone-300 mt-1">Fortnightly operational · monthly exec</p>
-      </div>
-      <div>
-        <div class="font-mono text-[10px] text-gold tracking-[0.3em] uppercase mb-2">Notice Period</div>
-        <p class="text-white text-2xl font-display">30 days</p>
-        <p class="text-xs text-stone-300 mt-1">Pause, scale, or exit at any time</p>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <!-- TESTIMONIALS -->
-<section class="py-28 lg:py-36 bg-parchment reveal-on-scroll">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="section-num mb-5">/ 08 — Trusted</div>
-      <h2 class="display-heading text-4xl md:text-6xl text-forest-950 mb-6">
-        What peers<br/>
-        <em class="text-gold-deep">are saying.</em>
-      </h2>
-      <p class="text-sm text-stone-500 font-mono tracking-wider uppercase">
-        Testimonials from industry colleagues · Published with permission
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- Vinu Peter -->
-      <div class="testimonial-card p-8 rounded-sm premium-card">
-        <svg class="w-8 h-8 text-gold mb-6 opacity-40" fill="currentColor" viewBox="0 0 24 24"><path d="M14 21v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10H14zm-14 0v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10H0z"/></svg>
-        <p class="text-forest-950 leading-relaxed mb-8">
-          The Meridian Partners team pairs deep technical command with genuine boardroom presence — translating complex security posture into business language executives actually act on.
-        </p>
-        <div class="flex items-center gap-3 pt-6 border-t border-forest-950/10">
-          <div class="w-11 h-11 bg-forest-950 rounded-full flex items-center justify-center text-gold font-display text-sm border border-gold/40">VP</div>
-          <div>
-            <div class="text-forest-950 font-medium text-sm">Vinu Peter</div>
-            <div class="text-xs text-stone-500">CEO · Locatenow.ai</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tony Scaria -->
-      <div class="testimonial-card p-8 rounded-sm premium-card">
-        <svg class="w-8 h-8 text-gold mb-6 opacity-40" fill="currentColor" viewBox="0 0 24 24"><path d="M14 21v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10H14zm-14 0v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10H0z"/></svg>
-        <p class="text-forest-950 leading-relaxed mb-8">
-          Working with the Meridian Partners team across infrastructure and network engagements, I have consistently seen rigor paired with pragmatism. The rarest quality is their ability to execute what they design.
-        </p>
-        <div class="flex items-center gap-3 pt-6 border-t border-forest-950/10">
-          <div class="w-11 h-11 bg-forest-950 rounded-full flex items-center justify-center text-gold font-display text-sm border border-gold/40">TS</div>
-          <div>
-            <div class="text-forest-950 font-medium text-sm">Tony Scaria</div>
-            <div class="text-xs text-stone-500">CEO · Cubit Technologies LLC</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Muhammad Shahid -->
-      <div class="testimonial-card p-8 rounded-sm premium-card">
-        <svg class="w-8 h-8 text-gold mb-6 opacity-40" fill="currentColor" viewBox="0 0 24 24"><path d="M14 21v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10H14zm-14 0v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10H0z"/></svg>
-        <p class="text-forest-950 leading-relaxed mb-8">
-          Across our work in regional enterprise technology, Meridian Partners consistently demonstrates the rare blend of commercial awareness and deep operational understanding. They deliver — and they bring your team along with them.
-        </p>
-        <div class="flex items-center gap-3 pt-6 border-t border-forest-950/10">
-          <div class="w-11 h-11 bg-forest-950 rounded-full flex items-center justify-center text-gold font-display text-sm border border-gold/40">MS</div>
-          <div>
-            <div class="text-forest-950 font-medium text-sm">Muhammad Shahid</div>
-            <div class="text-xs text-stone-500">Managing Director · Elevate Infrastructure Solutions</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tanzil Aslam -->
-      <div class="testimonial-card p-8 rounded-sm premium-card">
-        <svg class="w-8 h-8 text-gold mb-6 opacity-40" fill="currentColor" viewBox="0 0 24 24"><path d="M14 21v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10H14zm-14 0v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10H0z"/></svg>
-        <p class="text-forest-950 leading-relaxed mb-8">
-          Meridian Partners combines calm leadership under pressure with clear, board-ready written strategy. A highly recommended partner for any organisation navigating complex technology transformation.
-        </p>
-        <div class="flex items-center gap-3 pt-6 border-t border-forest-950/10">
-          <div class="w-11 h-11 bg-forest-950 rounded-full flex items-center justify-center text-gold font-display text-sm border border-gold/40">TA</div>
-          <div>
-            <div class="text-forest-950 font-medium text-sm">Tony Aslam</div>
-            <div class="text-xs text-stone-500">Co-Founder · Serges Healthcare</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sudheer Subramanian -->
-      <div class="testimonial-card p-8 rounded-sm premium-card">
-        <svg class="w-8 h-8 text-gold mb-6 opacity-40" fill="currentColor" viewBox="0 0 24 24"><path d="M14 21v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10H14zm-14 0v-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10H0z"/></svg>
-        <p class="text-forest-950 leading-relaxed mb-8">
-          Their strength is scale. The Meridian Partners team has guided organisations through multi-framework compliance cycles where most would stumble — with the warmth and humility that makes them a trusted partner.
-        </p>
-        <div class="flex items-center gap-3 pt-6 border-t border-forest-950/10">
-          <div class="w-11 h-11 bg-forest-950 rounded-full flex items-center justify-center text-gold font-display text-sm border border-gold/40">SS</div>
-          <div>
-            <div class="text-forest-950 font-medium text-sm">Sudheer Subramanian</div>
-            <div class="text-xs text-stone-500">Consultant CTO · 33+ years in Digital</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA card -->
-      <div class="testimonial-card p-8 rounded-sm bg-forest-950 text-white border-forest-950 premium-card">
-        <div class="font-mono text-[10px] tracking-[0.3em] text-gold uppercase mb-6">Become a Client</div>
-        <h3 class="font-display text-2xl text-white mb-4">Your organisation could be here next.</h3>
-        <p class="text-stone-200 leading-relaxed mb-8 text-sm">
-          Every engagement begins with a 30-minute strategic consultation. No obligation — just a candid assessment of fit.
-        </p>
-        <a href="#contact" class="btn-primary inline-flex items-center gap-2 px-5 py-3 text-sm font-medium">
-          Book Consultation <span>→</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- PRICING -->
-<section id="pricing" class="py-28 lg:py-36 bg-cream reveal-on-scroll">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="section-num mb-5">/ 09 — Retainers</div>
-      <h2 class="display-heading text-4xl md:text-6xl text-forest-950 mb-6">
-        Transparent tiers.<br/>
-        <em class="text-gold-deep">Outcome-driven.</em>
-      </h2>
-      <p class="text-lg text-stone-700">
-        Monthly retainers scaled to organisational complexity. Every plan begins with a scoping call and can be paused or expanded at any time.
-      </p>
-    </div>
 
-    <!-- Discreet availability signal -->
-    <div class="flex items-center justify-center gap-3 mb-10 -mt-6">
-      <div class="w-1.5 h-1.5 bg-gold rounded-full pulse-dot"></div>
-      <span class="font-mono text-[11px] text-gold-deep tracking-[0.3em] uppercase">Three new engagements accepted per quarter</span>
-      <div class="w-1.5 h-1.5 bg-gold rounded-full pulse-dot"></div>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-7xl mx-auto">
-
-      <!-- STARTER -->
-      <div class="price-card p-7 rounded-sm">
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-xs font-medium text-gold-deep font-mono uppercase tracking-[0.2em]">Starter</span>
-          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <div class="mb-1">
-          <span class="font-display text-2xl text-forest-950">On request</span>
-        </div>
-        <div class="text-xs text-stone-600 mb-6">Half-day bi-weekly</div>
-        <div class="h-px bg-forest-950/10 mb-6"></div>
-        <ul class="space-y-2.5 mb-8 text-sm">
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Initial gap analysis</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Online consulting sessions</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Policy template library</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Email support (48h SLA)</span>
-          </li>
-        </ul>
-        <a href="#contact" class="block w-full text-center border border-forest-950/30 text-forest-950 py-3 font-medium text-sm hover:border-gold hover:text-gold-deep transition">
-          Begin Engagement
-        </a>
-      </div>
-
-      <!-- SEED -->
-      <div class="price-card p-7 rounded-sm">
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-xs font-medium text-gold-deep font-mono uppercase tracking-[0.2em]">Seed</span>
-          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.1-1.3 2-3 2s-3-.9-3-2 1.3-2 3-2 3 .9 3 2z"/></svg>
-        </div>
-        <div class="mb-1">
-          <span class="font-display text-2xl text-forest-950">On request</span>
-        </div>
-        <div class="text-xs text-stone-600 mb-6">1 day bi-weekly</div>
-        <div class="h-px bg-forest-950/10 mb-6"></div>
-        <ul class="space-y-2.5 mb-8 text-sm">
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Everything in Starter</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>ISO 27001 / PCI DSS gap analysis</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Quarterly board report</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Risk register &amp; roadmap</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Priority chat support</span>
-          </li>
-        </ul>
-        <a href="#contact" class="block w-full text-center border border-forest-950/30 text-forest-950 py-3 font-medium text-sm hover:border-gold hover:text-gold-deep transition">
-          Begin Engagement
-        </a>
-      </div>
-
-      <!-- GROWTH — FEATURED -->
-      <div class="price-card featured p-7 rounded-sm">
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-xs font-medium text-gold-deep font-mono uppercase tracking-[0.2em]">Growth</span>
-          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>
-        <div class="mb-1">
-          <span class="font-display text-2xl text-forest-950">On request</span>
-        </div>
-        <div class="text-xs text-stone-600 mb-6">1 day a week</div>
-        <div class="h-px bg-forest-950/10 mb-6"></div>
-        <ul class="space-y-2.5 mb-8 text-sm">
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Everything in Seed</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Vendor evaluation &amp; negotiation</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Board attendance (2/yr)</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Compliance execution support</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>5-day response SLA for incidents</span>
-          </li>
-        </ul>
-        <a href="#contact" class="btn-primary block w-full text-center py-3 font-medium text-sm">
-          Begin Engagement
-        </a>
-      </div>
-
-      <!-- ENTERPRISE -->
-      <div class="price-card p-7 rounded-sm">
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-xs font-medium text-gold-deep font-mono uppercase tracking-[0.2em]">Enterprise</span>
-          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.3 6.9L21 12l-5.7 2.1L13 21l-2.3-6.9L5 12l5.7-2.1L13 3z"/></svg>
-        </div>
-        <div class="mb-1">
-          <span class="font-display text-2xl text-forest-950">On request</span>
-        </div>
-        <div class="text-xs text-stone-600 mb-6">2 days a week</div>
-        <div class="h-px bg-forest-950/10 mb-6"></div>
-        <ul class="space-y-2.5 mb-8 text-sm">
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Everything in Growth</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Formally appointed CISO</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Regulator dialogue &amp; examination support</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>Incident response retainer</span>
-          </li>
-          <li class="flex items-start gap-2.5 text-forest-950">
-            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>24/7 critical escalation</span>
-          </li>
-        </ul>
-        <a href="#contact" class="block w-full text-center border border-forest-950/30 text-forest-950 py-3 font-medium text-sm hover:border-gold hover:text-gold-deep transition">
-          Begin Engagement
-        </a>
-      </div>
-    </div>
-
-    <div class="text-center mt-12">
-      <p class="text-sm text-stone-600">
-        <span class="inline-flex items-center gap-2">
-          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          All plans include initial scoping call · Month-to-month · No lock-in contracts
-        </span>
-      </p>
-    </div>
-  </div>
-</section>
 
 <!-- INSIGHTS / BLOG -->
+
+
+<!-- FAQ -->
+
+
+<!-- CONTACT -->
 <section id="insights" class="relative py-28 lg:py-36 bg-cream overflow-hidden reveal-on-scroll">
   <div class="absolute top-0 left-0 right-0 h-px meridian-line"></div>
 
@@ -3053,7 +1987,7 @@ function meridianCookieConsent(acceptAll){
     <!-- Section header -->
     <div class="grid lg:grid-cols-12 gap-12 mb-20">
       <div class="lg:col-span-6">
-        <div class="section-num mb-5">/ 11 — Insights</div>
+        <div class="section-num mb-5">/ 07 — Insights</div>
         <h2 class="display-heading text-5xl md:text-6xl lg:text-7xl text-forest-950 leading-[0.95]">
           Field notes<br/>
           <em class="text-gold-deep">from the practice.</em>
@@ -3166,23 +2100,7 @@ function meridianCookieConsent(acceptAll){
       </a>
 
       <!-- Article 2: Resilient Infrastructure -->
-      <a href="https://www.linkedin.com/pulse/building-resilient-infrastructure-large-scale-resorts-ajay-mathai-udhrf/" target="_blank" rel="noopener noreferrer" class="block edit-card p-8 group premium-card">
-        <div class="flex items-center gap-3 mb-6">
-          <span class="font-mono text-[10px] text-gold-deep tracking-[0.25em] uppercase">Infrastructure</span>
-          <div class="h-px flex-1 bg-gold/20"></div>
-          <svg class="w-3.5 h-3.5 text-gold-deep" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </div>
-        <h4 class="font-display text-xl text-forest-950 leading-tight mb-4 group-hover:text-gold-deep transition-colors">
-          Building resilient infrastructure for large-scale resorts
-        </h4>
-        <p class="text-sm text-stone-600 leading-relaxed mb-6">
-          A resort is a small city — with guest Wi-Fi, back-of-house POS, room automation, CCTV, and life-safety systems all sharing the same fibre spine. The architectural principles that keep multi-thousand-room properties running through outages, incidents, and peak occupancy.
-        </p>
-        <div class="flex items-center justify-between pt-4 border-t border-forest-950/10">
-          <span class="font-mono text-xs text-stone-500">Read on LinkedIn</span>
-          <svg class="w-4 h-4 text-forest-950 group-hover:text-gold-deep group-hover:translate-x-1 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        </div>
-      </a>
+      
 
       <!-- Article 3: Social Engineering -->
       <a href="https://www.linkedin.com/pulse/human-side-hacking-how-social-engineering-beats-strong-ajay-mathai-dzxnf/" target="_blank" rel="noopener noreferrer" class="block edit-card p-8 group premium-card">
@@ -3247,298 +2165,28 @@ function meridianCookieConsent(acceptAll){
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" class="relative py-24 lg:py-32 bg-parchment reveal-on-scroll">
-  <div class="max-w-4xl mx-auto px-6 lg:px-10">
-    <div class="text-center mb-16">
-      <div class="section-num mb-5">/ 12 — Questions</div>
-      <h2 class="display-heading text-4xl md:text-6xl text-forest-950">
-        Common questions.<br/>
-        <em class="text-gold-deep">Direct answers.</em>
-      </h2>
-    </div>
-
-    <div class="max-w-3xl mx-auto">
-
-      <details class="faq-item" open>
-        <summary>
-          <h3 class="font-display text-xl md:text-2xl text-forest-950 pr-8">What is a Fractional CISO and how is it different from a vCISO?</h3>
-          <svg class="chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        </summary>
-        <div class="pb-8 text-stone-700 leading-relaxed text-[0.95rem] max-w-2xl">
-          A Fractional CISO (also known as vCISO or CISO-as-a-Service) is an experienced Chief Information Security Officer engaged on a part-time retainer basis — giving organisations executive-grade security leadership without the cost of a full-time hire. The terms are used interchangeably across the industry. Meridian Partners's Fractional CISO service includes security strategy, governance frameworks, board reporting, Zero Trust architecture design, and compliance oversight.
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <h3 class="font-display text-xl md:text-2xl text-forest-950 pr-8">Where is Meridian Partners based?</h3>
-          <svg class="chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        </summary>
-        <div class="pb-8 text-stone-700 leading-relaxed text-[0.95rem] max-w-2xl">
-          Meridian Partners is a UAE-incorporated cybersecurity advisory (IFZA, Dubai) with offices in <span class="text-forest-950 font-medium">London and Dubai</span>, operating globally across EMEA, APAC, and the Americas. All engagements are delivered via secure video collaboration with on-site presence as required.
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <h3 class="font-display text-xl md:text-2xl text-forest-950 pr-8">What compliance frameworks does Meridian Partners support?</h3>
-          <svg class="chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        </summary>
-        <div class="pb-8 text-stone-700 leading-relaxed text-[0.95rem] max-w-2xl">
-          Gap analysis and readiness services are provided for <span class="text-forest-950 font-medium">ISO 27001:2022, PCI DSS v4.0, GDPR, and UAE PDPL</span>. Each engagement produces a documented gap analysis, Statement of Applicability, risk register, and prioritised remediation roadmap. Extensions to NIST CSF, SOC 2, and HITRUST available on request.
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <h3 class="font-display text-xl md:text-2xl text-forest-950 pr-8">How much does a Fractional CISO cost?</h3>
-          <svg class="chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        </summary>
-        <div class="pb-8 text-stone-700 leading-relaxed text-[0.95rem] max-w-2xl">
-          Meridian Partners offers monthly retainers across four tiers — <span class="text-forest-950 font-medium">Starter, Seed, Growth, and Enterprise</span> — each scoped to the firm's size, regulatory exposure, and pace of work. All plans are month-to-month with no lock-in contracts. Engagements can be paused, scaled up, or scaled down with 30 days notice. Pricing is shared during the discovery call once we understand the scope.
-          <a href="#pricing" class="text-gold-deep underline hover:text-gold ml-2">View pricing tiers →</a>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <h3 class="font-display text-xl md:text-2xl text-forest-950 pr-8">What does the engagement process look like?</h3>
-          <svg class="chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        </summary>
-        <div class="pb-8 text-stone-700 leading-relaxed text-[0.95rem] max-w-2xl">
-          Every engagement begins with a 30-minute <span class="text-forest-950 font-medium">strategic consultation at no cost</span>. If there is mutual fit, a detailed scoping document is produced within 72 hours covering deliverables, timeline, and commercial terms. Formal engagement begins within 7-14 days of contract signature.
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <h3 class="font-display text-xl md:text-2xl text-forest-950 pr-8">Does Meridian Partners take vendor commissions or kickbacks?</h3>
-          <svg class="chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        </summary>
-        <div class="pb-8 text-stone-700 leading-relaxed text-[0.95rem] max-w-2xl">
-          <span class="text-forest-950 font-medium">No. Meridian Partners operates on a strict independence principle</span> — no vendor commissions, no channel-partner arrangements, and no resale agreements. Technology recommendations are based solely on client requirements, total cost of ownership, and architectural fit. This independence is the foundation of Practice III (Vendor Evaluation &amp; Negotiation).
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <h3 class="font-display text-xl md:text-2xl text-forest-950 pr-8">How confidential are client engagements?</h3>
-          <svg class="chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        </summary>
-        <div class="pb-8 text-stone-700 leading-relaxed text-[0.95rem] max-w-2xl">
-          <span class="text-forest-950 font-medium">Every engagement begins with a mutual NDA.</span> Client identities are never disclosed in marketing material or case studies without explicit written permission. Case study descriptors (sector, geography, engagement type) are published only with client sign-off and at a level of abstraction that protects identity.
-        </div>
-      </details>
-
-      <!-- FAQ 8: UAE regulator coverage -->
-      <details class="group border-b border-forest-950/10 py-6">
-        <summary class="cursor-pointer flex items-start justify-between gap-6 list-none">
-          <h3 class="font-display text-xl text-forest-950 leading-tight pr-4">Which UAE financial regulators do you advise across?</h3>
-          <svg class="w-5 h-5 text-gold-deep flex-shrink-0 mt-1.5 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        </summary>
-        <div class="mt-5 text-stone-700 leading-relaxed">
-          Our Financial Services Practice covers the four primary UAE regulators directly: <strong>DFSA</strong> (Dubai Financial Services Authority, DIFC), <strong>FSRA</strong> (Financial Services Regulatory Authority, ADGM), <strong>CBUAE</strong> (Central Bank of the UAE, for onshore banks and payment providers), and <strong>VARA</strong> (Virtual Assets Regulatory Authority, for crypto and virtual-asset service providers). For healthcare we align to <strong>ADHICS</strong>; for critical national infrastructure, the <strong>UAE IAR</strong> standard. Engagements are framework-led and mapped to the specific regulator's evidential expectations.
-        </div>
-      </details>
-
-      <!-- FAQ 9: Formal CISO appointment -->
-      <details class="group border-b border-forest-950/10 py-6">
-        <summary class="cursor-pointer flex items-start justify-between gap-6 list-none">
-          <h3 class="font-display text-xl text-forest-950 leading-tight pr-4">Can a Fractional CISO be appointed as the named CISO under UAE regulations?</h3>
-          <svg class="w-5 h-5 text-gold-deep flex-shrink-0 mt-1.5 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        </summary>
-        <div class="mt-5 text-stone-700 leading-relaxed">
-          Most UAE regulators (DFSA, FSRA, ADHICS, UAE IAR) permit a named Senior Information Security Officer who carries individual accountability to the regulator and the firm's board. A Fractional CISO can fulfil this role provided the engagement establishes formal accountability, defined hours, board-level reporting access, and incident-response decision authority. We draft the appointment terms with your General Counsel and outline the regulator-facing accountability clearly in the engagement letter.
-        </div>
-      </details>
-
-      <!-- FAQ 10: vCISO vs MSSP -->
-      <details class="group border-b border-forest-950/10 py-6">
-        <summary class="cursor-pointer flex items-start justify-between gap-6 list-none">
-          <h3 class="font-display text-xl text-forest-950 leading-tight pr-4">How does a Fractional CISO differ from an MSSP or general consultant?</h3>
-          <svg class="w-5 h-5 text-gold-deep flex-shrink-0 mt-1.5 transition-transform group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
-        </summary>
-        <div class="mt-5 text-stone-700 leading-relaxed">
-          An MSSP (managed security service provider) operates technology — monitoring tools, SIEMs, EDR consoles. They are excellent at the operational layer but cannot serve as your strategic security executive, sit in board meetings, or speak for the firm to regulators. A general consultant delivers project work — gap analyses, policies, audits — then leaves. A Fractional CISO is the recurring strategic leader: defining direction, owning the risk register, reporting to the board, leading regulator dialogue, and pulling in MSSPs or consultants as needed. Meridian Partners operates strictly at this executive-advisory layer; we do not resell MSSP tools or take vendor commissions.
-        </div>
-      </details>
-
-    </div>
-
-    <!-- CTA -->
-    <div class="text-center mt-16 pt-8">
-      <p class="text-stone-600 mb-6">Question not answered? Every engagement begins with a direct conversation.</p>
-      <a href="#contact" class="btn-primary inline-flex items-center gap-2 px-6 py-3 text-sm font-medium">
-        Ask directly
+<section id="contact" class="relative bg-forest-950 text-white py-28 lg:py-36 overflow-hidden grain reveal-on-scroll">
+  <div class="absolute inset-0 fine-grid opacity-30"></div>
+  <div class="absolute inset-0 gold-glow opacity-40"></div>
+  <div class="absolute top-0 left-0 right-0 h-px meridian-line"></div>
+  <div class="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
+    <div class="section-num text-gold mb-5">/ 08 — Engage</div>
+    <h2 class="display-heading text-5xl md:text-6xl lg:text-7xl text-white leading-[0.95] mb-8">
+      Begin with a<br/><em class="text-gold italic">strategic conversation.</em>
+    </h2>
+    <p class="text-lg text-stone-200 leading-relaxed max-w-2xl mx-auto mb-12">
+      Thirty minutes with a senior practitioner. No slides, no pitch — a candid assessment of where you stand and whether an engagement makes sense.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="contact.html" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium tracking-wide">
+        Book a Consultation
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </a>
+      <a href="/readiness-checklist.html" class="inline-flex items-center justify-center gap-2 border border-gold/40 text-gold-light px-8 py-4 text-sm font-medium tracking-wide hover:bg-gold/10 hover:border-gold transition">
+        Download the DFSA &amp; FSRA Checklist
+      </a>
     </div>
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="relative py-28 lg:py-40 bg-forest-950 text-white overflow-hidden grain reveal-on-scroll">
-  <div class="absolute inset-0 fine-grid opacity-40"></div>
-  <div class="absolute bottom-0 left-0 w-2/3 h-2/3 gold-glow-2 opacity-90"></div>
-  <div class="absolute top-0 right-0 w-1/2 h-1/2 gold-glow opacity-50"></div>
-
-  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="text-center mb-20">
-      <div class="section-num text-gold mb-5">/ 13 — Engage</div>
-      <h2 class="display-heading text-5xl md:text-7xl text-white max-w-4xl mx-auto leading-[0.95]">
-        Begin with a<br/>
-        <em class="text-gold italic">strategic conversation.</em>
-      </h2>
-      <p class="text-lg text-stone-100/90 mt-8 max-w-xl mx-auto font-light">
-        30 minutes. No obligation, no sales pitch — a candid assessment of whether an engagement makes sense.
-      </p>
-    </div>
-
-    <div class="grid lg:grid-cols-2 gap-10 lg:gap-12">
-
-      <!-- Form -->
-      <div class="bg-white/5 backdrop-blur-sm border border-gold/20 p-8 lg:p-12">
-        <div class="flex items-center gap-3 mb-8">
-          <div class="w-9 h-9 border border-gold flex items-center justify-center">
-            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </div>
-          <div>
-            <div class="font-mono text-xs uppercase tracking-wider text-gold-light">Option A</div>
-            <div class="text-white font-medium">Send a Brief</div>
-          </div>
-        </div>
-
-        <form id="contactForm" class="space-y-5" action="https://formspree.io/f/xaqklvdz" method="POST">
-          <input type="text" name="_gotcha" style="display:none" aria-hidden="true" tabindex="-1">
-          <input type="hidden" name="_subject" value="New Brief — Meridian Partners Contact Form" />
-          <input type="hidden" name="_next" value="https://meridianpartners.me/thank-you.html?type=consultation" />
-          <div class="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label class="font-mono text-[10px] uppercase tracking-wider text-stone-400 block mb-2">Full Name</label>
-              <input type="text" name="name" required class="w-full bg-transparent border-b border-gold/25 focus:border-gold py-2.5 text-white placeholder-stone-500 text-sm focus:outline-none transition" placeholder="Your name" />
-            </div>
-            <div>
-              <label class="font-mono text-[10px] uppercase tracking-wider text-stone-400 block mb-2">Company</label>
-              <input type="text" name="company" class="w-full bg-transparent border-b border-gold/25 focus:border-gold py-2.5 text-white placeholder-stone-500 text-sm focus:outline-none transition" placeholder="Organisation" />
-            </div>
-          </div>
-          <div>
-            <label class="font-mono text-[10px] uppercase tracking-wider text-stone-400 block mb-2">Work Email</label>
-            <input type="email" name="email" required class="w-full bg-transparent border-b border-gold/25 focus:border-gold py-2.5 text-white placeholder-stone-500 text-sm focus:outline-none transition" placeholder="name@company.com" />
-          </div>
-          <div>
-            <label class="font-mono text-[10px] uppercase tracking-wider text-stone-400 block mb-2">Engagement Tier</label>
-            <select name="engagement_tier" class="w-full bg-forest-900 border-b border-gold/25 focus:border-gold py-2.5 text-white text-sm focus:outline-none transition">
-              <option>Starter</option>
-              <option>Seed</option>
-              <option>Growth</option>
-              <option>Enterprise</option>
-              <option>Bespoke / not yet defined</option>
-            </select>
-          </div>
-          <div>
-            <label class="font-mono text-[10px] uppercase tracking-wider text-stone-400 block mb-2">Brief</label>
-            <textarea name="brief" rows="4" class="w-full bg-transparent border-b border-gold/25 focus:border-gold py-2.5 text-white placeholder-stone-500 text-sm focus:outline-none transition resize-none" placeholder="Context, scope, timeline..."></textarea>
-          </div>
-          <button type="submit" class="btn-primary w-full py-4 text-sm font-medium tracking-wide flex items-center justify-center gap-2 mt-4">
-            Submit Brief
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </button>
-          <p class="font-mono text-[10px] text-stone-500 text-center">Encrypted in transit · Response within 48h</p>
-        </form>
-      </div>
-
-      <!-- Calendar -->
-      <div class="bg-white/5 backdrop-blur-sm border border-gold/20 p-8 lg:p-12 flex flex-col">
-        <div class="flex items-center gap-3 mb-8">
-          <div class="w-9 h-9 border border-gold flex items-center justify-center">
-            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          </div>
-          <div>
-            <div class="font-mono text-xs uppercase tracking-wider text-gold-light">Option B</div>
-            <div class="text-white font-medium">Book Directly</div>
-          </div>
-        </div>
-
-        <div class="flex-1 bg-forest-900/60 border border-gold/10 flex flex-col">
-          <!-- Header band (forest) -->
-          <div class="flex items-center justify-between p-6 pb-5">
-            <div>
-              <div class="font-display text-2xl text-white">Strategic Consultation</div>
-              <div class="font-mono text-[10px] text-stone-400 mt-1.5 tracking-[0.2em]">30 MIN · VIDEO · NO FEE</div>
-            </div>
-            <div class="flex items-center gap-2">
-              <div class="w-2 h-2 bg-gold rounded-full pulse-dot"></div>
-              <span class="font-mono text-[10px] text-gold tracking-wider">AVAILABLE</span>
-            </div>
-          </div>
-
-          <!-- Description -->
-          <div class="px-6 pt-6 pb-2">
-            <p class="text-stone-300 text-sm leading-relaxed">
-              A focused first conversation — no slides, no pitch. We pressure-test where you stand and where the gaps are, then tell you straight whether Meridian Partners is the right fit.
-            </p>
-          </div>
-
-          <!-- 3 gold-arrow bullets -->
-          <ul class="px-6 py-4 space-y-3">
-            <li class="flex items-start gap-3 text-stone-200 text-sm">
-              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-              <span>A read on your DFSA / FSRA regulatory exposure</span>
-            </li>
-            <li class="flex items-start gap-3 text-stone-200 text-sm">
-              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-              <span>A quick diagnostic of your current security posture</span>
-            </li>
-            <li class="flex items-start gap-3 text-stone-200 text-sm">
-              <svg class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-              <span>Where — and whether — Meridian Partners adds value</span>
-            </li>
-          </ul>
-
-          <!-- Gold CTA button → opens Cal.com modal -->
-          <div class="px-6 pb-5 pt-2">
-            <a href="#contact" class="btn-primary w-full py-4 text-sm font-medium tracking-wide flex items-center justify-center gap-2">
-              Schedule a Call
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </a>
-          </div>
-
-          <!-- Footer microtext -->
-          <p class="font-mono text-[10px] text-stone-500 text-center pb-5 px-6">Live availability · GST timezone · 30-min discovery slot</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Direct contact -->
-    <div class="mt-16 pt-10 border-t border-gold/15 grid md:grid-cols-4 gap-6 text-center md:text-left">
-      <div>
-        <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-stone-400 mb-2">Email</div>
-        <a href="mailto:info@meridianpartners.me" class="text-white hover:text-gold transition text-sm">info@meridianpartners.me</a>
-      </div>
-      <div>
-        <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-stone-400 mb-2">Phone</div>
-        <a href="tel:+447828743250" class="text-white hover:text-gold transition text-sm block">
-          <span class="font-mono text-[9px] text-gold-light/60 tracking-wider uppercase block">UK</span>
-          +44 7828 743250
-        </a>
-        <a href="tel:+971559286300" class="text-white hover:text-gold transition text-sm block mt-3">
-          <span class="font-mono text-[9px] text-gold-light/60 tracking-wider uppercase block">UAE</span>
-          +971 55 928 6300
-        </a>
-      </div>
-      <div>
-        <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-stone-400 mb-2">LinkedIn</div>
-        <a href="https://www.linkedin.com/company/meridian-partners/" target="_blank" rel="noopener" class="text-white hover:text-gold transition text-sm">linkedin.com/company/meridian-partners</a>
-      </div>
-      <div>
-        <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-stone-400 mb-2">Offices</div>
-        <p class="text-white text-sm">London · Dubai</p>
-      </div>
-    </div>
+    <p class="font-mono text-[10px] text-stone-400 tracking-[0.25em] uppercase mt-10">London · Dubai — replies within one business day</p>
   </div>
 </section>
 
@@ -3583,11 +2231,12 @@ function meridianCookieConsent(acceptAll){
           <li><a href="#industries" class="hover:text-gold transition">Industries</a></li>
           <li><a href="#financial-services" class="hover:text-gold transition">FS Practice</a></li>
           <li><a href="#cases" class="hover:text-gold transition">Case Studies</a></li>
-          <li><a href="#process" class="hover:text-gold transition">Process</a></li>
-          <li><a href="#pricing" class="hover:text-gold transition">Pricing</a></li>
-          <li><a href="about.html" class="hover:text-gold transition">About</a></li>
+          <li><a href="about.html#process" class="hover:text-gold transition">Process</a></li>
+          <li><a href="services.html#pricing" class="hover:text-gold transition">Pricing</a></li>
           <li><a href="#insights" class="hover:text-gold transition">Insights</a></li>
-          <li><a href="#faq" class="hover:text-gold transition">FAQ</a></li>
+          <li><a href="about.html" class="hover:text-gold transition">About</a></li>
+          <li></li>
+          <li><a href="contact.html#faq" class="hover:text-gold transition">FAQ</a></li>
           <li><a href="contact.html" class="hover:text-gold transition">Contact</a></li>
         </ul>
       </div>
@@ -3767,7 +2416,7 @@ function meridianCookieConsent(acceptAll){
   }, { threshold: 0.1 });
 
   document.querySelectorAll('section h2, section .edit-card, section .award-card, section .price-card, section .testimonial-card').forEach(el => {
-    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
     observer.observe(el);
   });
 
@@ -3788,15 +2437,13 @@ function meridianCookieConsent(acceptAll){
       entries.forEach(function(entry){
         if (entry.isIntersecting) {
           // Slight delay for natural feel — never instant
-          setTimeout(function(){
-            entry.target.classList.add('revealed');
-          }, 60);
+          entry.target.classList.add('revealed');
           revealObserver.unobserve(entry.target);
         }
       });
     }, {
       threshold: 0.01,
-      rootMargin: '0px 0px 120px 0px'
+      rootMargin: '0px 0px 20% 0px'
     });
     document.querySelectorAll('.reveal-on-scroll').forEach(function(el){ revealObserver.observe(el); });
   }
@@ -3855,21 +2502,15 @@ function meridianCookieConsent(acceptAll){
   if (!prefersReducedMotion) {
     var compass = document.querySelector('.compass-parallax');
     if (compass) {
-      var ticking = false;
-      function updateCompass(){
+      function compassLoop(){
         var scrolled = window.pageYOffset;
-        // Move at 25% scroll speed — subtle
         var offset = Math.min(scrolled * 0.15, 120);
-        var rotation = scrolled * 0.02; // very subtle rotation
+        // scroll-linked tilt + perpetual slow drift — the compass is always alive
+        var rotation = scrolled * 0.02 + (performance.now() / 1000) * 0.6;
         compass.style.transform = 'translateY(' + offset + 'px) rotate(' + rotation + 'deg)';
-        ticking = false;
+        requestAnimationFrame(compassLoop);
       }
-      window.addEventListener('scroll', function(){
-        if (!ticking) {
-          requestAnimationFrame(updateCompass);
-          ticking = true;
-        }
-      }, { passive: true });
+      requestAnimationFrame(compassLoop);
     }
   }
   
@@ -3896,23 +2537,6 @@ function meridianCookieConsent(acceptAll){
     });
   });
   
-})();
-</script>
-
-
-<script id="meridian-view-transition-script">
-(function(){
-  if (!('startViewTransition' in document)) return;
-  document.addEventListener('click', function(event){
-    var link = event.target.closest && event.target.closest('a[href]');
-    if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    var url = new URL(link.getAttribute('href'), window.location.href);
-    if (url.origin !== window.location.origin) return;
-    if (url.pathname === window.location.pathname && url.hash) return;
-    if (!url.pathname.endsWith('.html') && url.pathname !== '/' && url.pathname !== '') return;
-    event.preventDefault();
-    document.startViewTransition(function(){ window.location.href = url.href; });
-  }, true);
 })();
 </script>
 
