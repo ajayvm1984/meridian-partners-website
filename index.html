@@ -1255,7 +1255,24 @@ function meridianCookieConsent(acceptAll){
 <!-- /build:nav -->
 
 <!-- HERO -->
-<section class="relative bg-forest-950 text-white overflow-hidden grain min-h-[100svh] flex items-center">
+<style id="hero-slider-css">
+  #heroSlider { position: relative; }
+  .hero-track { display: flex; width: 400%; transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform; }
+  .hero-slide { width: 25%; flex: 0 0 25%; min-height: 100svh; position: relative; display: flex; align-items: center; overflow: hidden; }
+  .hero-slide .slide-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-slide .slide-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4,17,12,0.94) 0%, rgba(4,17,12,0.78) 42%, rgba(4,17,12,0.38) 100%); }
+  .hero-dot { width: 34px; height: 22px; display: flex; align-items: center; cursor: pointer; background: none; border: 0; padding: 0 6px; }
+  .hero-dot span { display: block; width: 100%; height: 2px; background: rgba(240,234,219,0.25); transition: background .4s ease, height .4s ease; }
+  .hero-dot[aria-current="true"] span { background: #C9A961; }
+  .hero-arrow { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(201,169,97,0.35); color: #E4C988; background: none; cursor: pointer; transition: border-color .3s ease, background .3s ease; }
+  .hero-arrow:hover { border-color: #C9A961; background: rgba(201,169,97,0.08); }
+  @media (prefers-reduced-motion: reduce) { .hero-track { transition: none; } }
+</style>
+<section id="heroSlider" class="relative bg-forest-950 text-white overflow-hidden min-h-[100svh]" role="region" aria-roledescription="carousel" aria-label="Meridian Partners highlights">
+  <div class="hero-track" id="heroTrack">
+
+    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+
   <div class="absolute inset-0 fine-grid opacity-70"></div>
   <div class="absolute inset-0 gold-glow"></div>
   <div class="absolute inset-0 gold-glow-2"></div>
@@ -1375,9 +1392,106 @@ function meridianCookieConsent(acceptAll){
       </div>
   </div>
 
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-up delay-5 scroll-indicator">
+  
+    </div>
+
+    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+      <img class="slide-bg" src="assets/dubai-skyline-duotone.jpg" alt="" loading="eager" decoding="async"/>
+      <div class="slide-scrim"></div>
+      <div class="absolute inset-0 grain"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-10 pt-32 pb-24 w-full">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3">
+            <div class="w-2 h-2 bg-gold pulse-dot rounded-full"></div>
+            <span class="font-mono text-sm tracking-[0.3em] text-gold-light/90 uppercase">DFSA &middot; FSRA Regulatory Practice</span>
+          </div>
+          <div class="display-heading text-5xl md:text-7xl lg:text-[6.25rem] mt-8">
+            Built for<br/>
+            <em class="text-gold">regulated finance.</em>
+          </div>
+          <p class="text-xl md:text-2xl text-stone-100/95 max-w-2xl mt-10 leading-relaxed font-light">
+            A dedicated practice for DIFC and ADGM authorised firms &mdash; cybersecurity, operational resilience, and business continuity delivered in the language regulators recognise.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mt-12">
+            <a href="dfsa-fsra-practice.html" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium tracking-wide">Explore the practice <span aria-hidden="true">&rarr;</span></a>
+            <a href="readiness-checklist.html" class="inline-flex items-center justify-center gap-2 border border-gold/40 text-gold-light px-8 py-4 text-sm font-medium tracking-wide hover:bg-gold/10 hover:border-gold transition">Download the DFSA &amp; FSRA Checklist</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+      <img class="slide-bg" src="assets/towers-night-duotone.jpg" alt="" loading="eager" decoding="async"/>
+      <div class="slide-scrim"></div>
+      <div class="absolute inset-0 grain"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-10 pt-32 pb-24 w-full">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3">
+            <div class="w-2 h-2 bg-gold pulse-dot rounded-full"></div>
+            <span class="font-mono text-sm tracking-[0.3em] text-gold-light/90 uppercase">Independent by design</span>
+          </div>
+          <div class="display-heading text-5xl md:text-7xl lg:text-[6.25rem] mt-8">
+            Zero vendor<br/>
+            <em class="text-gold">commissions.</em>
+          </div>
+          <p class="text-xl md:text-2xl text-stone-100/95 max-w-2xl mt-10 leading-relaxed font-light">
+            Independent technical evaluation and commercial negotiation for major security purchases. No reseller incentives, no kickbacks &mdash; your interests only.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mt-12">
+            <a href="vendor-evaluation.html" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium tracking-wide">Vendor Evaluation &amp; Negotiation <span aria-hidden="true">&rarr;</span></a>
+            <a href="about.html" class="inline-flex items-center justify-center gap-2 border border-gold/40 text-gold-light px-8 py-4 text-sm font-medium tracking-wide hover:bg-gold/10 hover:border-gold transition">How we stay independent</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+      <div class="absolute inset-0 fine-grid opacity-70"></div>
+      <div class="absolute inset-0 gold-glow"></div>
+      <div class="absolute inset-0 grain"></div>
+      <div class="relative max-w-7xl mx-auto px-6 lg:px-10 pt-32 pb-24 w-full">
+        <div class="max-w-4xl">
+          <div class="flex items-center gap-3">
+            <div class="w-2 h-2 bg-gold pulse-dot rounded-full"></div>
+            <span class="font-mono text-sm tracking-[0.3em] text-gold-light/90 uppercase">The firm &mdash; at a glance</span>
+          </div>
+          <div class="display-heading text-4xl md:text-6xl lg:text-7xl mt-8">
+            Senior advisory.<br/>
+            <em class="text-gold">Measurable outcomes.</em>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 max-w-3xl">
+            <div><div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">London&middot;<br/>Dubai</div><div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Offices</div></div>
+            <div><div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">Est. 2026</div><div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Independent Advisory</div></div>
+            <div><div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">Zero</div><div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Vendor Commissions</div></div>
+            <div><div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">EMEA&middot;APAC</div><div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Global Remit</div></div>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-8">
+            <span class="font-mono text-xs text-stone-400 tracking-wider">CISSP &middot; CISM &middot; CRISC &middot; CCIE</span>
+            <span class="flex items-center gap-2 font-mono text-xs text-gold-light tracking-wider"><span class="w-1.5 h-1.5 bg-gold rounded-full pulse-dot"></span>Q3 2026 &middot; accepting</span>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 mt-10">
+            <a href="contact.html" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium tracking-wide">Book a Consultation <span aria-hidden="true">&rarr;</span></a>
+            <a href="services.html" class="inline-flex items-center justify-center gap-2 border border-gold/40 text-gold-light px-8 py-4 text-sm font-medium tracking-wide hover:bg-gold/10 hover:border-gold transition arrow-link">Explore Services <svg class="w-4 h-4 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-up delay-5 scroll-indicator">
     <span class="font-mono text-[10px] uppercase tracking-[0.4em] text-stone-400">Scroll</span>
     <div class="w-px h-10 bg-gradient-to-b from-gold/60 to-transparent"></div>
+  </div>
+
+  <div class="absolute bottom-8 left-6 lg:left-10 z-10 flex items-center" id="heroDots" aria-label="Slides">
+    <button class="hero-dot" aria-label="Go to slide 1" aria-current="true"><span></span></button>
+    <button class="hero-dot" aria-label="Go to slide 2"><span></span></button>
+    <button class="hero-dot" aria-label="Go to slide 3"><span></span></button>
+    <button class="hero-dot" aria-label="Go to slide 4"><span></span></button>
+  </div>
+  <div class="absolute bottom-8 right-6 lg:right-10 z-10 flex items-center gap-5">
+    <span id="heroCount" class="font-mono text-[10px] tracking-[0.3em] text-stone-400">01 / 04</span>
+    <button id="heroPrev" class="hero-arrow" aria-label="Previous slide"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg></button>
+    <button id="heroNext" class="hero-arrow" aria-label="Next slide"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></button>
   </div>
 </section>
 
@@ -2701,5 +2815,61 @@ function meridianCookieConsent(acceptAll){
 })();
 </script>
 <!-- /build:script-motion-fine -->
+<script>
+(function(){
+  'use strict';
+  var track = document.getElementById('heroTrack');
+  if (!track) return;
+  var section = document.getElementById('heroSlider');
+  var slides = track.children;
+  var dots = document.querySelectorAll('#heroDots .hero-dot');
+  var count = document.getElementById('heroCount');
+  var N = slides.length, idx = 0, timer = null, resumeAt = 0;
+  var INTERVAL = 7500;
+  var noMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function pad(n){ return (n < 9 ? '0' : '') + (n + 1); }
+  function apply(){
+    track.style.transform = 'translateX(-' + (idx * 25) + '%)';
+    for (var i = 0; i < N; i++) {
+      var active = i === idx;
+      slides[i].setAttribute('aria-hidden', active ? 'false' : 'true');
+      var links = slides[i].querySelectorAll('a, button');
+      for (var k = 0; k < links.length; k++) links[k].tabIndex = active ? 0 : -1;
+      if (dots[i]) dots[i].setAttribute('aria-current', active ? 'true' : 'false');
+    }
+    if (count) count.textContent = pad(idx) + ' / ' + pad(N - 1);
+  }
+  function go(i, user){
+    idx = ((i % N) + N) % N;
+    apply();
+    if (user) resumeAt = Date.now() + 15000;
+  }
+  function tick(){
+    if (document.hidden || Date.now() < resumeAt || section.matches(':hover')) return;
+    go(idx + 1, false);
+  }
+  if (!noMotion) timer = setInterval(tick, INTERVAL);
+
+  document.getElementById('heroNext').addEventListener('click', function(){ go(idx + 1, true); });
+  document.getElementById('heroPrev').addEventListener('click', function(){ go(idx - 1, true); });
+  for (var d = 0; d < dots.length; d++) (function(d){ dots[d].addEventListener('click', function(){ go(d, true); }); })(d);
+
+  section.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight') { go(idx + 1, true); }
+    if (e.key === 'ArrowLeft') { go(idx - 1, true); }
+  });
+
+  var px = null;
+  section.addEventListener('pointerdown', function(e){ px = e.clientX; }, { passive: true });
+  section.addEventListener('pointerup', function(e){
+    if (px === null) return;
+    var dx = e.clientX - px; px = null;
+    if (Math.abs(dx) > 60) go(idx + (dx < 0 ? 1 : -1), true);
+  }, { passive: true });
+
+  apply();
+})();
+</script>
 </body>
 </html>
