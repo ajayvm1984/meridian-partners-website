@@ -1267,6 +1267,18 @@ function meridianCookieConsent(acceptAll){
   .hero-arrow { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(201,169,97,0.35); color: #E4C988; background: none; cursor: pointer; transition: border-color .3s ease, background .3s ease; }
   .hero-arrow:hover { border-color: #C9A961; background: rgba(201,169,97,0.08); }
   @media (prefers-reduced-motion: reduce) { .hero-track { transition: none; } }
+  #heroSlider .scroll-indicator { transition: opacity .5s ease; }
+  #heroSlider.past-first .scroll-indicator { opacity: 0; pointer-events: none; }
+  @media (max-height: 940px) {
+    #heroSlider .hero-slide .pt-32 { padding-top: 6.5rem; }
+    #heroSlider .hero-slide .pb-24 { padding-bottom: 3rem; }
+    #heroSlider .display-heading { font-size: 4.6rem; line-height: 1.02; }
+    #heroSlider .hero-slide .mt-8 { margin-top: 1.25rem; }
+    #heroSlider .hero-slide p.text-xl { font-size: 1.125rem; margin-top: 1.5rem; }
+    #heroSlider .hero-slide .mt-12 { margin-top: 2rem; }
+    #heroSlider .hero-slide .mt-10 { margin-top: 1.5rem; }
+    #heroSlider .hero-slide .max-w-md { max-width: 21rem; }
+  }
 </style>
 <section id="heroSlider" class="relative bg-forest-950 text-white overflow-hidden min-h-[100svh]" role="region" aria-roledescription="carousel" aria-label="Meridian Partners highlights">
   <div class="hero-track" id="heroTrack">
@@ -1461,7 +1473,7 @@ function meridianCookieConsent(acceptAll){
             <em class="text-gold">Measurable outcomes.</em>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 max-w-3xl">
-            <div><div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">London&middot;<br/>Dubai</div><div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Offices</div></div>
+            <div><div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">London · Dubai</div><div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Offices</div></div>
             <div><div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">Est. 2026</div><div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Independent Advisory</div></div>
             <div><div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">Zero</div><div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Vendor Commissions</div></div>
             <div><div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">EMEA&middot;APAC</div><div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Global Remit</div></div>
@@ -1907,6 +1919,8 @@ function meridianCookieConsent(acceptAll){
 
 <!-- FINANCIAL SERVICES PRACTICE -->
 <section id="financial-services" class="relative bg-forest-950 text-white py-28 lg:py-36 overflow-hidden grain reveal-on-scroll">
+  <img src="assets/towers-night-duotone.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center opacity-35"/>
+  <div class="absolute inset-0" style="background:linear-gradient(90deg, rgba(4,17,12,0.92) 0%, rgba(4,17,12,0.7) 60%, rgba(4,17,12,0.85) 100%)"></div>
   <div class="absolute inset-0 fine-grid opacity-30"></div>
   <div class="absolute inset-0 gold-glow opacity-40"></div>
   <div class="absolute top-0 left-0 right-0 h-px meridian-line"></div>
@@ -2339,6 +2353,8 @@ function meridianCookieConsent(acceptAll){
 </section>
 
 <section id="contact" class="relative bg-forest-950 text-white py-28 lg:py-36 overflow-hidden grain reveal-on-scroll">
+  <img src="assets/skyline-wide-dark.jpg" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center opacity-45"/>
+  <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(4,17,12,0.88) 0%, rgba(4,17,12,0.62) 55%, rgba(4,17,12,0.9) 100%)"></div>
   <div class="absolute inset-0 fine-grid opacity-30"></div>
   <div class="absolute inset-0 gold-glow opacity-40"></div>
   <div class="absolute top-0 left-0 right-0 h-px meridian-line"></div>
@@ -2840,6 +2856,7 @@ function meridianCookieConsent(acceptAll){
       if (dots[i]) dots[i].setAttribute('aria-current', active ? 'true' : 'false');
     }
     if (count) count.textContent = pad(idx) + ' / ' + pad(N - 1);
+    section.classList.toggle('past-first', idx !== 0);
   }
   function go(i, user){
     idx = ((i % N) + N) % N;
