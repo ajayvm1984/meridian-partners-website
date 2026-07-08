@@ -1267,10 +1267,13 @@ function meridianCookieConsent(acceptAll){
   .hero-arrow { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(201,169,97,0.35); color: #E4C988; background: none; cursor: pointer; transition: border-color .3s ease, background .3s ease; }
   .hero-arrow:hover { border-color: #C9A961; background: rgba(201,169,97,0.08); }
   @media (prefers-reduced-motion: reduce) { .hero-track { transition: none; } }
+  #heroDots { left: 1.5rem; }
+  #heroCtls { right: 1.5rem; }
+  @media (min-width: 1024px) { #heroDots { left: 2.5rem; } #heroCtls { right: 2.5rem; } }
   #heroSlider .scroll-indicator { transition: opacity .5s ease; }
   #heroSlider.past-first .scroll-indicator { opacity: 0; pointer-events: none; }
   @media (max-height: 940px) {
-    #heroSlider .hero-slide .pt-32 { padding-top: 6.5rem; }
+    #heroSlider .hero-slide .pt-32 { padding-top: 5.5rem; }
     #heroSlider .hero-slide .pb-24 { padding-bottom: 3rem; }
     #heroSlider .display-heading { font-size: 4.6rem; line-height: 1.02; }
     #heroSlider .hero-slide .mt-8 { margin-top: 1.25rem; }
@@ -1278,6 +1281,8 @@ function meridianCookieConsent(acceptAll){
     #heroSlider .hero-slide .mt-12 { margin-top: 2rem; }
     #heroSlider .hero-slide .mt-10 { margin-top: 1.5rem; }
     #heroSlider .hero-slide .max-w-md { max-width: 21rem; }
+    #heroSlider .hero-slide .pt-8 { padding-top: 1rem; }
+    #heroSlider .hero-slide .gap-y-8 { row-gap: 1rem; }
   }
 </style>
 <section id="heroSlider" class="relative bg-forest-950 text-white overflow-hidden min-h-[100svh]" role="region" aria-roledescription="carousel" aria-label="Meridian Partners highlights">
@@ -1323,7 +1328,7 @@ function meridianCookieConsent(acceptAll){
         
     <div class="mt-12 pt-8 border-t border-gold/15 grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-8 fade-up delay-4 w-full min-w-0">
           <div>
-            <div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">London<span class="text-gold">·</span><wbr>Dubai</div>
+            <div class="font-display text-xl sm:text-2xl lg:text-3xl leading-tight text-white">London<span class="text-gold"> · </span>Dubai</div>
             <div class="font-mono text-[10px] text-stone-400 mt-1 uppercase tracking-wider">Offices</div>
           </div>
           <div>
@@ -1495,13 +1500,13 @@ function meridianCookieConsent(acceptAll){
     <div class="w-px h-10 bg-gradient-to-b from-gold/60 to-transparent"></div>
   </div>
 
-  <div class="absolute bottom-8 left-6 lg:left-10 z-10 flex items-center" id="heroDots" aria-label="Slides">
+  <div class="absolute bottom-8 z-10 flex items-center" id="heroDots" aria-label="Slides">
     <button class="hero-dot" aria-label="Go to slide 1" aria-current="true"><span></span></button>
     <button class="hero-dot" aria-label="Go to slide 2"><span></span></button>
     <button class="hero-dot" aria-label="Go to slide 3"><span></span></button>
     <button class="hero-dot" aria-label="Go to slide 4"><span></span></button>
   </div>
-  <div class="absolute bottom-8 right-6 lg:right-10 z-10 flex items-center gap-5">
+  <div id="heroCtls" class="absolute bottom-8 z-10 flex items-center gap-5">
     <span id="heroCount" class="font-mono text-[10px] tracking-[0.3em] text-stone-400">01 / 04</span>
     <button id="heroPrev" class="hero-arrow" aria-label="Previous slide"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg></button>
     <button id="heroNext" class="hero-arrow" aria-label="Next slide"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></button>
