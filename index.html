@@ -45,6 +45,7 @@
 
 
 
+<!-- build:style-main -->
 <style>
   :root {
     --forest-950: #06211B;
@@ -321,12 +322,6 @@
   .arrow-link:hover .arrow-icon { transform: translateX(4px); }
   .arrow-icon { transition: transform 0.3s ease; display: inline-block; }
 
-25% { opacity: 1; cx: 65; }
-    35% { cx: 135; }
-    45% { cx: 205; }
-    55% { cx: 275; opacity: 1; }
-    60%, 100% { opacity: 0; }
-  }
 
   /* Service animations — premium SVG motion */
   @media (prefers-reduced-motion: no-preference) {
@@ -873,6 +868,7 @@
   }
 
 </style>
+<!-- /build:style-main -->
 
 <!-- Schema.org Structured Data — ProfessionalService + Organization -->
 
@@ -892,6 +888,7 @@
   <!-- MERIDIAN_CLARITY_SCRIPT_HERE -->
 
 
+<!-- build:style-cards -->
 <style id="meridian-v91-fx">
   /* ---------- v9.1: 3D card system ---------- */
   .premium-card {
@@ -928,6 +925,7 @@
     z-index: 2147483001; pointer-events: none;
   }
 </style>
+<!-- /build:style-cards -->
 <meta name="theme-color" content="#06211B" />
 <script type="application/ld+json">
 {
@@ -975,6 +973,7 @@
   ]
 }
 </script>
+<!-- build:style-transitions -->
 <style id="meridian-curtain-css">
   /* Deterministic page transitions — exit curtain + entrance rise. Every browser, every time. */
   html { background: #06211B; }
@@ -1007,9 +1006,12 @@
     html.mc-leaving #meridian-curtain .mc-panel { animation: none !important; }
   }
 </style>
+<!-- /build:style-transitions -->
+<!-- build:script-nav-restore -->
 <script id="meridian-curtain-head">
 (function(){try{if(sessionStorage.getItem('mcNav')){sessionStorage.removeItem('mcNav');document.documentElement.classList.add('mc-entering');}}catch(e){}})();
 </script>
+<!-- /build:script-nav-restore -->
 </head>
 <body class="overflow-x-hidden">
 
@@ -1022,6 +1024,7 @@
      - 6-month consent persistence via localStorage
      - Full-width bottom bar, forest/gold branded
      ============================================================ -->
+<!-- build:style-cookiebar -->
 <style>
 .mcb-bar {
   position: fixed;
@@ -1123,6 +1126,7 @@
   .mcb-bar button { flex: 1; padding: 0.7rem 1rem; }
 }
 </style>
+<!-- /build:style-cookiebar -->
 <div class="mcb-bar" id="meridianCookieBar" role="dialog" aria-live="polite" aria-label="Cookie consent">
   <div class="mcb-inner">
     <div class="mcb-text">
@@ -1137,6 +1141,7 @@
     </div>
   </div>
 </div>
+<!-- build:script-cookie-consent -->
 <script>
 (function(){
   var STORAGE_KEY = 'meridian_cookie_consent_v2';
@@ -1186,9 +1191,11 @@ function meridianCookieConsent(acceptAll){
   }
 }
 </script>
+<!-- /build:script-cookie-consent -->
 
 
 <!-- NAVIGATION -->
+<!-- build:nav -->
 <nav id="siteNav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-forest-950/92 border-b border-gold/10">
   <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
     <a href="index.html" class="flex items-center gap-3 group">
@@ -1201,7 +1208,7 @@ function meridianCookieConsent(acceptAll){
         <path d="M20 6 L23 20 L20 34 L17 20 Z" fill="#C9A961"/>
         <circle cx="20" cy="20" r="1.5" fill="#06211B" stroke="#C9A961" stroke-width="0.6"/>
       </svg>
-      <div class="hidden sm:block">
+      <div>
         <div class="font-display text-white text-lg tracking-tight leading-none">Meridian Partners</div>
         <div class="font-mono text-[9px] text-gold/70 tracking-[0.3em] uppercase mt-1">London · Dubai</div>
       </div>
@@ -1239,6 +1246,7 @@ function meridianCookieConsent(acceptAll){
     </div>
   </div>
 </nav>
+<!-- /build:nav -->
 
 <!-- HERO -->
 <section class="relative bg-forest-950 text-white overflow-hidden grain min-h-[100svh] flex items-center">
@@ -1255,7 +1263,7 @@ function meridianCookieConsent(acceptAll){
           <span class="font-mono text-sm tracking-[0.3em] text-gold-light/90 uppercase">Selective Engagements · 2026</span>
         </div>
 
-        <h1 class="display-heading text-5xl md:text-7xl lg:text-[5.75rem] mt-8 fade-up delay-1">
+        <h1 class="display-heading text-5xl md:text-7xl lg:text-[6.25rem] mt-8 fade-up delay-1">
           Where executive<br/>
           security <em>meets</em><br/>
           <span class="text-gold">measurable</span><br/>
@@ -1418,7 +1426,7 @@ function meridianCookieConsent(acceptAll){
               <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-stone-500 mb-1">Availability</div>
               <p class="text-sm text-forest-950 font-medium flex items-center gap-2">
                 <span class="w-1.5 h-1.5 bg-gold rounded-full pulse-dot"></span>
-                Q2 2026 · accepting
+                <span id="availQuarter">Q3 2026</span> · accepting
               </p>
             </div>
           </div>
@@ -1436,7 +1444,7 @@ function meridianCookieConsent(acceptAll){
       <div class="lg:col-span-5">
         <div class="section-num mb-5">/ 02 — Services</div>
         <h2 class="display-heading text-5xl md:text-6xl lg:text-7xl text-forest-950">
-          Four practices.<br/>
+          Five practices.<br/>
           One strategic<br/>
           <em class="text-gold-deep">mandate.</em>
         </h2>
@@ -1556,7 +1564,7 @@ function meridianCookieConsent(acceptAll){
       <div class="edit-card p-8 group premium-card">
         <div class="flex items-start justify-between mb-8">
           <div class="service-icon w-14 h-14 text-forest-950">
-            <svg  fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="0.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
           </div>
           <div class="font-display text-4xl text-gold/40 italic">v</div>
         </div>
@@ -1580,8 +1588,8 @@ function meridianCookieConsent(acceptAll){
             <div class="font-display text-4xl text-gold italic">+</div>
           </div>
           <div class="font-mono text-xs text-gold tracking-wider uppercase mb-3">Bespoke Engagements</div>
-          <h3 class="font-display text-2xl text-white mb-4 leading-tight">Something else in mind?</h3>
-          <p class="text-stone-200 leading-relaxed mb-8 text-[0.92rem]">
+          <h3 class="font-display text-2xl text-forest-950 mb-4 leading-tight">Something else in mind?</h3>
+          <p class="text-stone-600 leading-relaxed mb-8 text-[0.92rem]">
             M&amp;A security due diligence, breach recovery, or a multi-disciplinary mandate? Every engagement begins with a confidential conversation.
           </p>
           <a href="#contact" class="btn-primary inline-flex items-center gap-2 px-5 py-3 text-sm font-medium">
@@ -1923,7 +1931,7 @@ function meridianCookieConsent(acceptAll){
             </div>
 
             <div class="pt-4 border-t border-forest-950/10 flex flex-wrap gap-x-6 gap-y-1 text-xs font-mono text-stone-500">
-              <span>Duration: focused engagement</span>
+              <span>Scope: focused engagement</span>
               <span>·</span>
               <span>Geography: United States · New York</span>
               <span>·</span>
@@ -2122,7 +2130,7 @@ function meridianCookieConsent(acceptAll){
     </article>
 
     <!-- Grid of 3 articles -->
-    <div class="grid md:grid-cols-3 gap-px bg-forest-950/8 border border-forest-950/10">
+    <div class="grid md:grid-cols-2 gap-px bg-forest-950/8 border border-forest-950/10">
 
       <!-- Article 1: PCI DSS v4 for Hotels -->
       <a href="https://www.linkedin.com/pulse/navigating-pci-dss-v4-stronger-payment-security-hotels-ajay-mathai-fdxrf/" target="_blank" rel="noopener noreferrer" class="block edit-card p-8 group premium-card">
@@ -2235,6 +2243,7 @@ function meridianCookieConsent(acceptAll){
 </section>
 
 <!-- FOOTER -->
+<!-- build:footer -->
 <footer class="bg-ink text-white border-t border-gold/10">
   <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
     <!-- Top row: navigation + offices -->
@@ -2279,7 +2288,6 @@ function meridianCookieConsent(acceptAll){
           <li><a href="services.html#pricing" class="hover:text-gold transition">Pricing</a></li>
           <li><a href="#insights" class="hover:text-gold transition">Insights</a></li>
           <li><a href="about.html" class="hover:text-gold transition">About</a></li>
-          <li></li>
           <li><a href="contact.html#faq" class="hover:text-gold transition">FAQ</a></li>
           <li><a href="contact.html" class="hover:text-gold transition">Contact</a></li>
         </ul>
@@ -2294,8 +2302,8 @@ function meridianCookieConsent(acceptAll){
             <a href="tel:+971559286300" class="text-stone-300 hover:text-gold transition text-xs font-mono block mt-1.5">+971 55 928 6300</a>
           </li>
           <li>
-            <div class="font-mono text-[9px] text-gold-light/70 tracking-wider uppercase mb-1">Operating Office · UK</div>
-            <div class="text-stone-300 text-xs leading-relaxed">London, United Kingdom</div>
+            <div class="font-mono text-[9px] text-gold-light/70 tracking-wider uppercase mb-1">Registered Office · UK</div>
+            <div class="text-stone-300 text-xs leading-relaxed">Meridian Partners International Ltd<br/>20 Wenlock Road, London N1 7GU</div>
             <a href="tel:+447828743250" class="text-stone-300 hover:text-gold transition text-xs font-mono block mt-1.5">+44 7828 743250</a>
           </li>
           <li class="pt-3 border-t border-gold/10">
@@ -2303,7 +2311,7 @@ function meridianCookieConsent(acceptAll){
           </li>
           <li class="flex items-center gap-2 pt-2">
             <div class="w-1.5 h-1.5 bg-gold rounded-full pulse-dot"></div>
-            <span class="font-mono text-xs text-stone-400">Accepting Q2 engagements</span>
+            <span class="font-mono text-xs text-stone-400">Accepting Q3 engagements</span>
           </li>
         </ul>
       </div>
@@ -2320,7 +2328,6 @@ function meridianCookieConsent(acceptAll){
               <span class="font-mono text-[9px] text-gold-light/60 tracking-wider uppercase block mb-0.5">Trade Licence</span>
               <span class="text-stone-300 font-mono">89800 · IFZA</span>
             </div>
-            
             <div>
               <span class="font-mono text-[9px] text-gold-light/60 tracking-wider uppercase block mb-0.5">Entity Type</span>
               <span class="text-stone-300 font-mono">Free Zone Company (FZCO)</span>
@@ -2359,6 +2366,7 @@ function meridianCookieConsent(acceptAll){
     </div>
   </div>
 </footer>
+<!-- /build:footer -->
 
 <script>
 
@@ -2367,7 +2375,7 @@ function meridianCookieConsent(acceptAll){
   // the slot counter and quarter label on the top gold bar.
   // ============================================================
   const MERIDIAN_AVAILABILITY = {
-    quarter: 'Q2 2026',   // e.g. 'Q2 2026', 'Q3 2026'
+    quarter: 'Q3 2026',   // e.g. 'Q2 2026', 'Q3 2026'
     slots: 3              // remaining engagement slots
   };
   // Apply config to bar
@@ -2376,12 +2384,6 @@ function meridianCookieConsent(acceptAll){
   if (qEl) qEl.textContent = MERIDIAN_AVAILABILITY.quarter;
   if (sEl) sEl.textContent = MERIDIAN_AVAILABILITY.slots;
   // If slots = 0, swap messaging to waitlist
-  if (MERIDIAN_AVAILABILITY.slots === 0) {
-    const bar = document.getElementById('availabilityBar');
-    if (bar) {
-      bar.querySelector('.tracking-\\[0\\.15em\\].uppercase.font-semibold').innerHTML = 'Waitlist now open';
-    }
-  }
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('open'));
@@ -2587,6 +2589,7 @@ function meridianCookieConsent(acceptAll){
 <!-- Cal.com modal popup loader -->
 
 
+<!-- build:script-pointer -->
 <script id="meridian-v91-fx-js">
 (function(){
   'use strict';
@@ -2654,8 +2657,10 @@ function meridianCookieConsent(acceptAll){
   }
 })();
 </script>
+<!-- /build:script-pointer -->
 <div id="meridian-curtain" aria-hidden="true"><div class="mc-panel"><div class="mc-line"></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<!-- build:script-motion-fine -->
 <script id="meridian-lenis">
 (function(){
   var noMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2689,5 +2694,6 @@ function meridianCookieConsent(acceptAll){
   paint();
 })();
 </script>
+<!-- /build:script-motion-fine -->
 </body>
 </html>
