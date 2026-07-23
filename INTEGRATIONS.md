@@ -1,6 +1,6 @@
 # Integration Configuration Guide
 
-This guide explains how to update the website forms and calendar booking links to point to your new **Formspree** and **Cal.com** accounts.
+This guide explains how to update the website forms and calendar booking links to point to your **Formspree** account and **Google Calendar appointment schedule**.
 
 ---
 
@@ -15,7 +15,7 @@ Formspree handles all form submissions (the main consultation form, the lead mag
    * **Form 2: Newsletter signups** (e.g. named "Meridian Newsletter"). Copy the generated **Form ID** (e.g. `xjgzlrbw`).
 
 ### Step 2: Update the Code
-Open the files inside the `antigravityv2` folder and update the action URLs:
+Open the files inside the `v11-anti` folder and update the action URLs:
 
 #### 1. Main Consultation Form (`contact.html`)
 * **Location:** Around line 1662
@@ -40,42 +40,33 @@ Open the files inside the `antigravityv2` folder and update the action URLs:
 
 ---
 
-## 2. Cal.com Integration (Direct Booking Calendar)
+## 2. Google Calendar Integration (Direct Booking Calendar)
 
-Cal.com hosts your calendar booking pages and opens them as a modern dark-themed modal popup when users click "Schedule a Call" or "Book a call directly".
+Google Calendar hosts the company-controlled appointment schedule used by the "Schedule a Call" and "Book a call directly" buttons.
 
-### Step 1: Obtain your new Cal.com link
-1. Log into your new [Cal.com](https://cal.com) account.
-2. Under **Event Types**, create or find your booking event (e.g., a "30-minute consultation" event named `discovery`).
-3. Note your booking path: `https://cal.com/YOUR_USERNAME/YOUR_EVENT_SLUG` (for example: `https://cal.com/meridianpartners/discovery`).
+### Step 1: Obtain your Google appointment schedule link
+1. Log into Google Calendar with the company account that owns the schedule.
+2. Open the appointment schedule (for example, "30 min with Meridian").
+3. Copy the public booking page URL. The current production URL is:
+   `https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2UnZ-AFabl3uIgiWsBQoE3ViM74LLD3bgUUxU5BQlkk770g8BQ3nlFLMHqPOnsCr6ZPi-yH1Rr`
 
 ### Step 2: Update the Code
-Update the booking triggers and script loaders in the following files:
+Update the booking links in the following files:
 
 #### 1. Contact Page (`contact.html`)
-* **HTML Trigger Link (Option B):** Around line 1827. Replace the `href` path:
+* **HTML booking link:** Around line 1827. Replace the `href` path:
   ```html
-  <a href="https://cal.com/YOUR_USERNAME/YOUR_EVENT_SLUG" data-cal-trigger class="btn-primary ...">
-  ```
-* **JavaScript Loader (Bottom of file):** Around line 2337. Update the event target namespace initialization if you changed the event slug (keep as `"discovery"` if your event slug is still `discovery`):
-  ```javascript
-  Cal("init", "YOUR_EVENT_SLUG", {origin:"https://app.cal.com"});
-  Cal.ns.YOUR_EVENT_SLUG("ui", { ... });
+  <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/YOUR_SCHEDULE_ID" class="btn-primary ..." target="_blank" rel="noopener">
   ```
 
 #### 2. Thank You Page (`thank-you.html`)
-* **HTML Trigger Link 1 (Consultation Flow):** Around line 558. Replace the `href` path:
+* **HTML booking link 1 (Consultation Flow):** Around line 558. Replace the `href` path:
   ```html
-  <a href="https://cal.com/YOUR_USERNAME/YOUR_EVENT_SLUG" data-cal-trigger class="btn btn-primary" target="_blank" rel="noopener">
+  <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/YOUR_SCHEDULE_ID" class="btn btn-primary" target="_blank" rel="noopener">
   ```
-* **HTML Trigger Link 2 (Checklist Flow):** Around line 604. Replace the `href` path:
+* **HTML booking link 2 (Checklist Flow):** Around line 604. Replace the `href` path:
   ```html
-  <a href="https://cal.com/YOUR_USERNAME/YOUR_EVENT_SLUG" data-cal-trigger class="btn btn-primary" target="_blank" rel="noopener">
-  ```
-* **JavaScript Loader (Bottom of file):** Around line 757. Update the event target namespace initialization:
-  ```javascript
-  Cal("init", "YOUR_EVENT_SLUG", {origin:"https://app.cal.com"});
-  Cal.ns.YOUR_EVENT_SLUG("ui", { ... });
+  <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/YOUR_SCHEDULE_ID" class="btn btn-primary" target="_blank" rel="noopener">
   ```
 
 ---

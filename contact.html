@@ -7,7 +7,7 @@
 <meta name="description" content="Book a 30-minute discovery consultation with Meridian Partners — boutique cybersecurity advisory, London &amp; Dubai. Response within one business day. No obligation." />
 <meta name="author" content="Meridian Partners" />
 <meta property="og:title" content="Contact Meridian Partners | Book a Consultation" />
-<meta property="og:description" content="A 30-minute discovery call, no obligation. info@meridianpartners.me · London &amp; Dubai." />
+<meta property="og:description" content="A 30-minute discovery call, no obligation. contact@meridianpartners.me · London &amp; Dubai." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://meridianpartners.me/contact.html" />
 <meta property="og:site_name" content="Meridian Partners" />
@@ -40,10 +40,10 @@
         "@type": "Organization",
         "name": "Meridian Partners FZCO",
         "url": "https://meridianpartners.me/",
-        "email": "info@meridianpartners.me",
+        "email": "contact@meridianpartners.me",
         "contactPoint": [
-          { "@type": "ContactPoint", "contactType": "sales", "email": "info@meridianpartners.me", "telephone": "+44-7828-743250", "areaServed": "GB" },
-          { "@type": "ContactPoint", "contactType": "sales", "email": "info@meridianpartners.me", "telephone": "+971-55-928-6300", "areaServed": "AE" }
+          { "@type": "ContactPoint", "contactType": "sales", "email": "contact@meridianpartners.me", "telephone": "+44-7828-743250", "areaServed": "GB" },
+          { "@type": "ContactPoint", "contactType": "sales", "email": "contact@meridianpartners.me", "telephone": "+971-55-928-6300", "areaServed": "AE" }
         ],
         "address": {
           "@type": "PostalAddress",
@@ -995,7 +995,7 @@
         },
         {
           "@type": "ContactPoint",
-          "email": "info@meridianpartners.me",
+          "email": "contact@meridianpartners.me",
           "contactType": "customer service",
           "availableLanguage": "English"
         }
@@ -1615,7 +1615,7 @@ function meridianCookieConsent(acceptAll){
             </div>
             <div>
               <div class="font-mono text-[10px] uppercase tracking-[0.25em] text-stone-600 mb-1">Email</div>
-              <a href="mailto:info@meridianpartners.me" class="text-forest-950 hover:text-gold-deep transition text-sm font-medium">info@meridianpartners.me</a>
+              <a href="mailto:contact@meridianpartners.me" class="text-forest-950 hover:text-gold-deep transition text-sm font-medium">contact@meridianpartners.me</a>
             </div>
           </div>
 
@@ -1657,7 +1657,7 @@ function meridianCookieConsent(acceptAll){
             </div>
           </div>
 
-          <form id="contactForm" class="space-y-5" action="https://formspree.io/f/xaqklvdz" method="POST">
+          <form id="contactForm" class="space-y-5" action="https://formspree.io/f/mlgqpedv" method="POST">
             <input type="text" name="_gotcha" style="display:none" aria-hidden="true" tabindex="-1">
             <input type="hidden" name="_subject" value="New Brief — Meridian Partners Contact Form" />
             <input type="hidden" name="_next" value="https://meridianpartners.me/thank-you.html?type=consultation" />
@@ -1821,9 +1821,9 @@ function meridianCookieConsent(acceptAll){
             </li>
           </ul>
 
-          <!-- Gold CTA button → opens Cal.com modal -->
+          <!-- Gold CTA button -->
           <div class="px-6 pb-5 pt-2">
-            <a href="https://cal.com/meridianpartners/discovery" data-cal-trigger class="btn-primary w-full py-4 text-sm font-medium tracking-wide flex items-center justify-center gap-2">
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2UnZ-AFabl3uIgiWsBQoE3ViM74LLD3bgUUxU5BQlkk770g8BQ3nlFLMHqPOnsCr6ZPi-yH1Rr" class="btn-primary w-full py-4 text-sm font-medium tracking-wide flex items-center justify-center gap-2" target="_blank" rel="noopener">
               Schedule a Call
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
@@ -2035,7 +2035,7 @@ function meridianCookieConsent(acceptAll){
     <!-- Middle Row: Legal Compliance info -->
     <div class="footer-middle">
       <h5>Corporate &amp; Regulatory</h5>
-      <p>Meridian Partners FZCO is a registered Free Zone Company in Dubai, UAE (Licence No. 89800, IFZA). We serve as the data controller for personal data collected through this website in compliance with the UAE Federal Personal Data Protection Law (Decree-Law No. 45 of 2021) and, where applicable, the UK GDPR. Inquiries can be sent to <a href="mailto:privacy@meridianpartners.me">privacy@meridianpartners.me</a>.</p>
+      <p>Meridian Partners FZCO is a registered Free Zone Company in Dubai, UAE (Licence No. 89800, IFZA). We serve as the data controller for personal data collected through this website in compliance with the UAE Federal Personal Data Protection Law (Decree-Law No. 45 of 2021) and, where applicable, the UK GDPR. Inquiries can be sent to <a href="mailto:contact@meridianpartners.me">contact@meridianpartners.me</a>.</p>
     </div>
 
     <!-- Bottom Row: Copyright + Links -->
@@ -2072,13 +2072,13 @@ function meridianCookieConsent(acceptAll){
         window.location.href = '/thank-you.html?type=consultation';
       } else {
         const data = await res.json().catch(() => ({}));
-        const msg = (data.errors && data.errors.map(x => x.message).join(', ')) || 'Something went wrong. Please email info@meridianpartners.me directly.';
+        const msg = (data.errors && data.errors.map(x => x.message).join(', ')) || 'Something went wrong. Please email contact@meridianpartners.me directly.';
         if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalLabel; }
         showFormError(form, msg);
       }
     } catch (err) {
       if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalLabel; }
-      showFormError(form, 'Network error. Please email info@meridianpartners.me directly.');
+      showFormError(form, 'Network error. Please email contact@meridianpartners.me directly.');
     }
   });
 
@@ -2363,25 +2363,5 @@ function meridianCookieConsent(acceptAll){
 })();
 </script>
 <!-- /build:script-motion-fine -->
-<!-- Cal.com modal popup loader -->
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "discovery", {origin:"https://app.cal.com"});
-  Cal.ns.discovery("ui", {
-    "theme":"dark",
-    "cssVarsPerTheme":{
-      "light":{
-        "cal-brand":"#06211B",
-        "cal-border-booker":"#06211B",
-        "cal-border-emphasis":"#C9A961",
-        "cal-text-emphasis":"#06211B",
-        "cal-bg-emphasis":"#FAF6EC"
-      },
-      "dark":{"cal-brand":"#C9A961","cal-text-emphasis":"#FAF6EC","cal-border-emphasis":"#C9A961"}
-    },
-    "hideEventTypeDetails":false,
-    "layout":"month_view"
-  });
-</script>
 </body>
 </html>
