@@ -1,0 +1,32 @@
+<style id="meridian-curtain-css">
+  /* Deterministic page transitions — exit curtain + entrance rise. Every browser, every time. */
+  html { background: #06211B; }
+  #meridian-curtain { position: fixed; inset: 0; z-index: 2147483000; pointer-events: none; visibility: hidden; }
+  #meridian-curtain .mc-panel {
+    position: absolute; inset: -2% 0;
+    background: linear-gradient(180deg, #0A2E26 0%, #06211B 60%);
+    transform: translateY(103%);
+  }
+  #meridian-curtain .mc-line {
+    position: absolute; left: 0; right: 0; top: 0; height: 2px;
+    background: linear-gradient(90deg, transparent 4%, #C9A961 50%, transparent 96%);
+  }
+  html.mc-leaving #meridian-curtain { visibility: visible; }
+  html.mc-leaving #meridian-curtain .mc-panel { animation: mc-sweep-in 0.48s cubic-bezier(0.76, 0, 0.24, 1) both; }
+  @keyframes mc-sweep-in { to { transform: translateY(0); } }
+  html.mc-leaving body {
+    opacity: 0.3; transform: scale(0.992);
+    transition: opacity 0.44s ease, transform 0.44s ease;
+  }
+  html.mc-entering body { opacity: 0; transform: translateY(28px) scale(0.996); }
+  html.mc-entering.mc-reveal body {
+    opacity: 1; transform: translateY(0) scale(1);
+    transition: opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1), transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.mc-leaving body, html.mc-entering body, html.mc-entering.mc-reveal body {
+      opacity: 1 !important; transform: none !important; transition: none !important;
+    }
+    html.mc-leaving #meridian-curtain .mc-panel { animation: none !important; }
+  }
+</style>

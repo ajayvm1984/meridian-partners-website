@@ -1,0 +1,101 @@
+<style>
+.mcb-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(6, 33, 27, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(201, 169, 97, 0.3);
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.25);
+  padding: 1.25rem 1.5rem;
+  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  z-index: 9999;
+  display: none;
+  color: #fff;
+}
+.mcb-bar.mcb-visible {
+  display: block;
+  animation: mcb-rise 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes mcb-rise {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.mcb-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.mcb-text {
+  flex: 1;
+  min-width: 280px;
+}
+.mcb-label {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: #C9A961;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+.mcb-message {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+.mcb-message a {
+  color: #E4C988;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.mcb-message a:hover { color: #C9A961; }
+.mcb-buttons {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.mcb-bar button {
+  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid rgba(201, 169, 97, 0.4);
+  background: transparent;
+  color: #C9A961;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.mcb-bar button:hover {
+  background: rgba(201, 169, 97, 0.12);
+  border-color: #C9A961;
+}
+.mcb-bar button.mcb-primary {
+  background: #C9A961;
+  color: #06211B;
+  border-color: #C9A961;
+  font-weight: 600;
+}
+.mcb-bar button.mcb-primary:hover {
+  background: #E4C988;
+  border-color: #E4C988;
+}
+@media (max-width: 720px) {
+  .mcb-bar { padding: 1rem 1.25rem; }
+  .mcb-inner { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .mcb-text { min-width: 0; }
+  .mcb-buttons { justify-content: stretch; }
+  .mcb-bar button { flex: 1; padding: 0.7rem 1rem; }
+}
+</style>

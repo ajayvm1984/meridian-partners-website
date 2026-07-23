@@ -1,0 +1,67 @@
+<script id="meridian-v91-fx-js">
+(function(){
+  'use strict';
+  var doc = document.documentElement;
+  var fine = matchMedia('(pointer: fine)').matches;
+  var noMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Entrance rise (after curtain navigation) ---------- */
+  function reveal(){
+    if (!doc.classList.contains('mc-entering')) return;
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      doc.classList.add('mc-reveal');
+      setTimeout(function(){ doc.classList.remove('mc-entering','mc-reveal'); }, 780);
+    });});
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', reveal); } else { reveal(); }
+  window.addEventListener('pageshow', function(e){
+    if (e.persisted) { doc.classList.remove('mc-leaving','mc-entering','mc-reveal'); }
+  });
+
+  /* ---------- Exit curtain on internal navigation ---------- */
+  document.addEventListener('click', function(ev){
+    var link = ev.target.closest && ev.target.closest('a[href]');
+    if (!link || ev.defaultPrevented || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button) return;
+    if (link.target && link.target !== '_self') return;
+    var url; try { url = new URL(link.getAttribute('href'), location.href); } catch(err){ return; }
+    if (url.origin !== location.origin) return;
+    if (url.pathname === location.pathname && url.hash) return;
+    ev.preventDefault();
+    try { sessionStorage.setItem('mcNav','1'); } catch(err){}
+    if (noMotion) { location.href = url.href; return; }
+    doc.classList.add('mc-leaving');
+    setTimeout(function(){ location.href = url.href; }, 470);
+  }, true);
+
+  /* ---------- 3D pointer tilt + glare (v2 — stronger) ---------- */
+  if (fine && !noMotion) {
+    document.querySelectorAll('.premium-card').forEach(function(card){
+      if (!card.querySelector('.card-glare')) {
+        var glare = document.createElement('span');
+        glare.className = 'card-glare';
+        card.appendChild(glare);
+      }
+      var raf = null;
+      card.addEventListener('pointerenter', function(){ card.classList.add('tilting'); });
+      card.addEventListener('pointermove', function(e){
+        if (raf) return;
+        raf = requestAnimationFrame(function(){
+          raf = null;
+          var r = card.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width;
+          var py = (e.clientY - r.top) / r.height;
+          card.style.setProperty('--ry', ((px - 0.5) * 5).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((0.5 - py) * 3.5).toFixed(2) + 'deg');
+          card.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+          card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+        });
+      });
+      card.addEventListener('pointerleave', function(){
+        card.classList.remove('tilting');
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+})();
+</script>

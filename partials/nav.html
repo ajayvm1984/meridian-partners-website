@@ -1,0 +1,64 @@
+<nav id="siteNav" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-forest-950/92 border-b border-gold/10" style="height: 80px; transition: var(--transition);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-full">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <!-- SVG compass logo -->
+      <svg class="compass-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" style="transition: var(--transition);">
+        <circle cx="20" cy="20" r="18" stroke="#C9A961" stroke-width="0.8"/>
+        <circle cx="20" cy="20" r="13" stroke="#C9A961" stroke-width="0.5" opacity="0.5"/>
+        <path d="M20 4 L20 36" stroke="#C9A961" stroke-width="0.6" opacity="0.7"/>
+        <path d="M4 20 L36 20" stroke="#C9A961" stroke-width="0.6" opacity="0.5"/>
+        <path d="M20 6 L23 20 L20 34 L17 20 Z" fill="#C9A961"/>
+        <circle cx="20" cy="20" r="1.5" fill="#06211B" stroke="#C9A961" stroke-width="0.6"/>
+      </svg>
+      <div>
+        <div class="font-display text-white text-2xl tracking-tight leading-none">Meridian Partners</div>
+        <div class="font-mono text-[10px] text-gold/70 tracking-[0.3em] uppercase mt-1">London · Dubai</div>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Menu -->
+    <div class="hidden md:flex items-center gap-8">
+      <div class="relative group">
+        <a href="services.html" class="{{SVC}} hover:text-gold text-base transition">Services</a>
+        <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
+          <div class="bg-forest-950 border border-gold/20 shadow-2xl min-w-[240px] py-2">
+            <a href="fractional-ciso.html" class="block px-5 py-3 text-[15px] {{DD_FC}} hover:text-gold hover:bg-forest-900 transition">Fractional CISO</a>
+            <a href="gap-analysis.html" class="block px-5 py-3 text-[15px] {{DD_GA}} hover:text-gold hover:bg-forest-900 transition">Compliance Gap Analysis</a>
+            <a href="vendor-evaluation.html" class="block px-5 py-3 text-[15px] {{DD_VE}} hover:text-gold hover:bg-forest-900 transition">Vendor Evaluation</a>
+            <a href="dfsa-fsra-practice.html" class="block px-5 py-3 text-[15px] {{DD_DF}} hover:text-gold hover:bg-forest-900 transition">DFSA · FSRA Practice</a>
+          </div>
+        </div>
+      </div>
+      <a href="industries.html" class="{{IND}} hover:text-gold text-base transition">Industries</a>
+      <a href="index.html#cases" class="hidden lg:block text-stone-100/90 hover:text-gold text-base transition">Case Studies</a>
+      <a href="index.html#insights" class="hidden lg:block text-stone-100/90 hover:text-gold text-base transition">Insights</a>
+      <a href="about.html" class="{{ABT}} hover:text-gold text-base transition">About</a>
+      <a href="contact.html#faq" class="hidden lg:block text-stone-100/90 hover:text-gold text-base transition">FAQ</a>
+      <a href="contact.html" class="btn-primary text-base px-6 py-3 font-medium ml-2">Book Consultation →</a>
+    </div>
+
+    <!-- Mobile Nav Toggler -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div class="mobile-menu-dropdown" id="mobileMenu">
+    <div class="px-6 py-6 flex flex-col gap-5">
+      <a href="services.html" class="{{M_SVC}} text-lg">Services</a>
+      <a href="fractional-ciso.html" class="{{M_FC}} pl-4">Fractional CISO</a>
+      <a href="gap-analysis.html" class="{{M_GA}} pl-4">Compliance Gap Analysis</a>
+      <a href="vendor-evaluation.html" class="{{M_VE}} pl-4">Vendor Evaluation</a>
+      <a href="dfsa-fsra-practice.html" class="{{M_DF}} pl-4">DFSA · FSRA Practice</a>
+      <a href="industries.html" class="{{M_IND}} text-lg">Industries</a>
+      <a href="about.html" class="{{M_ABT}} text-lg">About</a>
+      <a href="index.html#cases" class="text-stone-100/90 text-lg">Case Studies</a>
+      <a href="index.html#insights" class="text-stone-100/90 text-lg">Insights</a>
+      <a href="contact.html#faq" class="text-stone-100/90 text-lg">FAQ</a>
+      <a href="contact.html" class="btn-primary text-base px-6 py-3.5 text-center font-medium mt-2">Book Consultation →</a>
+    </div>
+  </div>
+</nav>

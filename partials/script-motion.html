@@ -1,0 +1,135 @@
+<script>
+(function(){
+  'use strict';
+
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ===========================================================
+  // 1. SCROLL REVEAL — staggered, blur-resolved, premium-easing
+  // ===========================================================
+  if (prefersReducedMotion) {
+    document.querySelectorAll('.reveal-on-scroll').forEach(function(el){ el.classList.add('revealed'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          // Slight delay for natural feel — never instant
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.01,
+      rootMargin: '0px 0px -12% 0px'
+    });
+    document.querySelectorAll('.reveal-on-scroll').forEach(function(el){ revealObserver.observe(el); });
+  }
+
+  // ===========================================================
+  // 2. COUNT-UP — when stat enters view, count from 0 → target
+  // ===========================================================
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-count-to') || '0', 10);
+    var suffix = el.getAttribute('data-count-suffix') || '';
+    var duration = 1800; // 1.8s, slow & dignified
+    var startTime = null;
+    var startVal = 0;
+
+    function easeOutExpo(t) {
+      return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    }
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var elapsed = timestamp - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = easeOutExpo(progress);
+      var current = Math.floor(startVal + (target - startVal) * eased);
+      el.textContent = current + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target + suffix;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  if (!prefersReducedMotion) {
+    var countObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.count-up').forEach(function(el){ countObserver.observe(el); });
+  } else {
+    document.querySelectorAll('.count-up').forEach(function(el){
+      var target = el.getAttribute('data-count-to') || '0';
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      el.textContent = target + suffix;
+    });
+  }
+
+  // ===========================================================
+  // 3. SMOOTH ANCHOR SCROLL — with offset for sticky nav
+  // ===========================================================
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+    anchor.addEventListener('click', function(e){
+      var href = this.getAttribute('href');
+      if (href === '#' || href === '#!') return;
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({
+          top: top,
+          behavior: prefersReducedMotion ? 'auto' : 'smooth'
+        });
+      }
+    });
+  });
+  // ===========================================================
+  // 4. INTERACTIVE 3D TILT & SHINE EFFECT (Desktop Only)
+  // ===========================================================
+  if (window.innerWidth > 991 && !prefersReducedMotion) {
+    var tiltElements = document.querySelectorAll('.industry-stat-card, .case-image-item, .stat-item, .solution-card-item, .solution-grid-item');
+    tiltElements.forEach(function(el) {
+      el.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease, border-color 0.6s ease';
+      
+      el.addEventListener('mousemove', function(e) {
+        var rect = el.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        
+        // Percent coordinate from center (-1 to 1)
+        var px = (x / rect.width) * 2 - 1;
+        var py = (y / rect.height) * 2 - 1;
+        
+        // Extremely subtle 3D tilt (max 3 degrees)
+        var rotX = -py * 3;
+        var rotY = px * 3;
+        
+        // Very gentle elevation and scale
+        el.style.transform = 'perspective(1000px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) scale3d(1.008, 1.008, 1.008) translateY(-3px)';
+        el.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease, border-color 0.6s ease';
+        
+        // Update CSS shine coordinates
+        el.style.setProperty('--mouse-x', x + 'px');
+        el.style.setProperty('--mouse-y', y + 'px');
+      });
+      
+      el.addEventListener('mouseleave', function() {
+        // Reset transformation and shine state smoothly
+        el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1) translateY(0)';
+        el.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease, border-color 0.8s ease';
+        el.style.setProperty('--mouse-x', '-999px');
+        el.style.setProperty('--mouse-y', '-999px');
+      });
+    });
+  }
+
+})();
+</script>

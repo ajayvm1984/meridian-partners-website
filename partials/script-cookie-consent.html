@@ -1,0 +1,49 @@
+<script>
+(function(){
+  var STORAGE_KEY = 'meridian_cookie_consent_v2';
+  var bar = document.getElementById('meridianCookieBar');
+  var stored = (function(){ try { return localStorage.getItem(STORAGE_KEY); } catch(e){ return null; } })();
+  var dnt = (navigator.doNotTrack === '1' || window.doNotTrack === '1' || navigator.msDoNotTrack === '1');
+  function loadAnalytics(){
+    if (window.__meridianAnalyticsLoaded) return;
+    window.__meridianAnalyticsLoaded = true;
+    // GA4
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-MZ90TY8SR0';
+    document.head.appendChild(ga);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-MZ90TY8SR0', { anonymize_ip: true });
+    // Microsoft Clarity (Microsoft Clarity)
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","whcer8mmep");
+  }
+  if (dnt) {
+    try { localStorage.setItem(STORAGE_KEY, 'essential'); } catch(e){}
+    return;
+  }
+  if (stored === 'all') { loadAnalytics(); return; }
+  if (stored === 'essential') { return; }
+  if (bar) { setTimeout(function(){ bar.classList.add('mcb-visible'); }, 900); }
+})();
+function meridianCookieConsent(acceptAll){
+  var STORAGE_KEY = 'meridian_cookie_consent_v2';
+  var bar = document.getElementById('meridianCookieBar');
+  try { localStorage.setItem(STORAGE_KEY, acceptAll ? 'all' : 'essential'); } catch(e){}
+  if (bar) bar.classList.remove('mcb-visible');
+  if (acceptAll) {
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-MZ90TY8SR0';
+    document.head.appendChild(ga);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-MZ90TY8SR0', { anonymize_ip: true });
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","whcer8mmep");
+  }
+}
+</script>

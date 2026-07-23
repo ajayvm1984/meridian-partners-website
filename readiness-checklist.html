@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DFSA &amp; FSRA Cyber Readiness Checklist (2026) | Meridian Partners</title>
+<meta name="description" content="Free 38-point self-assessment for DIFC and ADGM authorised firms. Identify gaps before your examiner does. Delivered to your inbox." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://meridianpartners.me/readiness-checklist.html" />
+
+<meta property="og:title" content="DFSA &amp; FSRA Cyber Readiness Checklist (2026)" />
+<meta property="og:description" content="Free 38-point self-assessment for DIFC and ADGM authorised firms. Identify gaps before your examiner does." />
+<meta property="og:url" content="https://meridianpartners.me/readiness-checklist.html" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://meridianpartners.me/og-image.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%2306211B'/%3E%3Ccircle cx='20' cy='20' r='14' stroke='%23C9A961' stroke-width='0.6' fill='none'/%3E%3Cpath d='M20 6 L23 20 L20 34 L17 20 Z' fill='%23C9A961'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23C9A961'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --forest-950: #06211B;
+  --forest-900: #0A2E26;
+  --gold: #C9A961;
+  --gold-deep: #B8923D;
+  --gold-light: #E4C988;
+  --parchment: #FAF6EC;
+  --cream: #F5EEDD;
+  --ink: #0A0B0A;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--forest-950);
+  font-family: 'Inter Tight', sans-serif;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.font-display { font-family: 'Fraunces', serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+header {
+  background: var(--forest-950);
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+}
+header .inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+}
+header a.brand {
+  display: flex; align-items: center; gap: 0.75rem;
+  color: white; text-decoration: none;
+}
+header .brand-text .name { font-family: 'Fraunces', serif; font-size: 1.25rem; line-height: 1; }
+header .brand-text .sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.3em;
+  color: rgba(228, 201, 136, 0.7);
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+header nav a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(201, 169, 97, 0.9);
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+main {
+  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+@media (min-width: 900px) {
+  main { grid-template-columns: 1.1fr 0.9fr; gap: 4rem; padding: 5rem 2rem; }
+}
+
+.section-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  line-height: 1.05;
+  font-weight: 400;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.02em;
+}
+h1 em { color: var(--gold-deep); font-style: italic; }
+
+.subhead {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--forest-950);
+  margin: 0 0 2rem;
+  font-weight: 300;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+main p { color: #44403c; }
+main strong { color: var(--forest-950); font-weight: 500; }
+
+.what-you-get {
+  margin: 2rem 0;
+  background: var(--cream);
+  border: 1px solid rgba(6, 33, 27, 0.08);
+  border-left: 3px solid var(--gold);
+  padding: 1.5rem 1.75rem;
+}
+.what-you-get h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 0 0 0.75rem;
+  font-weight: 500;
+}
+.what-you-get ul { margin: 0; padding-left: 1.25rem; }
+.what-you-get li { margin: 0.5rem 0; font-size: 0.95rem; }
+
+.benchmark-callout {
+  margin: 2rem 0;
+  font-style: italic;
+  color: #57534e;
+  font-size: 0.95rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(6, 33, 27, 0.1);
+  border-bottom: 1px solid rgba(6, 33, 27, 0.1);
+}
+
+/* Form card */
+.form-card {
+  background: white;
+  border: 1px solid rgba(6, 33, 27, 0.1);
+  padding: 2rem 2.25rem;
+  box-shadow: 0 2px 20px rgba(6, 33, 27, 0.04);
+  position: relative;
+}
+@media (min-width: 900px) {
+  .form-card { position: sticky; top: 6rem; align-self: start; }
+}
+.form-card .pdf-icon {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.form-card .pdf-icon::before {
+  content: '';
+  width: 0.5rem; height: 0.5rem;
+  background: var(--gold);
+  display: inline-block;
+}
+.form-card h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  color: var(--forest-950);
+}
+.form-card .form-blurb {
+  font-size: 0.9rem;
+  color: #57534e;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--forest-950);
+  margin: 1rem 0 0.4rem;
+  font-weight: 500;
+}
+input, select {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid rgba(6, 33, 27, 0.15);
+  border-radius: 2px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 0.95rem;
+  background: white;
+  color: var(--forest-950);
+  transition: border-color 0.2s;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+button.submit-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.5rem;
+  background: var(--forest-950);
+  color: white;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+button.submit-btn:hover { background: var(--forest-900); }
+
+.privacy-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: #78716c;
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+.privacy-note a { color: var(--gold-deep); }
+
+footer.legal-footer {
+  background: var(--ink);
+  color: rgba(250, 246, 236, 0.6);
+  padding: 2.5rem 2rem;
+  border-top: 1px solid rgba(201, 169, 97, 0.1);
+}
+footer.legal-footer .inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+}
+footer.legal-footer a { color: rgba(201, 169, 97, 0.8); text-decoration: none; }
+footer.legal-footer a:hover { color: var(--gold-light); }
+.policy-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "DFSA & FSRA Cyber Readiness Checklist (2026 Edition)",
+  "description": "A 38-point self-assessment for DIFC and ADGM authorised firms.",
+  "url": "https://meridianpartners.me/readiness-checklist.html",
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "Meridian Partners FZCO"
+  }
+}
+</script>
+
+<style id="meridian-v91-fx">
+  /* ---------- v9.1: 3D card system ---------- */
+  .premium-card {
+    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) scale(var(--sc, 1)) !important;
+    box-shadow: 0 1px 2px rgba(6,33,27,.05), 0 10px 30px -18px rgba(6,33,27,.18);
+  }
+  .premium-card:hover { --ty: -6px; --sc: 1.012; }
+  .premium-card.tilting {
+    transition: transform .06s linear, box-shadow .6s var(--ease-out-expo), border-color .6s var(--ease-out-expo);
+  }
+  .card-glare {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    transition: opacity .35s ease; border-radius: inherit;
+    background: radial-gradient(560px circle at var(--gx, 50%) var(--gy, 50%), rgba(228,201,136,.16), transparent 62%);
+    mix-blend-mode: screen; z-index: 2;
+  }
+  .premium-card:hover .card-glare { opacity: 1; }
+  /* entrance depth */
+  .reveal-on-scroll { transform: translateY(22px) scale(.99); }
+  .reveal-on-scroll.revealed { transform: translateY(0) scale(1); }
+  /* ---------- v9.1: full-bleed subpage heroes ---------- */
+  .hero-full { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; }
+  .hero-full > .relative.max-w-7xl { width: 100%; }
+  
+  @media (prefers-reduced-motion: reduce), (pointer: coarse) {
+    .premium-card { transform: none !important; }
+    .card-glare { display: none; }
+  }
+  /* ---------- v9.4: scroll progress hairline ---------- */
+  #meridian-progress {
+    position: fixed; top: 0; left: 0; height: 2px; width: 100%;
+    transform-origin: 0 50%; transform: scaleX(0);
+    background: linear-gradient(90deg, #C9A961, #E4C988);
+    z-index: 2147483001; pointer-events: none;
+  }
+</style>
+<meta name="theme-color" content="#06211B" />
+<style id="meridian-curtain-css">
+  /* Deterministic page transitions — exit curtain + entrance rise. Every browser, every time. */
+  html { background: #06211B; }
+  #meridian-curtain { position: fixed; inset: 0; z-index: 2147483000; pointer-events: none; visibility: hidden; }
+  #meridian-curtain .mc-panel {
+    position: absolute; inset: -2% 0;
+    background: linear-gradient(180deg, #0A2E26 0%, #06211B 60%);
+    transform: translateY(103%);
+  }
+  #meridian-curtain .mc-line {
+    position: absolute; left: 0; right: 0; top: 0; height: 2px;
+    background: linear-gradient(90deg, transparent 4%, #C9A961 50%, transparent 96%);
+  }
+  html.mc-leaving #meridian-curtain { visibility: visible; }
+  html.mc-leaving #meridian-curtain .mc-panel { animation: mc-sweep-in 0.48s cubic-bezier(0.76, 0, 0.24, 1) both; }
+  @keyframes mc-sweep-in { to { transform: translateY(0); } }
+  html.mc-leaving body {
+    opacity: 0.3; transform: scale(0.992);
+    transition: opacity 0.44s ease, transform 0.44s ease;
+  }
+  html.mc-entering body { opacity: 0; transform: translateY(28px) scale(0.996); }
+  html.mc-entering.mc-reveal body {
+    opacity: 1; transform: translateY(0) scale(1);
+    transition: opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1), transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.mc-leaving body, html.mc-entering body, html.mc-entering.mc-reveal body {
+      opacity: 1 !important; transform: none !important; transition: none !important;
+    }
+    html.mc-leaving #meridian-curtain .mc-panel { animation: none !important; }
+  }
+</style>
+<script id="meridian-curtain-head">
+(function(){try{if(sessionStorage.getItem('mcNav')){sessionStorage.removeItem('mcNav');document.documentElement.classList.add('mc-entering');}}catch(e){}})();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a href="/" class="brand">
+      <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="#C9A961" stroke-width="0.8"/>
+        <circle cx="20" cy="20" r="13" stroke="#C9A961" stroke-width="0.5" opacity="0.5"/>
+        <path d="M20 4 L20 36" stroke="#C9A961" stroke-width="0.6" opacity="0.7"/>
+        <path d="M4 20 L36 20" stroke="#C9A961" stroke-width="0.6" opacity="0.5"/>
+        <path d="M20 6 L23 20 L20 34 L17 20 Z" fill="#C9A961"/>
+        <circle cx="20" cy="20" r="1.5" fill="#06211B" stroke="#C9A961" stroke-width="0.6"/>
+      </svg>
+      <div class="brand-text">
+        <div class="name">Meridian Partners</div>
+        <div class="sub">London · Dubai</div>
+      </div>
+    </a>
+    <nav><a href="/">← Back to home</a></nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="content-col">
+    <div class="section-num">/ Lead Resource — 2026 Edition</div>
+    <h1>The DFSA &amp; FSRA Cyber Readiness <em>Checklist.</em></h1>
+    <p class="subhead">A 38-point self-assessment for DIFC and ADGM authorised firms. Identify the gaps before your examiner does.</p>
+
+    <p>Two cyber rule sets now bind every financial firm in the UAE's financial free zones.</p>
+
+    <p><strong>DFSA Cyber Risk Management Rules (GEN 5.5)</strong> took effect 1 January 2024 and apply to every DIFC-authorised firm, registered auditor, credit rating agency and authorised market institution.</p>
+
+    <p><strong>FSRA Cyber Risk Management Rules (GEN 3.5)</strong> took effect 31 January 2026 and apply to every ADGM Authorised Person and Recognised Body.</p>
+
+    <p>Both regulators expect a documented framework, named senior accountability, board-level oversight, incident response readiness, third-party cyber risk management, and rapid notification of material incidents — within 24 hours under FSRA GEN 3.5.18, and "without undue delay" under DFSA GEN 5.5.17.</p>
+
+    <div class="what-you-get">
+      <h3>What you get</h3>
+      <ul>
+        <li>38-point self-assessment across 8 control domains</li>
+        <li>Red / amber / green scoring system you can complete in 90 minutes</li>
+        <li>Score interpretation guide — what each band means and what to do next</li>
+        <li>Written for compliance officers and senior management, not just IT</li>
+        <li>Branded 6-page PDF, instant email delivery</li>
+      </ul>
+    </div>
+
+    <div class="benchmark-callout">
+      If you score green on fewer than 30 of the 38 items, you are not in a defensible position for a thematic review or a live incident. Most firms self-assess at 20–25 green on first pass.
+    </div>
+
+    <p style="font-size: 0.95rem;">Used by DIFC and ADGM compliance officers, MLROs, SEOs, and operations leads ahead of licence renewal, thematic review preparation, and board governance refresh.</p>
+  </div>
+
+  <div class="form-card">
+    <div class="pdf-icon">PDF · 6 pages · sent to your inbox</div>
+    <h2>Request the checklist.</h2>
+    <p class="form-blurb">The licence category field qualifies your firm. We use it to send you the relevant follow-up note — nothing more.</p>
+
+    <form action="https://formspree.io/f/xaqklvdz" method="POST" id="checklistForm">
+      <input type="hidden" name="_subject" value="Readiness Checklist Request — Meridian Partners" />
+      <input type="hidden" name="_next" value="https://meridianpartners.me/thank-you.html?type=checklist" />
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your name" />
+
+      <label for="email">Work email</label>
+      <input type="email" id="email" name="email" required placeholder="you@firm.com" />
+
+      <label for="firm">Firm name</label>
+      <input type="text" id="firm" name="firm" required placeholder="Firm legal name" />
+
+      <label for="category">Licence category</label>
+      <select id="category" name="licence_category" required>
+        <option value="">Select your category</option>
+        <option value="DFSA Cat 1">DFSA Category 1 — Banking</option>
+        <option value="DFSA Cat 2">DFSA Category 2 — Credit / Securities</option>
+        <option value="DFSA Cat 3A">DFSA Category 3A — Investment Management</option>
+        <option value="DFSA Cat 3B">DFSA Category 3B — Trust Services</option>
+        <option value="DFSA Cat 4">DFSA Category 4 — Advisory / Arranging</option>
+        <option value="DFSA Cat 5">DFSA Category 5 — Islamic Finance</option>
+        <option value="FSRA Authorised Person">FSRA Authorised Person (ADGM)</option>
+        <option value="FSRA Recognised Body">FSRA Recognised Body (ADGM)</option>
+        <option value="VARA">VARA-licensed (Crypto / Virtual Assets)</option>
+        <option value="CBUAE">CBUAE-licensed (Onshore Bank / Payment)</option>
+        <option value="Other">Other / Setting up</option>
+      </select>
+
+      <button type="submit" class="submit-btn">Send me the checklist →</button>
+
+      <p class="privacy-note">
+        We email the PDF instantly. We do not sell, share, or rent your details. Unsubscribe in one click. See our <a href="/privacy.html">Privacy Policy</a>.
+      </p>
+    </form>
+  </div>
+
+</main>
+
+<footer class="legal-footer">
+  <div class="inner">
+    <div>© 2026 Meridian Partners FZCO · Registered in England &amp; Wales · All rights reserved</div>
+    <div class="policy-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/modern-slavery.html">Modern Slavery</a>
+    </div>
+  </div>
+</footer>
+
+<script id="meridian-v91-fx-js">
+(function(){
+  'use strict';
+  var doc = document.documentElement;
+  var fine = matchMedia('(pointer: fine)').matches;
+  var noMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Entrance rise (after curtain navigation) ---------- */
+  function reveal(){
+    if (!doc.classList.contains('mc-entering')) return;
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      doc.classList.add('mc-reveal');
+      setTimeout(function(){ doc.classList.remove('mc-entering','mc-reveal'); }, 780);
+    });});
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', reveal); } else { reveal(); }
+  window.addEventListener('pageshow', function(e){
+    if (e.persisted) { doc.classList.remove('mc-leaving','mc-entering','mc-reveal'); }
+  });
+
+  /* ---------- Exit curtain on internal navigation ---------- */
+  document.addEventListener('click', function(ev){
+    var link = ev.target.closest && ev.target.closest('a[href]');
+    if (!link || ev.defaultPrevented || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button) return;
+    if (link.target && link.target !== '_self') return;
+    var url; try { url = new URL(link.getAttribute('href'), location.href); } catch(err){ return; }
+    if (url.origin !== location.origin) return;
+    if (url.pathname === location.pathname && url.hash) return;
+    ev.preventDefault();
+    try { sessionStorage.setItem('mcNav','1'); } catch(err){}
+    if (noMotion) { location.href = url.href; return; }
+    doc.classList.add('mc-leaving');
+    setTimeout(function(){ location.href = url.href; }, 470);
+  }, true);
+
+  /* ---------- 3D pointer tilt + glare (v2 — stronger) ---------- */
+  if (fine && !noMotion) {
+    document.querySelectorAll('.premium-card').forEach(function(card){
+      if (!card.querySelector('.card-glare')) {
+        var glare = document.createElement('span');
+        glare.className = 'card-glare';
+        card.appendChild(glare);
+      }
+      var raf = null;
+      card.addEventListener('pointerenter', function(){ card.classList.add('tilting'); });
+      card.addEventListener('pointermove', function(e){
+        if (raf) return;
+        raf = requestAnimationFrame(function(){
+          raf = null;
+          var r = card.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width;
+          var py = (e.clientY - r.top) / r.height;
+          card.style.setProperty('--ry', ((px - 0.5) * 5).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((0.5 - py) * 3.5).toFixed(2) + 'deg');
+          card.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+          card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+        });
+      });
+      card.addEventListener('pointerleave', function(){
+        card.classList.remove('tilting');
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+
+  /* ---------- Intercept Formspree submission for checklist ---------- */
+  document.getElementById('checklistForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"], button:not([type])');
+    const originalLabel = submitBtn ? submitBtn.innerHTML : null;
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = 'Sending…'; }
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        window.location.href = 'thank-you.html?type=checklist';
+      } else {
+        const data = await res.json().catch(() => ({}));
+        const msg = (data.errors && data.errors.map(x => x.message).join(', ')) || 'Something went wrong. Please try again or email directly.';
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalLabel; }
+        showFormError(form, msg);
+      }
+    } catch (err) {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalLabel; }
+      showFormError(form, 'Network error. Please try again.');
+    }
+  });
+
+  function showFormError(form, msg) {
+    let box = form.querySelector('.form-error-box');
+    if (!box) {
+      box = document.createElement('div');
+      box.className = 'form-error-box';
+      box.style.cssText = 'font-family: monospace; font-size: 11px; color: #ff8888; border: 1px solid rgba(255, 136, 136, 0.3); background: rgba(255, 0, 0, 0.1); padding: 12px; margin-top: 12px;';
+      form.appendChild(box);
+    }
+    box.textContent = msg;
+  }
+})();
+</script>
+<div id="meridian-curtain" aria-hidden="true"><div class="mc-panel"><div class="mc-line"></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script id="meridian-lenis">
+(function(){
+  var noMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(pointer: fine)').matches;
+  /* Buttery inertial scroll (desktop) — the flow replaces hard snapping */
+  if (fine && !noMotion && window.Lenis) {
+    document.documentElement.style.scrollBehavior = 'auto';
+    var lenis = new Lenis({ duration: 1.2, smoothWheel: true, wheelMultiplier: 0.95 });
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    document.addEventListener('click', function(ev){
+      var a = ev.target.closest && ev.target.closest('a[href^="#"]');
+      if (!a) return;
+      var el = document.querySelector(a.getAttribute('href'));
+      if (!el) return;
+      ev.preventDefault();
+      lenis.scrollTo(el, { offset: -72, duration: 1.4 });
+    });
+  }
+  /* Gold reading-progress hairline */
+  var bar = document.createElement('div');
+  bar.id = 'meridian-progress';
+  document.body.appendChild(bar);
+  var ticking = false;
+  function paint(){
+    var max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(scrollY / max, 1) : 0) + ')';
+    ticking = false;
+  }
+  addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(paint); } }, { passive: true });
+  paint();
+})();
+</script>
+</body>
+</html>

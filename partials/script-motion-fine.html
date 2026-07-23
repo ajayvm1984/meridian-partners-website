@@ -1,0 +1,33 @@
+<script id="meridian-lenis">
+(function(){
+  var noMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(pointer: fine)').matches;
+  /* Buttery inertial scroll (desktop) — the flow replaces hard snapping */
+  if (fine && !noMotion && window.Lenis) {
+    document.documentElement.style.scrollBehavior = 'auto';
+    var lenis = new Lenis({ duration: 1.2, smoothWheel: true, wheelMultiplier: 0.95 });
+    function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    document.addEventListener('click', function(ev){
+      var a = ev.target.closest && ev.target.closest('a[href^="#"]');
+      if (!a) return;
+      var el = document.querySelector(a.getAttribute('href'));
+      if (!el) return;
+      ev.preventDefault();
+      lenis.scrollTo(el, { offset: -72, duration: 1.4 });
+    });
+  }
+  /* Gold reading-progress hairline */
+  var bar = document.createElement('div');
+  bar.id = 'meridian-progress';
+  document.body.appendChild(bar);
+  var ticking = false;
+  function paint(){
+    var max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(scrollY / max, 1) : 0) + ')';
+    ticking = false;
+  }
+  addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(paint); } }, { passive: true });
+  paint();
+})();
+</script>
