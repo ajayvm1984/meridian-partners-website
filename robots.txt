@@ -33,4 +33,5 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
+Host: https://meridianpartners.me
 Sitemap: https://meridianpartners.me/sitemap.xml
