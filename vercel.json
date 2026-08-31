@@ -1,0 +1,17 @@
+{
+  "redirects": [
+    { "source": "/services", "destination": "/services.html", "permanent": true },
+    { "source": "/fractional-ciso", "destination": "/fractional-ciso.html", "permanent": true },
+    { "source": "/gap-analysis", "destination": "/gap-analysis.html", "permanent": true },
+    { "source": "/vendor-evaluation", "destination": "/vendor-evaluation.html", "permanent": true },
+    { "source": "/dfsa-fsra-practice", "destination": "/dfsa-fsra-practice.html", "permanent": true },
+    { "source": "/industries", "destination": "/industries.html", "permanent": true },
+    { "source": "/about", "destination": "/about.html", "permanent": true },
+    { "source": "/contact", "destination": "/contact.html", "permanent": true },
+    { "source": "/readiness-checklist", "destination": "/readiness-checklist.html", "permanent": true },
+    { "source": "/privacy", "destination": "/privacy.html", "permanent": true },
+    { "source": "/cookies", "destination": "/cookies.html", "permanent": true },
+    { "source": "/terms", "destination": "/terms.html", "permanent": true },
+    { "source": "/modern-slavery", "destination": "/modern-slavery.html", "permanent": true }
+  ]
+}
