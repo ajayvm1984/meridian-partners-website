@@ -1,5 +1,6 @@
 {
   "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
     { "source": "/services", "destination": "/services.html", "permanent": true },
     { "source": "/fractional-ciso", "destination": "/fractional-ciso.html", "permanent": true },
     { "source": "/gap-analysis", "destination": "/gap-analysis.html", "permanent": true },
